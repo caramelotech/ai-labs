@@ -51,4 +51,4 @@ exclude:
 
 # Configurações adicionais
 show_downloads: false
-google_analytics: # Adicione seu ID do Google Analytics se quiser
+#google_analytics:

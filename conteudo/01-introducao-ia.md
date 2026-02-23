@@ -8,7 +8,7 @@
 
 ## Introdução
 
-Bem-vindo ao mundo da Inteligência Artificial! Este é o primeiro passo de uma jornada fascinante pelo universo da IA, onde você descobrirá como as máquinas podem aprender, raciocinar e até tomar decisões. 
+Bem-vindo ao mundo da Inteligência Artificial! Este é o primeiro passo de uma jornada pelo universo da IA, onde você descobrirá como as máquinas podem aprender, raciocinar e até tomar decisões. 
 
 Neste guia, vamos explorar os conceitos fundamentais da Inteligência Artificial, entender como ela funciona e desvendar as relações entre IA, Machine Learning e Deep Learning de uma forma simples e acessível.
 

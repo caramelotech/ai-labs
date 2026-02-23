@@ -24,7 +24,7 @@ Este documento fornece diretrizes para contribuir com o projeto.
    git checkout -b feature/meu-novo-conteudo
    ```
 
-4. **Use o template** disponível em `docs/templates/TEMPLATE.md`
+4. **Use o template** disponível em `.github/TEMPLATE.md`
 
 5. **Adicione seu conteúdo** seguindo as diretrizes abaixo
 
@@ -47,11 +47,10 @@ Este documento fornece diretrizes para contribuir com o projeto.
 
 ### Estrutura
 
-- Use o [template oficial](docs/templates/TEMPLATE.md) para novos artigos
+- Use o [template oficial](.github/TEMPLATE.md) para novos artigos
 - Mantenha a estrutura de pastas:
   - `docs/conteudo/` - Artigos e tutoriais
   - `docs/recursos/` - Listas de recursos, cursos, livros
-  - `docs/templates/` - Templates (não editar sem aprovação)
 
 ### Estilo de Escrita
 
