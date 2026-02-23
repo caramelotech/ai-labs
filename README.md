@@ -2,9 +2,9 @@
 
 > **Base de conhecimento sobre Inteligência Artificial para iniciantes**
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Online-brightgreen)](https://caramelotech.github.io/AI44beginners/)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Online-brightgreen)](https://caramelotech.github.io/AI4beginners/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](.github/CONTRIBUTING.md)
 
 Bem-vindo ao AI4Beginners! Este é um repositório educacional open-source dedicado a ensinar conceitos de Inteligência Artificial e Prompt Engineering de forma acessível e prática.
 
@@ -25,29 +25,19 @@ Este repositório contém uma curadoria completa de conteúdos sobre IA, focado 
 
 ### Fundamentos de Inteligência Artificial
 
-1. [**Introdução à Inteligência Artificial**](docs/conteudo/01-introducao-ia.md)
+1. [**Introdução à Inteligência Artificial**](./01-inteligencia-artificial/README.md)
    - O que é IA, Machine Learning e Deep Learning
    - Como a IA funciona
    - Aplicações práticas no dia a dia
 
-2. **Prompt Engineering** _(em breve)_
-   - Conceitos básicos
-   - Técnicas avançadas
-   - Melhores práticas
-
-3. **Redes Neurais** _(em breve)_
-   - Fundamentos
-   - Tipos de redes
-   - Como funcionam
-
-4. **Modelos de Linguagem** _(em breve)_
-   - O que são LLMs
-   - Como funcionam
-   - Aplicações práticas
+2. [**Engenharia de Prompts**](./02-engenharia-de-prompt/README.md)
+   - Conceitos básicos de prompts
+   - Técnicas de prompting
+   - Melhores práticas e frameworks
 
 ### Recursos para Aprendizado
 
-- [**📖 Cursos, Livros e Conteúdos Recomendados**](docs/recursos/recursos-aprendizado.md)
+- [**📖 Cursos, Livros e Conteúdos Recomendados**](./recursos/README.md)
   - Livros para todos os níveis
   - Cursos gratuitos e pagos
   - Canais do YouTube
@@ -71,28 +61,25 @@ Este repositório contém uma curadoria completa de conteúdos sobre IA, focado 
 ### Navegação
 
 1. **Começando do Zero?** 
-   - Comece pela [Introdução à IA](docs/conteudo/01-introducao-ia.md)
+   - Comece pela [Introdução à IA](./01-inteligencia-artificial/README.md)
    
 2. **Quer Recursos para Estudar?**
-   - Visite a seção de [Recursos de Aprendizado](docs/recursos/recursos-aprendizado.md)
+   - Visite a seção de [Recursos de Aprendizado](recursos/README.md)
    
 3. **Quer Criar Conteúdo?**
-   - Use nosso [Template para páginas .md](docs/templates/TEMPLATE.md)
+   - Use nosso [Template para páginas .md](.github/TEMPLATE.md)
 
 ### Estrutura do Repositório
 
 ```
-AI44beginners/
-├── docs/
-│   ├── conteudo/           # Artigos e tutoriais
-│   │   └── 01-introducao-ia.md
-│   ├── recursos/           # Cursos, livros, ferramentas
-│   │   └── recursos-aprendizado.md
-│   └── templates/          # Templates para contribuições
-│       └── TEMPLATE.md
-├── _config.yml             # Configuração do GitHub Pages
-├── index.md                # Página inicial do GitHub Pages
-└── README.md               # Este arquivo
+AI4beginners/
+├── 01-inteligencia-artificial/   # Conteúdos sobre IA
+├── 02-engenharia-de-prompt/      # Conteúdos sobre prompts
+├── recursos/                     # Cursos, livros, ferramentas
+├── .github/                      # Arquivos de contribuição e workflows
+│   └── TEMPLATE.md               # Template para novas páginas .md
+├── _config.yml                   # Configuração do GitHub Pages
+└── README.md                     # Este arquivo
 ```
 
 ---
@@ -104,7 +91,7 @@ Contribuições são muito bem-vindas! Este é um projeto comunitário e sua par
 ### Formas de Contribuir
 
 1. **Adicionar Conteúdo**
-   - Use o [template](docs/templates/TEMPLATE.md) para criar novos artigos
+   - Use o [template](.github/TEMPLATE.md) para criar novos artigos
    - Siga a estrutura de pastas existente
    - Mantenha a linguagem clara e acessível
 
@@ -131,7 +118,7 @@ Contribuições são muito bem-vindas! Este é um projeto comunitário e sua par
 
 ## 📋 Template para Conteúdo
 
-Ao criar novos conteúdos, utilize nosso [template padronizado](docs/templates/TEMPLATE.md). Ele garante:
+Ao criar novos conteúdos, utilize nosso [template padronizado](.github/TEMPLATE.md). Ele garante:
 
 - ✅ Estrutura consistente
 - ✅ Navegação intuitiva
@@ -139,7 +126,7 @@ Ao criar novos conteúdos, utilize nosso [template padronizado](docs/templates/T
 - ✅ Recursos adicionais
 - ✅ Exercícios práticos
 
-**Veja o template:** [docs/templates/TEMPLATE.md](docs/templates/TEMPLATE.md)
+**Veja o template:** [.github/TEMPLATE.md](.github/TEMPLATE.md)
 
 ---
 
@@ -147,7 +134,7 @@ Ao criar novos conteúdos, utilize nosso [template padronizado](docs/templates/T
 
 Este repositório está configurado para ser publicado via GitHub Pages. Acesse em:
 
-**🔗 [https://caramelotech.github.io/AI44beginners/](https://caramelotech.github.io/AI44beginners/)**
+**🔗 [https://caramelotech.github.io/AI4beginners/](https://caramelotech.github.io/AI4beginners/)**
 
 ### Como Funciona
 
@@ -184,24 +171,8 @@ Se este conteúdo foi útil para você:
 ## 📞 Contato
 
 - **GitHub:** [@caramelotech](https://github.com/caramelotech)
-- **Issues:** [Abrir uma issue](https://github.com/caramelotech/AI44beginners/issues)
-- **Discussões:** [GitHub Discussions](https://github.com/caramelotech/AI44beginners/discussions)
-
----
-
-## 🗺️ Roadmap
-
-- [x] Estrutura inicial do repositório
-- [x] Template para conteúdo
-- [x] Introdução à IA
-- [x] Recursos de aprendizado
-- [x] GitHub Pages habilitado
-- [ ] Conteúdo sobre Prompt Engineering
-- [ ] Conteúdo sobre Redes Neurais
-- [ ] Conteúdo sobre Modelos de Linguagem
-- [ ] Exemplos práticos com código
-- [ ] Exercícios interativos
-- [ ] Vídeos explicativos
+- **Issues:** [Abrir uma issue](https://github.com/caramelotech/AI4beginners/issues)
+- **Discussões:** [GitHub Discussions](https://github.com/caramelotech/AI4beginners/discussions)
 
 ---
 

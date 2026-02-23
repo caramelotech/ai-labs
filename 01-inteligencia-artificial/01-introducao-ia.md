@@ -339,7 +339,7 @@ Dados são o "combustível" da IA moderna, especialmente para Machine Learning e
 
 Agora que você entende os conceitos básicos de IA, continue sua jornada:
 
-- [Prompt Engineering](../02-engenharia-de-prompt)
+- [Prompt Engineering](../02-engenharia-de-prompt/README.md)
 - [Explorando Recursos e Ferramentas de IA](../recursos/README.md)
 
 ---

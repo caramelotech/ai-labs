@@ -6,22 +6,13 @@ Este diretório reúne conteúdos sobre **Engenharia de Prompts**: conceitos, t�
 
 ## Conteúdos
 
-- **[01 – Conceitos e Técnicas](01-conceitos-e-tecnicas.md)**  
-  - **Prompts** – O que são e como funcionam  
-  - **Prompt de Atuação** (Role Prompting)  
-  - **Prompt Engineering** – Definição e importância  
-  - **Tipos de técnicas de prompting** – Zero-Shot, Few-Shot, Chain of Thought, entre outras  
-  - **Framework de Prompt** – Papel, instruções, perguntas, contexto e exemplos  
-  - **Prompt de Preparação** – Definir regras e formato antes da pergunta principal  
-
----
-
-## Estrutura da pasta
-
-| Arquivo | Descrição |
-|--------|------------|
-| `README.md` | Este índice |
-| `01-conceitos-e-tecnicas.md` | Conceitos fundamentais e técnicas de engenharia de prompts |
+- **[01 – Conceitos e Técnicas](01-conceitos-e-tecnicas.md)**
+  - **Prompts** – O que são e como funcionam
+  - **Prompt de Atuação** (Role Prompting)
+  - **Prompt Engineering** – Definição e importância
+  - **Tipos de técnicas de prompting** – Zero-Shot, Few-Shot, Chain of Thought, entre outras
+  - **Framework de Prompt** – Papel, instruções, perguntas, contexto e exemplos
+  - **Prompt de Preparação** – Definir regras e formato antes da pergunta principal
 
 ---
 

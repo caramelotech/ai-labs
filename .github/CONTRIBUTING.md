@@ -11,7 +11,7 @@ Este documento fornece diretrizes para contribuir com o projeto.
 ### Reportar Bugs ou Sugerir Melhorias
 
 1. Verifique se já não existe uma issue sobre o assunto
-2. Abra uma [nova issue](https://github.com/caramelotech/AI44beginners/issues/new)
+2. Abra uma [nova issue](https://github.com/caramelotech/AI4beginners/issues/new)
 3. Descreva claramente o problema ou sugestão
 4. Adicione exemplos quando possível
 
@@ -20,6 +20,7 @@ Este documento fornece diretrizes para contribuir com o projeto.
 1. **Fork** o repositório
 2. **Clone** seu fork localmente
 3. Crie uma **branch** para sua contribuição:
+
    ```bash
    git checkout -b feature/meu-novo-conteudo
    ```
@@ -29,12 +30,14 @@ Este documento fornece diretrizes para contribuir com o projeto.
 5. **Adicione seu conteúdo** seguindo as diretrizes abaixo
 
 6. **Commit** suas mudanças:
+
    ```bash
    git add .
    git commit -m "Adiciona conteúdo sobre [tópico]"
    ```
 
 7. **Push** para seu fork:
+
    ```bash
    git push origin feature/meu-novo-conteudo
    ```
@@ -50,7 +53,7 @@ Este documento fornece diretrizes para contribuir com o projeto.
 - Use o [template oficial](.github/TEMPLATE.md) para novos artigos
 - Mantenha a estrutura de pastas:
   - `docs/conteudo/` - Artigos e tutoriais
-  - `docs/recursos/` - Listas de recursos, cursos, livros
+  - `recursos/` - Listas de recursos, cursos, livros
 
 ### Estilo de Escrita
 
@@ -63,6 +66,7 @@ Este documento fornece diretrizes para contribuir com o projeto.
 ### Boas Práticas
 
 ✅ **Faça:**
+
 - Explicações claras e objetivas
 - Use exemplos do mundo real
 - Inclua referências e links para aprofundamento
@@ -70,6 +74,7 @@ Este documento fornece diretrizes para contribuir com o projeto.
 - Revise ortografia e gramática
 
 ❌ **Evite:**
+
 - Jargão técnico sem explicação
 - Conteúdo muito avançado sem contexto
 - Plágio (sempre cite suas fontes)
@@ -93,6 +98,7 @@ Ao adicionar cursos, livros ou ferramentas em `docs/recursos/`:
    - Se é gratuito ou pago
 
 **Exemplo:**
+
 ```markdown
 - **Nome do Curso** - [Plataforma]
   - **Nível:** Iniciante
@@ -134,37 +140,45 @@ Antes de abrir um Pull Request, verifique:
 ## 🎨 Formatação Markdown
 
 ### Títulos
+
 ```markdown
 # Título Principal (H1)
+
 ## Subtítulo (H2)
+
 ### Seção (H3)
 ```
 
 ### Ênfases
+
 ```markdown
 **Negrito**
-*Itálico*
+_Itálico_
+
 > Citação
 ```
 
 ### Listas
+
 ```markdown
 - Item 1
 - Item 2
   - Subitem 2.1
-  
+
 1. Item numerado 1
 2. Item numerado 2
 ```
 
 ### Links e Imagens
+
 ```markdown
 [Texto do link](URL)
 ![Alt text da imagem](URL-da-imagem)
 ```
 
 ### Código
-```markdown
+
+````markdown
 `código inline`
 
 ```python
@@ -172,14 +186,17 @@ Antes de abrir um Pull Request, verifique:
 def hello():
     print("Hello, World!")
 ```
-```
+````
+
+````
 
 ### Callouts/Notas
 ```markdown
 > 💡 **Nota importante:** Texto da nota
-```
+````
 
 ### Detalhes/Acordeão
+
 ```markdown
 <details>
 <summary><strong>Pergunta?</strong></summary>
@@ -196,11 +213,13 @@ Resposta aqui.
 Para testar o site localmente com Jekyll:
 
 1. Instale Jekyll:
+
    ```bash
    gem install bundler jekyll
    ```
 
 2. No diretório do projeto:
+
    ```bash
    bundle install
    bundle exec jekyll serve
@@ -214,8 +233,8 @@ Para testar o site localmente com Jekyll:
 
 Se tiver dúvidas sobre como contribuir:
 
-- Abra uma [issue](https://github.com/caramelotech/AI44beginners/issues) com a tag `question`
-- Ou participe das [discussões](https://github.com/caramelotech/AI44beginners/discussions)
+- Abra uma [issue](https://github.com/caramelotech/AI4beginners/issues) com a tag `question`
+- Ou participe das [discussões](https://github.com/caramelotech/AI4beginners/discussions)
 
 ---
 
