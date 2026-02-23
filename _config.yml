@@ -25,7 +25,7 @@ markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: false
-  
+
 # Links relativos
 relative_links:
   enabled: true
