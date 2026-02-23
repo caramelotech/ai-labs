@@ -216,3 +216,5 @@ Este projeto é possível graças à comunidade open-source e a todos os contrib
 Feito com ❤️ pela comunidade
 
 [🔝 Voltar ao topo](#ai4beginners-)
+# AI4beginners
+Base de conhecimento sobre Inteligência Artificial para iniciantes.
