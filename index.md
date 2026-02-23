@@ -2,10 +2,6 @@
 
 > **Base de conhecimento sobre Inteligência Artificial para iniciantes**
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Online-brightgreen)](https://caramelotech.github.io/AI44beginners/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
-
 Bem-vindo ao AI4Beginners! Este é um repositório educacional open-source dedicado a ensinar conceitos de Inteligência Artificial e Prompt Engineering de forma acessível e prática.
 
 ---
@@ -91,8 +87,8 @@ AI44beginners/
 │   └── templates/          # Templates para contribuições
 │       └── TEMPLATE.md
 ├── _config.yml             # Configuração do GitHub Pages
-├── index.md                # Página inicial do GitHub Pages
-└── README.md               # Este arquivo
+├── index.md                # Página inicial (este arquivo)
+└── README.md               # Informações do repositório
 ```
 
 ---
@@ -139,34 +135,11 @@ Ao criar novos conteúdos, utilize nosso [template padronizado](docs/templates/T
 - ✅ Recursos adicionais
 - ✅ Exercícios práticos
 
-**Veja o template:** [docs/templates/TEMPLATE.md](docs/templates/TEMPLATE.md)
-
----
-
-## 🌐 GitHub Pages
-
-Este repositório está configurado para ser publicado via GitHub Pages. Acesse em:
-
-**🔗 [https://caramelotech.github.io/AI44beginners/](https://caramelotech.github.io/AI44beginners/)**
-
-### Como Funciona
-
-- O conteúdo é automaticamente publicado quando há commits na branch principal
-- O arquivo `_config.yml` configura o tema e comportamento do site
-- O arquivo `index.md` serve como página inicial
-- Todos os arquivos `.md` na pasta `docs/` são automaticamente convertidos em páginas web
-
 ---
 
 ## 📝 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
-Isso significa que você pode:
-- ✅ Usar comercialmente
-- ✅ Modificar
-- ✅ Distribuir
-- ✅ Uso privado
 
 ---
 
@@ -185,7 +158,6 @@ Se este conteúdo foi útil para você:
 
 - **GitHub:** [@caramelotech](https://github.com/caramelotech)
 - **Issues:** [Abrir uma issue](https://github.com/caramelotech/AI44beginners/issues)
-- **Discussões:** [GitHub Discussions](https://github.com/caramelotech/AI44beginners/discussions)
 
 ---
 
@@ -202,12 +174,6 @@ Se este conteúdo foi útil para você:
 - [ ] Exemplos práticos com código
 - [ ] Exercícios interativos
 - [ ] Vídeos explicativos
-
----
-
-## 🙏 Agradecimentos
-
-Este projeto é possível graças à comunidade open-source e a todos os contribuidores que dedicam seu tempo para tornar o conhecimento sobre IA acessível a todos.
 
 ---
 
