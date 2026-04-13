@@ -38,12 +38,6 @@ ai-labs/
 3. Resolva os exercícios em `/exercicios`
 4. Construa os projetos em `/projetos`
 
-## Visualização
-
-As anotações estão disponíveis via GitHub Pages:
-
-[https://caramelotech.github.io/ai-labs/](https://caramelotech.github.io/ai-labs/)
-
 ## Contribuição
 
 Contribuições são bem-vindas! Veja o [Guia de Contribuição](.github/CONTRIBUTING.md) para detalhes.
