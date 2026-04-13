@@ -2,8 +2,6 @@
 
 > Curadoria de cursos, livros, ferramentas e conteúdos para aprofundar seus conhecimentos em Inteligência Artificial e Prompt Engineering.
 
----
-
 ## 🎓 Cursos Online
 
 ### Cursos Gratuitos
@@ -57,8 +55,6 @@
    - **Duração:** 7 lições
    - **Descrição:** Abordagem top-down para aprender DL de forma prática.
 
----
-
 ## 🎥 Canais do YouTube
 
 ### Em Português
@@ -88,8 +84,6 @@
 6. **Yannic Kilcher**
    - **Link:** [YouTube](https://www.youtube.com/@YannicKilcher)
    - **Descrição:** Análises detalhadas de papers de ML e IA.
-
----
 
 ## 🛠️ Ferramentas e Plataformas
 

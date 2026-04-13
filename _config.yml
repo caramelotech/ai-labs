@@ -1,13 +1,13 @@
-# Configuração do GitHub Pages para AI4Beginners
+# Configuração do GitHub Pages para AILabs
 
 # Tema
 theme: jekyll-theme-cayman
-title: "AI4Beginners"
+title: "AILabs"
 description: "Base de conhecimento sobre Inteligência Artificial para iniciantes"
 
 # URL e baseurl
 # url: "https://caramelotech.github.io"
-# baseurl: "/AI4beginners"
+# baseurl: "/ai-labs"
 
 # SEO
 lang: pt-BR

@@ -4,15 +4,11 @@
 > **Nível:** Iniciante  
 > **Tempo de leitura:** ~20 minutos
 
----
-
 ## Introdução
 
 Bem-vindo ao mundo da Inteligência Artificial! Este é o primeiro passo de uma jornada pelo universo da IA, onde você descobrirá como as máquinas podem aprender, raciocinar e até tomar decisões.
 
 Neste guia, vamos explorar os conceitos fundamentais da Inteligência Artificial, entender como ela funciona e desvendar as relações entre IA, Machine Learning e Deep Learning de uma forma simples e acessível.
-
----
 
 ## O que é Inteligência Artificial?
 
@@ -29,8 +25,6 @@ Inteligência Artificial (IA) é um campo da ciência da computação dedicado a
 
 > 💡 **Nota:** A IA **engloba todas as técnicas e métodos** para fazer máquinas "pensarem".
 
----
-
 ## Como a IA Funciona
 
 Para entender como a IA funciona, vou usar uma analogia: imagine que você está ensinando uma criança a identificar frutas.
@@ -40,8 +34,6 @@ Para entender como a IA funciona, vou usar uma analogia: imagine que você está
 **Aprendizado Humano:** Você mostra várias maçãs para a criança, explicando "isso é uma maçã - é redonda, vermelha ou verde, tem cabinho". Depois de ver muitos exemplos, a criança aprende a reconhecer maçãs sozinha.
 
 **Aprendizado de Máquina (Machine Learning):** Funciona de forma similar. Você alimenta o computador com milhares de imagens de maçãs rotuladas como "maçã". O algoritmo analisa padrões - cores, formas, texturas - e cria um modelo matemático. Quando recebe uma nova imagem, ele compara com esses padrões aprendidos e identifica se é uma maçã ou não.
-
----
 
 ## Inteligência Artificial, Machine Learning e Deep Learning
 
@@ -84,8 +76,6 @@ Cada nível é um refinamento do anterior. Ou seja:
 - **Todo Machine Learning é uma forma de Inteligência Artificial.**
 - Mas nem toda IA usa Machine Learning, e nem todo ML usa Deep Learning.
 
----
-
 ## Por que aprender a utilizar IA?
 
 A Inteligência Artificial (IA) se baseia na capacidade de os dispositivos pensarem como seres humanos, conseguindo aprender, perceber, raciocinar, decidir e deliberar de forma racional e inteligente.  
@@ -107,8 +97,6 @@ A IA está presente em diversos aspectos do nosso dia a dia:
 - **Saúde:** Diagnóstico de doenças, descoberta de medicamentos
 - **Finanças:** Detecção de fraudes, análise de crédito
 
----
-
 ## Os Principais Componentes da IA Moderna
 
 A IA moderna geralmente envolve três elementos fundamentais:
@@ -119,8 +107,6 @@ Exemplo: para treinar um sistema de reconhecimento de voz, são necessárias mil
 **Algoritmos:** São as "receitas" matemáticas que processam os dados. Existem diferentes tipos, como redes neurais, árvores de decisão, modelos probabilísticos e muitos outros. Cada um é adequado para diferentes tipos de problemas.
 
 **Poder Computacional:** IA moderna requer computadores potentes para processar enormes quantidades de dados e realizar trilhões de cálculos, muitas vezes utilizando GPUs ou TPUs.
-
----
 
 ## Tipos de IA
 
@@ -137,8 +123,6 @@ Essa é a IA que existe hoje e está presente no nosso dia a dia.
 Seria uma IA com capacidades cognitivas semelhantes às humanas, capaz de aprender e executar qualquer tarefa intelectual.  
 Ainda é um conceito teórico e tema de pesquisa — não existe na prática hoje.
 
----
-
 ## Como as Redes Neurais Funcionam
 
 As redes neurais são uma das técnicas mais populares de IA atualmente. Elas são compostas por "neurônios" artificiais organizados em camadas.
@@ -151,8 +135,6 @@ Nas primeiras camadas, podem ser detectadas bordas simples; nas seguintes, forma
 **Camada de Saída:** Produz o resultado final (por exemplo, "isso é um gato" ou "isso é um cachorro", ou ainda a próxima palavra de um texto).
 
 Durante o treinamento, a rede faz previsões, compara com as respostas corretas, calcula o erro e ajusta seus parâmetros internos para melhorar. Esse processo se repete milhares ou milhões de vezes até que a rede fique precisa.
-
----
 
 ## Exemplos Práticos de Utilização
 
@@ -176,8 +158,6 @@ Durante o treinamento, a rede faz previsões, compara com as respostas corretas,
 
 **Tradução:** Ferramentas como Google Tradutor usam redes neurais para traduzir textos entre idiomas, capturando nuances e contexto melhor que métodos antigos.
 
----
-
 ## Limitações e Desafios da IA
 
 Apesar dos avanços impressionantes, a IA atual tem limitações importantes:
@@ -188,8 +168,6 @@ Apesar dos avanços impressionantes, a IA atual tem limitações importantes:
 - Levanta questões éticas sobre **privacidade, segurança, transparência** e **impacto no mercado de trabalho**.
 
 Por isso, além de aprender a usar IA, é importante desenvolver um olhar crítico sobre seus usos e impactos.
-
----
 
 ## Fluxo de Trabalho de um Chatbot de IA com LLM
 
@@ -204,8 +182,6 @@ Um chatbot moderno baseado em modelos de linguagem em larga escala (LLMs) segue,
 7. **Envio da Resposta:** A resposta final é entregue ao usuário no chat.
 
 Você pode representar esse fluxo visualmente usando uma imagem semelhante à abaixo (a ser adicionada na pasta de imagens):
-
----
 
 ## LLM (Large Language Models)
 
@@ -224,8 +200,6 @@ Eles compreendem, processam e geram linguagem natural, prevendo sequências de p
 - **GPT (OpenAI):** Utilizado no ChatGPT.
 - **PaLM e BERT (Google):** Modelos focados em raciocínio e compreensão de linguagem.
 - **Llama (Meta):** Modelo de linguagem de código aberto.
-
----
 
 ## PLN (Processamento de Linguagem Natural)
 
@@ -246,8 +220,6 @@ Assistentes virtuais como Siri e Alexa utilizam extensivamente o PLN para compre
 <img src="./assets/fluxo-chatbot-llm.png" alt="Fluxo de Trabalho do Chatbot de IA com LLM" style="max-width: 500px; display: block; margin: 24px auto;" />
 
 Para entender mais, uma boa referência é o artigo da Elastic sobre **[PLN vs LLMs](https://www.elastic.co/pt/blog/nlp-vs-llms)**.
-
----
 
 ## Tokens em Modelos de Linguagem
 
@@ -270,8 +242,6 @@ As IAs **preveem o próximo token na sequência** baseando-se nos tokens anterio
 Também é importante lembrar que termos como "**pensar**", "**cérebro**" e "**neurônio**" são apenas **analogias** para facilitar a compreensão.  
 Esses modelos não pensam de verdade — são funções matemáticas complexas que aprendem padrões em grandes conjuntos de dados.
 
----
-
 ## Recursos Adicionais
 
 ### Para Aprender Mais
@@ -287,14 +257,10 @@ Esses modelos não pensam de verdade — são funções matemáticas complexas q
 - 📰 **Artigos:**
   - [A Brief History of Artificial Intelligence](https://hai.stanford.edu/news/brief-history-artificial-intelligence) - Stanford HAI
 
----
-
 ## Exercícios Práticos
 
 1. **Compreender a Hierarquia:** Desenhe um diagrama mostrando a relação entre IA, ML e DL, adicionando exemplos específicos em cada categoria.
    - Dica: Use o exemplo deste artigo como base e adicione suas próprias observações.
-
----
 
 ## Perguntas Frequentes
 
@@ -321,8 +287,6 @@ Dados são o "combustível" da IA moderna, especialmente para Machine Learning e
 
 </details>
 
----
-
 ## Resumo
 
 > **💡 Pontos-chave:**
@@ -333,14 +297,12 @@ Dados são o "combustível" da IA moderna, especialmente para Machine Learning e
 > - A IA está presente em muitas aplicações do nosso cotidiano
 > - Todo DL é ML, e todo ML é IA, mas o inverso não é verdadeiro
 
----
-
 ## Próximos Passos
 
 Agora que você entende os conceitos básicos de IA, continue sua jornada:
 
-- [Prompt Engineering](../02-engenharia-de-prompt/README.md)
-- [Explorando Recursos e Ferramentas de IA](../recursos/README.md)
+- [Prompt Engineering](02-engenharia-de-prompts.md)
+- [Explorando Recursos e Ferramentas de IA](recursos.md)
 
 ---
 
