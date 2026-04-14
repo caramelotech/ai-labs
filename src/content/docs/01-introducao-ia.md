@@ -218,7 +218,7 @@ Por meio de técnicas de PLN, sistemas de IA podem executar tarefas como:
 
 Assistentes virtuais como Siri e Alexa utilizam extensivamente o PLN para compreender e processar as solicitações dos usuários.
 
-<img src="../assets/fluxo-chatbot-llm.png" alt="Fluxo de Trabalho do Chatbot de IA com LLM" style="max-width: 500px; display: block; margin: 24px auto;" />
+<img src="/ai-labs/assets/fluxo-chatbot-llm.png" alt="Fluxo de Trabalho do Chatbot de IA com LLM" style="max-width: 500px; display: block; margin: 24px auto;" />
 
 Para entender mais, uma boa referência é o artigo da Elastic sobre **[PLN vs LLMs](https://www.elastic.co/pt/blog/nlp-vs-llms)**.
 
