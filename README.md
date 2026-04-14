@@ -1,4 +1,4 @@
-# AILabs
+# AI Labs
 
 Base de conhecimento sobre **Inteligência Artificial** da Caramelo Tech, com foco em aprendizado prático e acessível.
 
@@ -15,28 +15,57 @@ Base de conhecimento sobre **Inteligência Artificial** da Caramelo Tech, com fo
 
 ## Conteúdo
 
-| Tópico                  | Descrição                                     | Link                                                                     |
-| ----------------------- | --------------------------------------------- | ------------------------------------------------------------------------ |
-| Introdução à IA         | O que é IA, ML, Deep Learning, LLMs           | [notes/01-introducao-ia.md](./notes/01-introducao-ia.md)                 |
-| Engenharia de Prompts   | Conceitos, técnicas e frameworks de prompting | [notes/02-engenharia-de-prompts.md](./notes/02-engenharia-de-prompts.md) |
-| Recursos de Aprendizado | Cursos, livros, ferramentas e comunidades     | [notes/recursos.md](./notes/recursos.md)                                 |
+| Tópico                  | Descrição                                     |
+| ----------------------- | --------------------------------------------- |
+| Introdução à IA         | O que é IA, ML, Deep Learning, LLMs          |
+| Engenharia de Prompts   | Conceitos, técnicas e frameworks de prompting |
+| Recursos de Aprendizado | Cursos, livros, ferramentas e comunidades     |
 
 ## Estrutura do repositório
 
 ```
 ai-labs/
-├── notes/                    # Anotações e estudos
-├── examples/                 # Exemplos práticos
-├── exercicios/               # Exercícios propostos
-└── projetos/                 # Projetos práticos
+├── src/content/docs/   → Anotações e estudos (publicadas no site)
+├── examples/           → Exemplos de código, exercícios e projetos práticos
+│   ├── exercises.md    → Exercícios propostos
+│   └── projects.md     → Projetos práticos
+└── LICENSE
 ```
 
 ## Como usar
 
-1. Comece pelas anotações em `/notes`
-2. Explore os exemplos em `/examples`
-3. Resolva os exercícios em `/exercicios`
-4. Construa os projetos em `/projetos`
+1. Comece pelas anotações em `src/content/docs/`
+2. Explore os exemplos em `examples/`
+3. Resolva os exercícios em `examples/exercises.md`
+4. Construa os projetos em `examples/projects.md`
+
+## Rodando localmente
+
+```bash
+npm install
+npm run dev     # servidor em localhost:4321
+npm run build   # build de produção
+npm run preview # preview do build
+```
+
+Visualize o site em: https://caramelotech.github.io/ai-labs
+
+## Adicionando notas
+
+Crie um arquivo `.md` em `src/content/docs/` com o seguinte frontmatter:
+
+```yaml
+---
+title: "Título da Nota"
+description: "Descrição de uma linha"
+lastUpdated: 2026-01-01
+sidebar:
+  order: N
+tags: ["tag1", "tag2"]
+---
+```
+
+Para organizar em subpastas, crie o arquivo dentro de `src/content/docs/nome-da-pasta/`. Use `index.md` como página inicial da pasta.
 
 ## Contribuição
 

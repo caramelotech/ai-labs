@@ -1,24 +1,23 @@
-# Jekyll
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
-vendor/
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Astro
+.astro/
+
+# Environment
+.env
+.env.*
+!.env.example
 
 # OS
 .DS_Store
 Thumbs.db
 
-# IDEs
+# Editor
 .vscode/
 .idea/
 *.swp
 *.swo
-*~
-
-# Logs
-*.log
-
-# Temporary files
-*.tmp
-/tmp/

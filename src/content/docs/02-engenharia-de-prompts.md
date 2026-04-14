@@ -1,12 +1,15 @@
-# Engenharia de Prompts – Conceitos e Técnicas
-
-> **Última atualização:** Fevereiro 2026
-> **Nível:** Iniciante
-> **Tempo de leitura:** ~12 minutos
+---
+title: "Engenharia de Prompts"
+description: "Técnicas e frameworks de prompting para modelos de linguagem, do zero-shot ao ReAct."
+lastUpdated: 2026-02-01
+sidebar:
+  order: 2
+tags: ["prompt-engineering", "llm", "ia"]
+---
 
 ## Prompts
 
-No contexto da IA, especialmente em modelos de linguagem, um **prompt** é uma instrução ou estímulo dado ao sistema para obter uma resposta ou comportamento específico. Geralmente apresentado em forma de texto, o prompt funciona como um gatilho para o modelo de IA, indicando o tipo de informação ou resposta desejada pelo usuário — ou seja, uma espécie de "pergunta" ou "comando" que guia a máquina a gerar respostas.
+No contexto da IA, especialmente em modelos de linguagem, um **prompt** é uma instrução ou estímulo dado ao sistema para obter uma resposta ou comportamento específico. Geralmente apresentado em forma de texto, o prompt funciona como um gatilho para o modelo de IA, indicando o tipo de informação ou resposta desejada pelo usuário - ou seja, uma espécie de "pergunta" ou "comando" que guia a máquina a gerar respostas.
 
 Prompts podem variar desde perguntas simples, como _"como está o clima hoje?"_, até consultas mais elaboradas. Entretanto, perguntas genéricas tendem a gerar respostas amplas e menos úteis. Para resultados mais precisos e relevantes, recomenda-se fornecer informações específicas, como _"qual é a previsão do tempo em Fortaleza para hoje?"_.
 
@@ -61,5 +64,5 @@ Essa abordagem é particularmente útil em conversas longas ou quando você prec
 
 ## Próximos Passos
 
-- [Introdução à Inteligência Artificial](01-introducao-ia.md)
-- [← Voltar ao README principal](../README.md)
+- [Introdução à Inteligência Artificial](01-introducao-ia)
+- [Recursos para Aprendizado](recursos)

@@ -4,11 +4,11 @@ Obrigado por querer contribuir com o AI Labs!
 
 ## O que pode ser contribuido
 
-- Melhorias e correções nas anotações (`/notes`)
-- Novos exemplos práticos em `/examples`
-- Exercícios adicionais em `/exercicios`
-- Projetos práticos em `/projetos`
-- Recursos recomendados em `/recursos`
+- Melhorias e correções nas anotações (`src/content/docs/`)
+- Novos exemplos práticos em `examples/`
+- Exercícios adicionais em `examples/exercises.md`
+- Projetos práticos em `examples/projects.md`
+- Recursos recomendados em `src/content/docs/recursos.md`
 
 ## Processo
 
@@ -36,39 +36,52 @@ Obrigado por querer contribuir com o AI Labs!
 
 ## Padrões de conteúdo
 
-### Anotações (Markdown)
+### Anotações (`src/content/docs/`)
 
 - Escreva em português
 - Use títulos hierárquicos (`##`, `###`)
 - Prefira exemplos curtos e diretos
 - Inclua o "por quê", não apenas o "como"
-- Use o template em `.github/TEMPLATE.md` para criar novos tópicos
 - Nomeie os arquivos com prefixo numérico sequencial: `03-nome-do-topico.md`
+- Adicione frontmatter Starlight em todos os arquivos:
+
+  ```yaml
+  ---
+  title: "Título da Nota"
+  description: "Descrição de uma linha"
+  lastUpdated: 2026-01-01
+  sidebar:
+    order: N
+  tags: ["tag1", "tag2"]
+  ---
+  ```
+
 - Atualize o README principal ao adicionar um novo tópico
 
-### Exemplos (`/examples`)
+### Exemplos (`examples/`)
 
 - Um conceito por arquivo
 - Inclua o modelo de IA recomendado para testar o exemplo
 - Descreva o objetivo e o resultado esperado
 
-### Exercícios (`/exercicios`)
+### Exercícios (`examples/exercises.md`)
 
 - Descreva claramente o objetivo
 - Indique o nível de dificuldade (iniciante / intermediário / avançado)
 - Inclua critérios de sucesso em formato de checklist
 
-### Projetos (`/projetos`)
+### Projetos (`examples/projects.md`)
 
 - Descreva o objetivo e o contexto
 - Liste os requisitos em formato de checklist
 - Inclua ao menos um exemplo de entregável esperado
 
-### Recursos (`/recursos`)
+## Rodando o site localmente
 
-- Verifique se o recurso já não está na lista
-- Adicione na categoria apropriada
-- Inclua: nome, link, nível, idioma e breve descrição
+```bash
+npm install
+npm run dev   # servidor em localhost:4321
+```
 
 ## Dúvidas?
 

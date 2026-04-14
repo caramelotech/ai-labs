@@ -6,7 +6,7 @@ Pratique o que aprendeu nas anotações e exemplos.
 
 1. Leia o enunciado do exercício
 2. Tente resolver por conta própria antes de buscar ajuda
-3. Consulte as anotações em `/notes` se precisar revisar algum conceito
+3. Consulte as anotações em `src/content/docs/` se precisar revisar algum conceito
 4. Compare sua solução com a dos colegas
 
 ## Exercício 01 - Identificando IA no Dia a Dia

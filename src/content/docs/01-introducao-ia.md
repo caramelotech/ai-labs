@@ -1,8 +1,11 @@
-# Introdução à Inteligência Artificial
-
-> **Última atualização:** Fevereiro 2026  
-> **Nível:** Iniciante  
-> **Tempo de leitura:** ~20 minutos
+---
+title: "Introdução à Inteligência Artificial"
+description: "Fundamentos de IA, Machine Learning, Deep Learning, LLMs e tokens explicados de forma acessível."
+lastUpdated: 2026-02-01
+sidebar:
+  order: 1
+tags: ["ia", "machine-learning", "deep-learning", "llm"]
+---
 
 ## Introdução
 
@@ -83,7 +86,7 @@ Essa tecnologia **permite uma maior automação em processos e redução de cust
 
 A IA tem o potencial de transformar a maneira como realizamos uma série de tarefas, economizando inúmeras horas de esforço humano.
 
-Se você for capaz de detalhar uma tarefa em etapas claras e lógicas, a IA pode assumir essa tarefa por você — seja escrevendo textos, gerando código, criando imagens, analisando dados ou automatizando partes do seu trabalho.
+Se você for capaz de detalhar uma tarefa em etapas claras e lógicas, a IA pode assumir essa tarefa por você - seja escrevendo textos, gerando código, criando imagens, analisando dados ou automatizando partes do seu trabalho.
 
 Para executar modelos de IA localmente, uma opção prática é o `LM Studio` (`https://lmstudio.ai/`), que permite rodar modelos em seu próprio computador.
 
@@ -121,7 +124,7 @@ Essa é a IA que existe hoje e está presente no nosso dia a dia.
 
 **IA Geral (ou Forte):**  
 Seria uma IA com capacidades cognitivas semelhantes às humanas, capaz de aprender e executar qualquer tarefa intelectual.  
-Ainda é um conceito teórico e tema de pesquisa — não existe na prática hoje.
+Ainda é um conceito teórico e tema de pesquisa - não existe na prática hoje.
 
 ## Como as Redes Neurais Funcionam
 
@@ -163,7 +166,7 @@ Durante o treinamento, a rede faz previsões, compara com as respostas corretas,
 Apesar dos avanços impressionantes, a IA atual tem limitações importantes:
 
 - Pode ser **tendenciosa** se os dados de treinamento contiverem preconceitos.
-- Não entende verdadeiramente o contexto como humanos fazem — trabalha com padrões estatísticos.
+- Não entende verdadeiramente o contexto como humanos fazem - trabalha com padrões estatísticos.
 - Pode ser enganada por pequenas alterações nos dados (adversarial attacks).
 - Levanta questões éticas sobre **privacidade, segurança, transparência** e **impacto no mercado de trabalho**.
 
@@ -180,8 +183,6 @@ Um chatbot moderno baseado em modelos de linguagem em larga escala (LLMs) segue,
 5. **Busca de Dados (opcional):** Se necessário, o sistema consulta bases de dados, APIs ou documentos externos.
 6. **Geração de Resposta com LLM:** O modelo de linguagem gera uma resposta em texto, prevendo token a token.
 7. **Envio da Resposta:** A resposta final é entregue ao usuário no chat.
-
-Você pode representar esse fluxo visualmente usando uma imagem semelhante à abaixo (a ser adicionada na pasta de imagens):
 
 ## LLM (Large Language Models)
 
@@ -232,7 +233,7 @@ Ao processar texto, um token pode ser:
 
 Os tokens são fundamentais porque definem como os modelos de linguagem processam e geram texto. Eles também impactam diretamente os **custos das APIs de IA**, já que a maioria dos serviços cobra pela quantidade de tokens processados (entrada + saída).
 
-Por exemplo, a frase `Inteligência Artificial é incrível` pode ser dividida em aproximadamente 6–8 tokens, dependendo do modelo.
+Por exemplo, a frase `Inteligência Artificial é incrível` pode ser dividida em aproximadamente 6-8 tokens, dependendo do modelo.
 
 É importante notar que diferentes modelos de IA utilizam **sistemas de tokenização distintos**, o que pode gerar variações na quantidade de tokens para o mesmo texto.  
 Em idiomas não ingleses, como o português, a tokenização tende a ser menos eficiente, resultando em **mais tokens por palavra**.
@@ -240,7 +241,7 @@ Em idiomas não ingleses, como o português, a tokenização tende a ser menos e
 As IAs **preveem o próximo token na sequência** baseando-se nos tokens anteriores. Esse processo probabilístico é o que permite aos LLMs gerar textos coerentes e contextualmente relevantes, apesar de não "compreenderem" verdadeiramente o significado como humanos fazem.
 
 Também é importante lembrar que termos como "**pensar**", "**cérebro**" e "**neurônio**" são apenas **analogias** para facilitar a compreensão.  
-Esses modelos não pensam de verdade — são funções matemáticas complexas que aprendem padrões em grandes conjuntos de dados.
+Esses modelos não pensam de verdade - são funções matemáticas complexas que aprendem padrões em grandes conjuntos de dados.
 
 ## Recursos Adicionais
 
@@ -299,13 +300,5 @@ Dados são o "combustível" da IA moderna, especialmente para Machine Learning e
 
 ## Próximos Passos
 
-Agora que você entende os conceitos básicos de IA, continue sua jornada:
-
-- [Prompt Engineering](02-engenharia-de-prompts.md)
-- [Explorando Recursos e Ferramentas de IA](recursos.md)
-
----
-
-**Contribuições:** Este conteúdo foi criado para a comunidade. Se encontrar erros ou tiver sugestões, por favor, abra uma issue ou pull request.
-
-[← Voltar ao Índice](../../README.md)
+- [Engenharia de Prompts](02-engenharia-de-prompts)
+- [Recursos para Aprendizado](recursos)

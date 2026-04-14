@@ -1,4 +1,11 @@
-# 🧠 Aula 1 - Prompt e Context Engineering + Desenvolvimento com IA
+---
+title: "Dia 1 - Prompt e Context Engineering"
+description: "Prompt Engineering, Context Engineering, o novo papel do desenvolvedor e pilares do desenvolvimento com IA."
+lastUpdated: 2026-01-01
+sidebar:
+  order: 1
+tags: ["prompt-engineering", "context-engineering", "agentes", "ia"]
+---
 
 A aula introduz um conceito forte:
 
@@ -45,36 +52,36 @@ Você **não precisa treinar modelo**, mas precisa dominar:
 
 👉 Isso define o novo skillset do backend moderno
 
-# 🤖 2. IA como projeto de software
+## 🤖 2. IA como projeto de software
 
 A aula reforça:
 
 > IA deixou de ser só ferramenta → virou **parte do produto**
 
-## 📌 Mudança principal
+### 📌 Mudança principal
 
 - Apps tradicionais agora:
   - usam IA internamente (features inteligentes)
   - ou expõem IA como produto
 
-## 🧠 Novo tipo de sistema
+### 🧠 Novo tipo de sistema
 
-### 1. Aplicações com IA embutida
+#### 1. Aplicações com IA embutida
 
 - Ex: autocomplete, recomendação, análise
 
-### 2. Agentes de IA
+#### 2. Agentes de IA
 
 - Sistemas autônomos que:
   - tomam decisão
   - executam ações
   - iteram
 
-# 🛠️ 3. IA como ferramenta no desenvolvimento
+## 🛠️ 3. IA como ferramenta no desenvolvimento
 
 A IA também atua no **processo de engenharia**
 
-## 📌 Casos de uso (da aula)
+### 📌 Casos de uso (da aula)
 
 - Análise de problemas e trade-offs
 - Apoio à decisão técnica
@@ -83,7 +90,7 @@ A IA também atua no **processo de engenharia**
 - Debugging
 - Segurança
 
-## 🔥 Evolução importante
+### 🔥 Evolução importante
 
 A aula mostra que estamos indo para:
 
@@ -91,7 +98,7 @@ A aula mostra que estamos indo para:
 - **PRs gerados por IA**
 - **Auto-correção de bugs**
 
-## 🔄 Mudança no workflow
+### 🔄 Mudança no workflow
 
 Antes:
 
@@ -105,9 +112,9 @@ Agora:
 Dev → IA → Código → IA revisa → Deploy
 ```
 
-# 👨‍💻 4. Novo papel do desenvolvedor
+## 👨‍💻 4. Novo papel do desenvolvedor
 
-## 📌 Responsabilidades-chave
+### 📌 Responsabilidades-chave
 
 - Entendimento de domínio
 - Arquitetura de soluções
@@ -115,21 +122,21 @@ Dev → IA → Código → IA revisa → Deploy
 - Especificação e validação
 - Co-autoria com IA
 
-## 💡 Insight forte
+### 💡 Insight forte
 
 > O dev deixa de ser executor → vira **orquestrador**
 
-# ⚠️ 5. Problemas novos trazidos pela IA
+## ⚠️ 5. Problemas novos trazidos pela IA
 
 A aula lista desafios que **não existiam antes**
 
-## 🧩 Engenharia de sistemas com IA
+### 🧩 Engenharia de sistemas com IA
 
 - Integração com LLMs (não é só SDK)
 - Design de agentes
 - Protocolos de comunicação
 
-## ⚖️ Trade-offs críticos
+### ⚖️ Trade-offs críticos
 
 - Latência
 - Custo
@@ -137,9 +144,9 @@ A aula lista desafios que **não existiam antes**
 
 👉 Isso vira decisão arquitetural
 
-## 🔐 Segurança (muito importante)
+### 🔐 Segurança (muito importante)
 
-### Problemas novos:
+**Problemas novos:**
 
 - Prompt Injection
 - Jailbreaking
@@ -149,9 +156,9 @@ Exemplo citado:
 
 > Fazer a IA ignorar instruções e responder algo indevido
 
-# 🧠 6. Prompt Engineering (expandido com as imagens)
+## 🧠 6. Prompt Engineering (expandido com as imagens)
 
-## 📌 Papel real para devs
+### 📌 Papel real para devs
 
 A aula detalha onde prompts entram:
 
@@ -163,13 +170,13 @@ A aula detalha onde prompts entram:
 - Benchmarks
 - PR / Code review
 
-## 🧪 Tipos de prompting
+### 🧪 Tipos de prompting
 
-### 🔹 Zero-shot / One-shot / Few-shot
+#### 🔹 Zero-shot / One-shot / Few-shot
 
 - Controle por exemplos
 
-### 🔹 Chain of Thought (CoT)
+#### 🔹 Chain of Thought (CoT)
 
 📌 Representação mostrada:
 
@@ -185,7 +192,7 @@ Com CoT:
 Pergunta → decompor → raciocinar → validar → resposta melhor
 ```
 
-### 🔹 Tree of Thought (ToT)
+#### 🔹 Tree of Thought (ToT)
 
 - Explora múltiplos caminhos
 - Descarta ruins
@@ -193,7 +200,7 @@ Pergunta → decompor → raciocinar → validar → resposta melhor
 
 👉 Similar a busca em árvore (AI search)
 
-### 🔹 ReAct
+#### 🔹 ReAct
 
 📌 Loop apresentado:
 
@@ -207,7 +214,7 @@ Thought → Action → Observation → repetir
 
 👉 Base para agentes modernos
 
-# 🧾 7. Regras de ouro de Prompt Engineering
+## 🧾 7. Regras de ouro de Prompt Engineering
 
 Checklist direto da aula:
 
@@ -219,13 +226,13 @@ Checklist direto da aula:
 - Tratar ambiguidade
 - Incluir restrições
 
-# 🗂️ 8. Gerenciamento de prompts (nível produção)
+## 🗂️ 8. Gerenciamento de prompts (nível produção)
 
-## 📌 Problema
+### 📌 Problema
 
 Prompts viram **artefatos de software**
 
-## 🧠 Soluções
+### 🧠 Soluções
 
 - Versionamento
 - Reuso
@@ -236,11 +243,11 @@ Ferramentas:
 - Registry local
 - Plataformas como LangSmith
 
-# 🧠 9. Context Engineering (com diagrama da aula)
+## 🧠 9. Context Engineering (com diagrama da aula)
 
 A imagem mostra claramente o que compõe o contexto:
 
-## 🧩 Componentes
+### 🧩 Componentes
 
 - RAG (docs + vector search)
 - Prompt (system + few-shot)
@@ -248,7 +255,7 @@ A imagem mostra claramente o que compõe o contexto:
 - Memory (persistência)
 - Structured output (JSON/tools)
 
-## ⚠️ Limitação crítica
+### ⚠️ Limitação crítica
 
 > Context window é finita
 
@@ -258,7 +265,7 @@ A imagem mostra claramente o que compõe o contexto:
 - O que remover?
 - O que resumir?
 
-## 🧠 Tipos de informação no contexto
+### 🧠 Tipos de informação no contexto
 
 - O que saber
 - Como agir
@@ -266,9 +273,9 @@ A imagem mostra claramente o que compõe o contexto:
 - O que lembrar
 - Em qual formato responder
 
-# 🧱 10. Arquitetura com IA (RAG + contexto)
+## 🧱 10. Arquitetura com IA (RAG + contexto)
 
-## 📌 Estrutura moderna
+### 📌 Estrutura moderna
 
 ```text
 User → Backend →
@@ -278,15 +285,15 @@ User → Backend →
    Output estruturado
 ```
 
-## 💡 Insight
+### 💡 Insight
 
 > Context Engineering = nova arquitetura de backend
 
-# 🧠 11. Pilares do desenvolvimento com IA
+## 🧠 11. Pilares do desenvolvimento com IA
 
 A aula fecha com um modelo bem importante:
 
-## 🧩 Pilares
+### 🧩 Pilares
 
 - Ferramentas (IDEs, CLIs)
 - Prompts
@@ -298,20 +305,20 @@ A aula fecha com um modelo bem importante:
 - Skills
 - **Workflow (centro de tudo)**
 
-## 🔥 Insight mais importante aqui
+### 🔥 Insight mais importante aqui
 
 > Não é sobre ferramenta → é sobre **workflow integrado com IA**
 
-# 🚀 12. Síntese final (nível sênior)
+## 🚀 12. Síntese final (nível sênior)
 
-## 🧠 O que mudou de verdade
+### 🧠 O que mudou de verdade
 
 1. Código não é mais o centro
 2. Prompt virou interface
 3. Contexto virou arquitetura
 4. IA virou runtime cognitivo
 
-## 🧩 Novo stack mental
+### 🧩 Novo stack mental
 
 ```text
 Software tradicional:
@@ -321,10 +328,6 @@ Software com IA:
   contexto + instrução + validação
 ```
 
-## 💡 Frase que resume a aula
+### 💡 Frase que resume a aula
 
-> “Saber programar não é mais suficiente - você precisa saber estruturar contexto e orquestrar IA.”
-
-## Mapa mental
-
-![Alt text](https://assets.digitalocean.com/articles/alligator/boo.svg "a title")
+> "Saber programar não é mais suficiente - você precisa saber estruturar contexto e orquestrar IA."

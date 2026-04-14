@@ -1,4 +1,11 @@
-# Recursos para Aprendizado de IA
+---
+title: "Recursos para Aprendizado de IA"
+description: "Curadoria de cursos, livros, ferramentas e comunidades para aprofundar conhecimentos em IA e Prompt Engineering."
+lastUpdated: 2026-01-01
+sidebar:
+  order: 10
+tags: ["recursos", "cursos", "ferramentas"]
+---
 
 > Curadoria de cursos, livros, ferramentas e conteúdos para aprofundar seus conhecimentos em Inteligência Artificial e Prompt Engineering.
 
@@ -129,7 +136,3 @@
 
 10. **PyTorch** - [pytorch.org](https://pytorch.org)
     - Framework de DL popular na pesquisa
-
----
-
-[← Voltar ao Índice](../../README.md)
