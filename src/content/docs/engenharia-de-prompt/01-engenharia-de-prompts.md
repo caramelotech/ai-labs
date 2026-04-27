@@ -3,7 +3,7 @@ title: "Engenharia de Prompts"
 description: "Técnicas e frameworks de prompting para modelos de linguagem, do zero-shot ao ReAct."
 lastUpdated: 2026-02-01
 sidebar:
-  order: 2
+  order: 1
 tags: ["prompt-engineering", "llm", "ia"]
 ---
 
@@ -64,5 +64,5 @@ Essa abordagem é particularmente útil em conversas longas ou quando você prec
 
 ## Próximos Passos
 
-- [Introdução à Inteligência Artificial](01-introducao-ia)
-- [Recursos para Aprendizado](recursos)
+- [Introdução à Inteligência Artificial](../fundamentos/introducao-ia)
+- [Recursos para Aprendizado](../recursos)

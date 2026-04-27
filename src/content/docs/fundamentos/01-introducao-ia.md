@@ -300,5 +300,5 @@ Dados são o "combustível" da IA moderna, especialmente para Machine Learning e
 
 ## Próximos Passos
 
-- [Engenharia de Prompts](02-engenharia-de-prompts)
-- [Recursos para Aprendizado](recursos)
+- [Engenharia de Prompts](../engenharia-de-prompt/engenharia-de-prompts)
+- [Recursos para Aprendizado](../recursos)

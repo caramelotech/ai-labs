@@ -3,7 +3,7 @@ title: "Recursos para Aprendizado de IA"
 description: "Curadoria de cursos, livros, ferramentas e comunidades para aprofundar conhecimentos em IA e Prompt Engineering."
 lastUpdated: 2026-01-01
 sidebar:
-  order: 10
+  order: 1
 tags: ["recursos", "cursos", "ferramentas"]
 ---
 
