@@ -1,11 +1,4 @@
----
-title: "Introdução à Inteligência Artificial"
-description: "Fundamentos de IA, Machine Learning, Deep Learning, LLMs e tokens explicados de forma acessível."
-lastUpdated: 2026-02-01
-sidebar:
-  order: 1
-tags: ["ia", "machine-learning", "deep-learning", "llm"]
----
+# Introdução à Inteligência Artificial
 
 ## Introdução
 
@@ -218,7 +211,7 @@ Por meio de técnicas de PLN, sistemas de IA podem executar tarefas como:
 
 Assistentes virtuais como Siri e Alexa utilizam extensivamente o PLN para compreender e processar as solicitações dos usuários.
 
-<img src="/ai-labs/assets/fluxo-chatbot-llm.png" alt="Fluxo de Trabalho do Chatbot de IA com LLM" style="max-width: 500px; display: block; margin: 24px auto;" />
+![Fluxo de Trabalho do Chatbot de IA com LLM](./assets/fluxo-chatbot-llm.png)
 
 Para entender mais, uma boa referência é o artigo da Elastic sobre **[PLN vs LLMs](https://www.elastic.co/pt/blog/nlp-vs-llms)**.
 

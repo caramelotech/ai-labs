@@ -1,11 +1,4 @@
----
-title: "Dia 2 - Agentes, RAG e Codificação Assistida"
-description: "Desenvolvimento de agentes de IA, RAG, Git Worktree para paralelismo e o novo workflow de engenharia."
-lastUpdated: 2026-01-01
-sidebar:
-  order: 2
-tags: ["agentes", "rag", "ia", "context-engineering"]
----
+# Dia 2 - Agentes, RAG e Codificação Assistida
 
 > Aqui a aula sai do conceito e entra no **como construir sistemas reais com IA**
 

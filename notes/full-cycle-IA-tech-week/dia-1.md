@@ -1,11 +1,4 @@
----
-title: "Dia 1 - Prompt e Context Engineering"
-description: "Prompt Engineering, Context Engineering, o novo papel do desenvolvedor e pilares do desenvolvimento com IA."
-lastUpdated: 2026-01-01
-sidebar:
-  order: 1
-tags: ["prompt-engineering", "context-engineering", "agentes", "ia"]
----
+# Dia 1 - Prompt e Context Engineering
 
 A aula introduz um conceito forte:
 

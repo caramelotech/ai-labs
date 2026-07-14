@@ -1,11 +1,4 @@
----
-title: "Engenharia de Prompts"
-description: "Técnicas e frameworks de prompting para modelos de linguagem, do zero-shot ao ReAct."
-lastUpdated: 2026-02-01
-sidebar:
-  order: 1
-tags: ["prompt-engineering", "llm", "ia"]
----
+# Engenharia de Prompts
 
 ## Prompts
 
