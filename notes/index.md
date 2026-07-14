@@ -1,6 +1,6 @@
 # AI Labs
 
-Base de conhecimento sobre **Inteligência Artificial** da Caramelo Tech, com foco em aprendizado prático e acessível.
+Base de conhecimento sobre **Inteligência Artificial** do Caramelo Tech, com foco em aprendizado prático e acessível.
 
 ## O que você vai encontrar
 

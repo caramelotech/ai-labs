@@ -1,6 +1,6 @@
 # AI Labs
 
-Base de conhecimento sobre **Inteligência Artificial** da Caramelo Tech, com foco em aprendizado prático e acessível.
+Base de conhecimento sobre **Inteligência Artificial** do Caramelo Tech, com foco em aprendizado prático e acessível.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](.github/CONTRIBUTING.md)
