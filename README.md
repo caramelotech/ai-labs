@@ -5,7 +5,7 @@ Base de conhecimento sobre **Inteligência Artificial** da Caramelo Tech, com fo
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](.github/CONTRIBUTING.md)
 
-As notas deste repositório são publicadas no site do [Caramelo Labs](https://caramelotech.com.br/labs/ai-labs/).
+As notas deste repositório são publicadas no site do [Caramelo Labs](https://caramelotech.com.br/labs/ai/).
 
 ## O que você vai encontrar
 
@@ -51,7 +51,7 @@ Ao criar uma nova subpasta de tema, adicione a seção correspondente em `sideba
 
 ## Como usar
 
-1. Comece pelas anotações em `notes/` (ou pelo [site](https://caramelotech.com.br/labs/ai-labs/))
+1. Comece pelas anotações em `notes/` (ou pelo [site](https://caramelotech.com.br/labs/ai/))
 2. Explore os exemplos em `examples/`
 3. Resolva os exercícios em `examples/exercises.md`
 4. Construa os projetos em `examples/projects.md`

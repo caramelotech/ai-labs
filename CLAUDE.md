@@ -6,7 +6,7 @@ Orientações para agentes de IA que trabalham neste repositório.
 
 Repositório de **conteúdo puro** do AI Labs (Caramelo Tech). Contém apenas notas em Markdown - não há build, dependências, testes ou linting.
 
-As notas são publicadas no site do Caramelo Labs em `https://caramelotech.com.br/labs/ai-labs/`. Quem monta e publica o site é o repositório hub [labs](https://github.com/caramelotech/labs): a cada push em `main` que altere `notes/` ou `sidebar.json`, o workflow `.github/workflows/notify-hub.yml` dispara o rebuild do hub via `repository_dispatch`.
+As notas são publicadas no site do Caramelo Labs em `https://caramelotech.com.br/labs/ai/`. Quem monta e publica o site é o repositório hub [labs](https://github.com/caramelotech/labs): a cada push em `main` que altere `notes/` ou `sidebar.json`, o workflow `.github/workflows/notify-hub.yml` dispara o rebuild do hub via `repository_dispatch`.
 
 ## Estrutura
 
@@ -31,7 +31,7 @@ As notas NÃO usam frontmatter. Regras:
 - Use `##` e `###` para as demais seções (apenas um `#` por arquivo, na primeira linha)
 - Prefixo numérico no nome do arquivo controla a ordem na barra lateral dentro da pasta: `01-nome.md`, `02-nome.md`
 - Imagens ficam junto das notas (ex: `notes/fundamentos/assets/img.png`), referenciadas com caminho relativo em sintaxe Markdown: `![descrição](./assets/img.png)` - nunca use tags HTML `<img>` nem caminhos absolutos
-- Links para outras notas do site usam o caminho completo: `/labs/ai-labs/<secao>/<nota>/`
+- Links para outras notas do site usam o caminho completo: `/labs/ai/<secao>/<nota>/`
 - Frontmatter ainda é aceito para campos extras (`description`, `tags`), mas o padrão é não usar
 
 ### Nova seção de tema

@@ -34,7 +34,7 @@ Melhorias no **site** (visual, navegação, deploy) são feitas no repositório 
 
 3. Abra um Pull Request usando o template disponível e aguarde revisão.
 
-4. Após aprovação, o merge será feito por um mantenedor. As notas são publicadas automaticamente no [site do Caramelo Labs](https://caramelotech.com.br/labs/ai-labs/) após o merge.
+4. Após aprovação, o merge será feito por um mantenedor. As notas são publicadas automaticamente no [site do Caramelo Labs](https://caramelotech.com.br/labs/ai/) após o merge.
 
 ## Padrões de conteúdo
 

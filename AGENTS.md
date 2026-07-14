@@ -7,7 +7,7 @@ Orientações especializadas para agentes de IA trabalhando com este repositóri
 Este é o repositório de **conteúdo** do AI Labs (Caramelo Tech):
 
 - **Conteúdo:** 100% em `notes/`, Markdown puro em português brasileiro, sem frontmatter
-- **Publicação:** o repositório hub [labs](https://github.com/caramelotech/labs) busca as notas daqui e publica em `https://caramelotech.com.br/labs/ai-labs/`
+- **Publicação:** o repositório hub [labs](https://github.com/caramelotech/labs) busca as notas daqui e publica em `https://caramelotech.com.br/labs/ai/`
 - **Sem build:** não há dependências, testes ou comandos - apenas Markdown
 - **Principais seções:** fundamentos, llm, engenharia-de-prompt, agents, full-cycle-IA-tech-week
 
@@ -51,7 +51,7 @@ Conteúdo aqui...
 - NÃO use `---` para separar seções (apenas para notas/atribuições no final do arquivo)
 - Apenas um `# H1` por arquivo, na primeira linha
 - Imagens ficam junto das notas (ex: `notes/fundamentos/assets/img.png`) e são referenciadas com caminho relativo em sintaxe Markdown: `![descrição](./assets/img.png)` - nunca `<img>` HTML nem caminho absoluto
-- Links para outras notas do site: caminho completo `/labs/ai-labs/<secao>/<nota>/`
+- Links para outras notas do site: caminho completo `/labs/ai/<secao>/<nota>/`
 
 ## Publicação
 
