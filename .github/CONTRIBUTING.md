@@ -2,13 +2,15 @@
 
 Obrigado por querer contribuir com o AI Labs!
 
-## O que pode ser contribuido
+## O que pode ser contribuído
 
-- Melhorias e correções nas anotações (`src/content/docs/`)
+- Melhorias e correções nas anotações (`notes/`)
 - Novos exemplos práticos em `examples/`
 - Exercícios adicionais em `examples/exercises.md`
 - Projetos práticos em `examples/projects.md`
-- Recursos recomendados em `src/content/docs/recursos.md`
+- Recursos recomendados em `notes/recursos.md`
+
+Melhorias no **site** (visual, navegação, deploy) são feitas no repositório hub [labs](https://github.com/caramelotech/labs).
 
 ## Processo
 
@@ -32,31 +34,22 @@ Obrigado por querer contribuir com o AI Labs!
 
 3. Abra um Pull Request usando o template disponível e aguarde revisão.
 
-4. Após aprovação, o merge será feito por um mantenedor.
+4. Após aprovação, o merge será feito por um mantenedor. As notas são publicadas automaticamente no [site do Caramelo Labs](https://caramelotech.com.br/labs/ai-labs/) após o merge.
 
 ## Padrões de conteúdo
 
-### Anotações (`src/content/docs/`)
+### Anotações (`notes/`)
+
+As notas são **Markdown puro, sem frontmatter**:
 
 - Escreva em português
-- Use títulos hierárquicos (`##`, `###`)
+- Comece o arquivo com o título: `# Título da Nota` (primeira linha)
+- Use títulos hierárquicos (`##`, `###`) para as seções
 - Prefira exemplos curtos e diretos
 - Inclua o "por quê", não apenas o "como"
-- Nomeie os arquivos com prefixo numérico sequencial: `03-nome-do-topico.md`
-- Adicione frontmatter Starlight em todos os arquivos:
-
-  ```yaml
-  ---
-  title: "Título da Nota"
-  description: "Descrição de uma linha"
-  lastUpdated: 2026-01-01
-  sidebar:
-    order: N
-  tags: ["tag1", "tag2"]
-  ---
-  ```
-
-- Atualize o README principal ao adicionar um novo tópico
+- Nomeie os arquivos com prefixo numérico sequencial dentro da pasta: `02-nome-do-topico.md`
+- Imagens ficam junto das notas (ex: `notes/fundamentos/assets/img.png`) e são referenciadas com caminho relativo: `![descrição](./assets/img.png)`
+- Ao criar uma nova subpasta de tema, adicione a seção em `sidebar.json`
 
 ### Exemplos (`examples/`)
 
@@ -76,11 +69,16 @@ Obrigado por querer contribuir com o AI Labs!
 - Liste os requisitos em formato de checklist
 - Inclua ao menos um exemplo de entregável esperado
 
-## Rodando o site localmente
+## Visualizando as notas no site
+
+Não é necessário rodar nada para contribuir - as notas são Markdown puro e podem ser revisadas direto no GitHub. Se quiser ver como ficam no site, clone o repositório hub ao lado deste e rode lá:
 
 ```bash
+git clone https://github.com/caramelotech/labs
+cd labs
 npm install
-npm run dev   # servidor em localhost:4321
+npm run fetch:local   # usa o clone local deste repositório
+npm run dev           # localhost:4321
 ```
 
 ## Dúvidas?

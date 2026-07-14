@@ -1,116 +1,63 @@
 # AGENTS.md
 
-Orientações especializadas para agentes de IA trabalhando com este repositório de documentação.
+Orientações especializadas para agentes de IA trabalhando com este repositório de conteúdo.
 
 ## Contexto do Projeto
 
-Este é um site de documentação sobre **Inteligência Artificial** (AI Labs) construído com:
+Este é o repositório de **conteúdo** do AI Labs (Caramelo Tech):
 
-- **Framework:** Astro Starlight
-- **Conteúdo:** 100% em `src/content/docs/` em português brasileiro
-- **Deploy:** GitHub Pages (automático no merge para `main`)
-- **Principais seções:** fundamentos, LLM, engenharia-de-prompt, agents, eventos
+- **Conteúdo:** 100% em `notes/`, Markdown puro em português brasileiro, sem frontmatter
+- **Publicação:** o repositório hub [labs](https://github.com/caramelotech/labs) busca as notas daqui e publica em `https://caramelotech.com.br/labs/ai-labs/`
+- **Sem build:** não há dependências, testes ou comandos - apenas Markdown
+- **Principais seções:** fundamentos, llm, engenharia-de-prompt, agents, full-cycle-IA-tech-week
 
-Veja [CLAUDE.md](CLAUDE.md) para detalhes completos de arquitetura e configuração.
+Veja [CLAUDE.md](CLAUDE.md) para detalhes completos.
 
 ## Tarefas Comuns
 
-### Adicionar uma nova página de documentação
+### Adicionar uma nova nota
 
-1. **Escolha o local:** Decida se vai em `fundamentos/`, `llm/`, `engenharia-de-prompt/`, `agents/`, ou `full-cycle-IA-tech-week/`
-2. **Determine o `sidebar.order`:**
-   - Procure o número mais alto atualmente em uso (ver todas as páginas em `src/content/docs/`)
-   - Atribua o próximo número em sequência
-   - Exemplo: se a última ordem é 12, use 13 para a nova página
-3. **Crie o arquivo** com frontmatter completo:
-   ```yaml
-   ---
-   title: "Título da Página"
-   description: "Descrição concisa"
-   lastUpdated: 2026-04-27
-   sidebar:
-     order: 13
-   tags: ["tag1", "tag2"]
-   ---
-   ```
-4. **Escreva o conteúdo** em Markdown (com suporte a componentes MDX se necessário)
+1. **Escolha a pasta:** `fundamentos/`, `llm/`, `engenharia-de-prompt/`, `agents/` ou `full-cycle-IA-tech-week/`
+2. **Nomeie com prefixo numérico** para controlar a ordem na barra lateral: se a pasta já tem `01-*.md`, crie `02-nome-do-topico.md`
+3. **Primeira linha = título:** comece o arquivo com `# Título da Nota` - o site usa esse H1 como título da página
+4. **Sem frontmatter:** escreva direto o Markdown
 
-### Atualizar página existente
+Exemplo de nota nova (`notes/fundamentos/02-redes-neurais.md`):
 
-- Sempre atualize o campo `lastUpdated` com a data atual
-- Mantenha o `sidebar.order` igual (não reordenar)
-- Se for renomear: crie nova página com novo `order`, marque a antiga como deprecated
+```markdown
+# Redes Neurais Convolucionais
 
-### Criar nova seção top-level
-
-1. Crie diretório em `src/content/docs/nova-secao/`
-2. Crie `src/content/docs/nova-secao/index.md` como página raiz
-3. Atualize `astro.config.mjs`:
-   ```javascript
-   {
-     label: "Rótulo da Seção",
-     autogenerate: { directory: "nova-secao" },
-   }
-   ```
-4. Atribua `sidebar.order` começando do próximo número disponível globalmente
-
-## Regras de Conteúdo
-
-### Formatação Markdown
-
-- Use **hífens (-)** não travessões (—)
-- NÃO use `---` para separar seções (apenas para notas/atribuições no final)
-- Assets estáticos em `public/assets/` são referenciados como `/ai-labs/assets/nome-arquivo.ext`
-
-### Frontmatter Obrigatório
-
-Sempre preencha:
-
-- `title` - Título da página (obrigatório)
-- `description` - Uma linha descritiva (obrigatório)
-- `lastUpdated` - Data no formato YYYY-MM-DD (obrigatório)
-- `sidebar.order` - Número sequencial global (obrigatório)
-- `tags` - Array de strings opcionais para categorização
-
-## Pensando sobre `sidebar.order`
-
-**Ponto crítico:** O `sidebar.order` é **global e sequencial** em todos os arquivos.
-
-```
-fundamentos/01-intro.md           → order: 1
-fundamentos/02-ml.md              → order: 2
-fundamentos/03-deep-learning.md   → order: 3
-llm/index.md                       → order: 4
-llm/transformers.md               → order: 5
-engenharia-de-prompt/01-prompt.md → order: 6
-... e assim por diante
-```
-
-Quando adicionar uma página:
-
-1. Scan rápido em todos os arquivos para achar o maior `order`
-2. Use `maior + 1`
-3. Não há reordenação de páginas existentes - apenas novas assumem o próximo número
-
-## Exemplo: Adicionando Página
-
-Adicionar artigo "Redes Neurais Convolucionais" em `fundamentos/`:
-
-```yaml
----
-title: "Redes Neurais Convolucionais"
-description: "Entender arquitetura CNN e aplicações em visão computacional"
-lastUpdated: 2026-04-27
-sidebar:
-  order: 25
-tags: ["deep-learning", "cnn", "visão-computacional"]
----
-# Redes Neurais Convolucionais (CNN)
+## Introdução
 
 Conteúdo aqui...
 ```
 
-**Nota:** O `order: 25` é exemplo - você deve verificar o número atual maior usado.
+### Atualizar nota existente
+
+- Edite o Markdown diretamente; não há campos de data para manter
+- Não renomeie arquivos sem necessidade - o nome define a URL da página no site
+
+### Criar nova seção de tema
+
+1. Crie a subpasta em `notes/nova-secao/` com ao menos uma nota
+2. Adicione a seção em `sidebar.json`:
+   ```json
+   { "label": "Título da Seção", "directory": "nova-secao" }
+   ```
+
+## Regras de Conteúdo
+
+- Use **hífens (-)**, não travessões (—)
+- NÃO use `---` para separar seções (apenas para notas/atribuições no final do arquivo)
+- Apenas um `# H1` por arquivo, na primeira linha
+- Imagens ficam junto das notas (ex: `notes/fundamentos/assets/img.png`) e são referenciadas com caminho relativo em sintaxe Markdown: `![descrição](./assets/img.png)` - nunca `<img>` HTML nem caminho absoluto
+- Links para outras notas do site: caminho completo `/labs/ai-labs/<secao>/<nota>/`
+
+## Publicação
+
+- Push em `main` alterando `notes/` ou `sidebar.json` dispara o workflow `notify-hub.yml`, que aciona o rebuild do site no hub
+- O workflow requer o secret `HUB_DISPATCH_TOKEN` configurado no repositório
+- Para validar como a nota fica no site, rode no clone do hub: `npm run fetch:local && npm run build`
 
 ## Git Conventions
 
@@ -118,45 +65,21 @@ Conteúdo aqui...
 - Apenas executar comandos git quando explicitamente solicitado pelo usuário
 - Comunicar claramente o que será commitado antes de executar
 
-## Comandos Essenciais
-
-```bash
-npm run dev      # Desenvolvimento com hot-reload
-npm run build    # Build para produção
-npm run preview  # Preview do build produção
-```
-
-## Estrutura de Diretórios
-
-```
-src/content/docs/
-├── fundamentos/           # Conceitos básicos de IA
-├── llm/                   # Modelos de linguagem
-├── engenharia-de-prompt/  # Técnicas de prompting
-├── agents/                # Padrões de agentes
-├── full-cycle-IA-tech-week/  # Conteúdo do evento
-├── index.mdx              # Página inicial
-├── 404.md                 # Página não encontrada
-└── recursos.md            # Page standalone
-```
-
 ## Troubleshooting
 
-**Problema:** Página não aparece na sidebar
+**Problema:** Nota não aparece na barra lateral do site
 
-- Verificar se tem `sidebar.order` definido
-- Verificar se arquivo está em subdiretório com `autogenerate` no config
+- Verificar se a subpasta está declarada em `sidebar.json`
+- Verificar se o hub rebuildou (workflow `notify-hub.yml` executou com sucesso)
 
-**Problema:** Sidebar order duplicado
+**Problema:** Título errado na página
 
-- Agentes devem detectar e usar número novo (maior + 1)
-- Se houver conflito, comunicar ao usuário antes de fazer mudança
+- A primeira linha não-vazia do arquivo deve ser `# Título`
+- Sem H1 na primeira linha, o site usa o nome do arquivo como título
 
-**Problema:** Assets não carregam
+**Problema:** Imagem não carrega no site
 
-- Assets devem estar em `public/assets/`
-- Referência deve ser `/ai-labs/assets/nome-arquivo.ext` (com base `/ai-labs`)
-
----
+- A imagem deve estar dentro de `notes/` e ser referenciada com caminho relativo em sintaxe Markdown (`![alt](./assets/img.png)`)
+- Tags HTML `<img>` com caminho relativo não funcionam no site
 
 Para informações adicionais, ver [CLAUDE.md](CLAUDE.md).
