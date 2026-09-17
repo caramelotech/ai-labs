@@ -145,6 +145,8 @@ A recuperação vira uma caminhada pelo grafo. Isso destrava dois casos que os o
 
 O preço é a construção do grafo. Extrair entidades e relações de um monte de texto é um pré-processamento caro e nem sempre preciso. Costuma valer quando o domínio é muito conectado e as perguntas são analíticas.
 
+O que é um grafo de conhecimento, quando escolher grafo em vez de busca vetorial e como o GraphRAG combina os dois está em [Knowledge Graphs e GraphRAG](/labs/ai/llm/06-knowledge-graphs-e-graphrag/).
+
 ## Corrective RAG
 
 As arquiteturas anteriores melhoram a busca, mas ainda confiam cegamente no que ela traz. O Corrective RAG adiciona um passo de conferência antes de gerar a resposta.
