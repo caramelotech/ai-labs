@@ -13,13 +13,14 @@ As notas deste repositório são publicadas no site do [Caramelo Labs](https://c
 
 ## Conteúdo
 
-| Tópico                  | Descrição                                     |
-| ----------------------- | --------------------------------------------- |
-| Fundamentos             | O que é IA, ML, Deep Learning, LLMs           |
-| LLM                     | Modelos de Linguagem em Larga Escala          |
-| Engenharia de Prompts   | Conceitos, técnicas e frameworks de prompting |
-| Agents                  | Padrões e frameworks de agentes de IA         |
-| Recursos de Aprendizado | Cursos, livros, ferramentas e comunidades     |
+| Tópico                  | Descrição                                       |
+| ----------------------- | ----------------------------------------------- |
+| Fundamentos             | O que é IA, ML, Deep Learning, LLMs             |
+| LLM                     | Modelos de Linguagem em Larga Escala            |
+| Engenharia de Prompts   | Conceitos, técnicas e frameworks de prompting   |
+| Agents                  | Padrões e frameworks de agentes de IA           |
+| Roadmap                 | Trilha de estudo em etapas e ideias de projetos |
+| Recursos de Aprendizado | Cursos, livros, ferramentas e comunidades       |
 
 ## Estrutura do repositório
 

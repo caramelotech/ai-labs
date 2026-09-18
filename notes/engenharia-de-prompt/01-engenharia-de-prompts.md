@@ -69,6 +69,70 @@ Utilizado por profissionais da área, este framework estrutura-se em **cinco ele
 
 A **sequência dos elementos impacta diretamente o desempenho do modelo**. Questões como _"posicionar a instrução no início do prompt produz o mesmo resultado que posicioná-la no final?"_ são abordadas através de testes práticos e orientações fundamentadas em pesquisas e experiências documentadas.
 
+## Anatomia de um bom prompt: ruim, melhor e ideal
+
+Ver a teoria funcionando ajuda mais do que decorar a lista. Vamos pegar um pedido comum, adaptar um currículo para uma vaga de Analista de Marketing, e refinar o mesmo prompt em três níveis de especificidade.
+
+### Prompt ruim
+
+Um pedido de uma linha, sem contexto, sem critérios e sem formato de saída:
+
+```
+Adapte meu currículo para a vaga de Analista de Marketing.
+```
+
+O modelo vai responder alguma coisa, mas vai ter que adivinhar o resto. Qual é o currículo? Não há nenhum na conversa. De qual empresa é a vaga, o que vale destacar, em que formato entregar? Sem essas respostas, o resultado costuma ser um texto genérico com dicas de currículo ou, pior, um currículo inventado do zero.
+
+### Prompt melhor
+
+Aqui entram contexto (a empresa e as áreas de experiência) e critérios (linguagem alinhada à vaga e resultados com números):
+
+```
+Adapte meu currículo para a vaga de Analista de Marketing na [Nome da Empresa]. Destaque minhas experiências com marketing digital, análise de dados e gestão de campanhas. Use uma linguagem alinhada à descrição da vaga e destaque resultados com números.
+```
+
+O salto é grande. Repare no `[Nome da Empresa]`: é um espaço para preencher antes de enviar. Ainda sobra um furo, porém: o modelo só sabe o que está escrito no prompt. Ele não viu o seu currículo nem a descrição da vaga, então "linguagem alinhada à descrição da vaga" é uma instrução que ele não tem como cumprir direito.
+
+### Prompt ideal
+
+O terceiro nível resolve isso anexando o material de referência e organizando as orientações em passos:
+
+Arquivos anexados: `Meu_Curriculo_Atual.pdf`, `Descricao_da_Vaga_Analista_Marketing.pdf`, `Informacoes_Sobre_a_Empresa.pdf`
+
+```
+Adapte meu currículo para a vaga de Analista de Marketing com base nos arquivos anexados (meu currículo atual, descrição da vaga e informações sobre a empresa). Siga estas orientações:
+
+- Destaque as experiências e habilidades mais relevantes para os requisitos da vaga.
+- Use palavras-chave presentes na descrição da vaga de forma natural.
+- Reescreva os pontos do currículo com foco em resultados e impacto, incluindo métricas sempre que possível.
+- Ajuste o resumo/perfil para refletir o perfil desejado pela empresa.
+- Mantenha um tom profissional, objetivo e alinhado à cultura da empresa.
+- Entregue o currículo final em formato pronto para envio (PDF) e uma versão em texto editável.
+```
+
+Duas mudanças fazem a diferença aqui. A primeira é o **material de referência**: currículo atual, descrição da vaga e informações da empresa entram como arquivos, então o modelo trabalha com o texto real em vez de uma descrição feita de memória. A segunda é a **estrutura**: o parágrafo corrido vira uma lista de passos, e cada passo cobre uma decisão (o que destacar, quais palavras-chave usar, como escrever os resultados, qual tom, qual formato de entrega). Fica fácil ver o que foi pedido e conferir o que voltou.
+
+### O que muda de um nível para o outro
+
+|                        | Ruim         | Melhor                                             | Ideal                                                                      |
+| ---------------------- | ------------ | -------------------------------------------------- | -------------------------------------------------------------------------- |
+| Contexto               | nenhum       | empresa e áreas de experiência, escritas no prompt | currículo, vaga e empresa anexados                                         |
+| Critérios              | nenhum       | linguagem alinhada à vaga, resultados com números  | palavras-chave, foco em impacto, tom, resumo ajustado ao perfil da empresa |
+| Material de referência | nenhum       | descrito no texto                                  | arquivos anexados                                                          |
+| Formato de saída       | não definido | não definido                                       | PDF pronto para envio e versão em texto editável                           |
+
+Olhando pelo [Framework de Prompt](#framework-de-prompt): as **instruções** existem nos três níveis, só que cada vez mais detalhadas, e o **contexto** só aparece de verdade no ideal. Os **exemplos** não entram em nenhum (dava para anexar um currículo já adaptado como modelo do resultado esperado). O **papel** também ficou de fora, por exemplo "atue como recrutador da área de marketing", e nem sempre faz falta, mas custa uma linha.
+
+Pelo lado do checklist de [regras de ouro](/labs/ai/engenharia-de-prompt/02-boas-praticas-e-seguranca/), os itens que mais pesam nessa evolução são ter um objetivo claro, separar os inputs (cada arquivo anexado é um bloco), definir o formato de saída e explicitar os critérios.
+
+### Onde até o prompt ideal falha
+
+O prompt ideal pede "métricas sempre que possível", mas não proíbe o modelo de inventar. Se o seu currículo não traz número nenhum, um modelo pode preencher com um "aumentou as vendas em 30%" que soa ótimo e é falso, e num currículo isso vira problema na entrevista. A correção é uma restrição explícita, o último item do checklist ("Incluir restrições"):
+
+```
+- Não invente experiências, cargos ou resultados que não estejam no meu currículo. Se faltar um número, deixe o marcador [inserir métrica] para eu preencher.
+```
+
 ## Prompt de Preparação
 
 O **Prompt de Preparação** é uma técnica avançada em que você primeiro instrui a IA sobre **como deseja que ela se comporte em interações futuras**, estabelecendo regras, formatos e expectativas antes de fazer a pergunta principal.
@@ -76,3 +140,9 @@ O **Prompt de Preparação** é uma técnica avançada em que você primeiro ins
 Essa abordagem é particularmente útil em conversas longas ou quando você precisa que a IA mantenha um padrão consistente ao longo de múltiplas respostas.
 
 **Exemplo:** Você pode preparar a IA dizendo _"Responda sempre de forma concisa, usando bullet points, e cite fontes quando relevante"_ antes de fazer suas perguntas subsequentes.
+
+## Referências
+
+- [Estratégias de design de comandos (Gemini API)](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=pt-br) - Google AI for Developers, pt-BR
+- [Técnicas de engenharia de prompts](https://learn.microsoft.com/pt-br/azure/foundry/openai/concepts/prompt-engineering) - Microsoft Learn, pt-BR
+- [Prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) - Anthropic, en

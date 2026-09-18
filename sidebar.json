@@ -5,6 +5,7 @@
     { "label": "LLM", "directory": "llm" },
     { "label": "Engenharia de Prompt", "directory": "engenharia-de-prompt" },
     { "label": "Agents", "directory": "agents" },
+    { "label": "Roadmap", "slug": "roadmap" },
     { "label": "Recursos", "slug": "recursos" }
   ]
 }

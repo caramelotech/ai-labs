@@ -8,6 +8,7 @@ Base de conhecimento sobre **Inteligência Artificial** do Caramelo Tech, com fo
 - **LLM** - Modelos de Linguagem em Larga Escala
 - **Engenharia de Prompt** - conceitos, técnicas e frameworks de prompting
 - **Agents** - padrões, frameworks e operação de agentes de IA
+- **Roadmap** - trilha de estudo em etapas, do funcionamento dos LLMs a agentes em produção, com ideias de projetos por nível
 - **Recursos** - curadoria de cursos, livros, ferramentas e comunidades
 
 Navegue pelas seções na barra lateral. O conteúdo vai do básico ao avançado - se está começando, comece por Fundamentos.

@@ -17,6 +17,8 @@ flowchart TD
     C --> F[Procedural<br/>como fazer]
 ```
 
+Um jeito rápido de fixar: a de curto prazo cuida do presente, a semântica guarda o que o agente sabe, a episódica lembra o que ele viveu e a procedural sabe como ele age.
+
 ## Memória de curto prazo
 
 É o contexto imediato da tarefa que está rodando agora. Entra aqui o histórico da conversa atual, os pensamentos e observações do ciclo ReAct, as saídas das ferramentas que o agente chamou e o estado do que ele está tentando fazer.
@@ -39,15 +41,15 @@ Um agente de suporte com memória episódica lembra que o cliente X abriu um cha
 
 ### Memória semântica
 
-Guarda fatos estáveis, principalmente sobre o usuário: preferências, restrições, dados que valem em qualquer conversa. Não está preso a um evento específico.
+Guarda fatos estáveis que valem em qualquer conversa, não presos a um evento específico. Entram aqui preferências e restrições do usuário, mas também conceitos do domínio, regras de negócio e detalhes do projeto em que o agente trabalha.
 
-"O usuário mora em Fortaleza", "prefere respostas curtas", "trabalha com backend em Node". São coisas que o agente pode assumir como verdade da próxima vez, sem perguntar de novo.
+"O usuário mora em Fortaleza", "prefere respostas curtas", "trabalha com backend em Node", "o prazo de reembolso da empresa é de 7 dias". São coisas que o agente pode assumir como verdade da próxima vez, sem perguntar de novo.
 
 ### Memória procedural
 
-Guarda como executar tarefas: rotinas e sequências de passos que o agente repete com frequência. Em vez de raciocinar do zero toda vez, ele aplica um procedimento que já deu certo.
+Guarda como executar tarefas: rotinas e sequências de passos, políticas, prompts e skills que o agente reaproveita. Em vez de raciocinar do zero toda vez, ele aplica um procedimento que já deu certo.
 
-Pense num agente que gera relatórios semanais. A primeira vez ele descobre o passo a passo (buscar dados, agregar, formatar, enviar). Com memória procedural, ele salva esse fluxo e nas próximas semanas só executa.
+Pense num agente que gera relatórios semanais. A primeira vez ele descobre o passo a passo (buscar dados, agregar, formatar, enviar). Com memória procedural, ele salva esse fluxo e nas próximas semanas só executa. As [Agent Skills](/labs/ai/agents/08-agent-skills/) são uma forma concreta desse tipo de memória: um procedimento escrito uma vez e carregado quando a tarefa aparece.
 
 ## Onde a memória de longo prazo fica guardada
 

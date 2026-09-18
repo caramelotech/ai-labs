@@ -2,11 +2,38 @@
 
 ## O que é o MCP
 
-O **Model Context Protocol (MCP)** é um padrão aberto que define uma forma única de uma aplicação de IA se conectar a fontes de dados e ferramentas externas. Foi publicado pela Anthropic no fim de 2024 e depois adotado por outras empresas e comunidades, deixando de ser coisa de um fornecedor só para virar um protocolo de mercado.
+O **Model Context Protocol (MCP)** é um padrão aberto que define uma forma única de uma aplicação de IA se conectar a fontes de dados e ferramentas externas. Foi publicado pela Anthropic no fim de 2024 e, desde dezembro de 2025, é governado pela **Agentic AI Foundation (AAIF)**, sob a Linux Foundation - deixou de ser coisa de um fornecedor só para virar um padrão aberto de mercado.
 
 A analogia que a documentação oficial usa é a do **USB-C**: antes dele, cada aparelho tinha seu próprio conector e seu próprio cabo. O USB-C definiu um encaixe único, e a partir daí qualquer periférico conversa com qualquer computador pelo mesmo cabo. O MCP faz esse papel para agentes: em vez de cada aplicação de IA inventar seu próprio jeito de plugar um banco de dados, um sistema de arquivos ou uma API, todas passam a falar o mesmo protocolo.
 
 Na prática, o MCP padroniza três coisas: como o agente **descobre** o que uma fonte externa oferece, como ele **chama** essas capacidades e como o resultado **volta** para o modelo. Nada disso exige que o código do agente conheça os detalhes de cada integração.
+
+## MCP vs API: qual a diferença
+
+Antes de entrar na arquitetura do protocolo, vale resolver uma confusão comum: MCP e API não são a mesma coisa, e um não substitui o outro.
+
+Uma **API** é um contrato fixo entre dois programas. O desenvolvedor define de antemão quais endpoints existem, que parâmetros cada um espera e em que formato a resposta volta. Um site que consulta uma API de pagamento, um app que fala com o backend, um serviço que chama outro: em todos os casos, quem integrou já sabia exatamente o que ia chamar antes de escrever o código.
+
+O MCP resolve um problema diferente: como uma aplicação de IA **descobre** o que existe para usar, em vez de vir com isso hardcoded. Um agente conectado a um servidor MCP consegue perguntar "quais ferramentas você tem?" e receber a lista na hora (é o que a seção anterior chamou de descoberta de capacidades), sem que ninguém tenha escrito antes um `if` para cada ferramenta possível.
+
+Isso não faz do MCP um substituto de API - na prática ele costuma rodar **em cima** de APIs já existentes. Um servidor MCP que expõe uma tool `buscar_pedido`, por exemplo, provavelmente está chamando a API REST do sistema de pedidos por dentro; o MCP só padroniza como o agente descobre e aciona essa tool, sem precisar conhecer a API original.
+
+| Pergunta                                                                                              | Puxa para |
+| ----------------------------------------------------------------------------------------------------- | --------- |
+| Preciso de uma integração previsível, definida de antemão entre dois sistemas?                        | API       |
+| Um agente de IA precisa descobrir e usar várias ferramentas sem integração feita à mão para cada uma? | MCP       |
+
+Numa arquitetura de produção típica, as duas camadas convivem:
+
+```mermaid
+flowchart LR
+    Agente[Agente de IA] --> MCP[Servidor MCP]
+    MCP --> Ferramenta[Tool exposta pelo servidor]
+    Ferramenta --> API[API do sistema]
+    API --> Backend[Sistema backend / banco de dados]
+```
+
+O agente fala MCP com o servidor, o servidor traduz aquilo numa chamada de API comum, e a API fala com o sistema de sempre. Cada camada resolve um problema diferente: previsibilidade entre software (API) e descoberta dinâmica para um agente (MCP).
 
 ## O problema que o MCP resolve
 
@@ -116,3 +143,4 @@ Depois de rodando, o servidor conversa com o cliente por um transporte (geralmen
 - [Architecture overview](https://modelcontextprotocol.io/docs/learn/architecture) - Model Context Protocol (documentação oficial), en
 - [Build an MCP server](https://modelcontextprotocol.io/quickstart/server) - Model Context Protocol (documentação oficial), en
 - [Introducing the Model Context Protocol](https://www.anthropic.com/news/model-context-protocol) - Anthropic, en
+- [MCP vs API: How are they different?](https://www.scalekit.com/blog/mcp-vs-apis-how-are-they-different) - Scalekit, en
