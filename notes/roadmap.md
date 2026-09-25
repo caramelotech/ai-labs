@@ -48,7 +48,7 @@ No lab: [Uso de Ferramentas](/labs/ai/agents/03-ferramentas/), [Hands-on: Agente
 - RAG na prática: carregar documentos, dividir em chunks, gerar embeddings, guardar num banco vetorial e recuperar
 - Quando o LangChain compensa e quando o loop escrito na mão basta
 
-No lab: [Frameworks de Agentes](/labs/ai/agents/09-frameworks/), [Context Engineering e RAG](/labs/ai/llm/04-context-engineering-e-rag/), [Arquiteturas de RAG](/labs/ai/llm/05-arquiteturas-de-rag/), [Pipeline de RAG em Produção](/labs/ai/llm/07-pipeline-de-rag-em-producao/)
+No lab: [Frameworks de Agentes](/labs/ai/agents/09-frameworks/), [Context Engineering e RAG](/labs/ai/llm/05-context-engineering-e-rag/), [Arquiteturas de RAG](/labs/ai/llm/06-arquiteturas-de-rag/), [Pipeline de RAG em Produção](/labs/ai/llm/08-pipeline-de-rag-em-producao/)
 
 ## 🤖 6. Agentes de IA em Python
 
@@ -58,7 +58,7 @@ No lab: [Frameworks de Agentes](/labs/ai/agents/09-frameworks/), [Context Engine
 - Agentes com LangChain, que hoje rodam sobre o LangGraph por baixo dos panos
 - Workflow ou agente: quando cada um faz sentido
 
-No lab: [O que são agentes de IA](/labs/ai/agents/01-o-que-e/), [Paradigma ReAct](/labs/ai/agents/02-react/), [Memória de Agentes](/labs/ai/agents/04-memoria/), [Workflow ou Agente?](/labs/ai/agents/11-workflow-ou-agente/), [Padrões de execução de agentes](/labs/ai/agents/12-padroes-de-execucao/)
+No lab: [O que são agentes de IA](/labs/ai/agents/01-o-que-e/), [Paradigma ReAct](/labs/ai/agents/02-react/), [Memória de Agentes](/labs/ai/agents/04-memoria/), [Workflow ou Agente?](/labs/ai/agents/11-workflow-ou-agente/), [LLM, RAG, Agente e Agentic AI](/labs/ai/agents/12-llm-rag-agente-e-agentic-ai/), [Padrões de execução de agentes](/labs/ai/agents/13-padroes-de-execucao/)
 
 ## 🧩 7. MCP: conectando a IA a ferramentas e dados
 
@@ -75,7 +75,7 @@ No lab: [Model Context Protocol (MCP)](/labs/ai/agents/06-mcp/), [MCP, RAG e Age
 - Agno: framework Python para agentes com ferramentas, memória, base de conhecimento e times
 - Deploy: colocar um agente ou uma crew no ar, com variáveis de ambiente, observabilidade e custo sob controle
 
-No lab: [Sistemas Multi-Agentes](/labs/ai/agents/10-multi-agents/), [Frameworks de Agentes](/labs/ai/agents/09-frameworks/), [Agentes em Produção](/labs/ai/agents/13-agentes-em-producao/)
+No lab: [Sistemas Multi-Agentes](/labs/ai/agents/10-multi-agents/), [Frameworks de Agentes](/labs/ai/agents/09-frameworks/), [Agentes em Produção](/labs/ai/agents/14-agentes-em-producao/)
 
 ## ⌨️ 9. IDE com IA para programar mais rápido
 

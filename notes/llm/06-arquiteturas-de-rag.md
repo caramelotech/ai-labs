@@ -1,6 +1,6 @@
 # Arquiteturas de RAG
 
-A nota [Context Engineering e RAG](/labs/ai/llm/04-context-engineering-e-rag/) mostrou o RAG na forma mais simples: transforma a pergunta em vetor, busca os trechos parecidos e joga tudo no prompt. Essa versão resolve os casos fáceis, mas quebra rápido quando a base cresce, quando a pergunta é vaga ou quando a resposta certa está espalhada em vários documentos.
+A nota [Context Engineering e RAG](/labs/ai/llm/05-context-engineering-e-rag/) mostrou o RAG na forma mais simples: transforma a pergunta em vetor, busca os trechos parecidos e joga tudo no prompt. Essa versão resolve os casos fáceis, mas quebra rápido quando a base cresce, quando a pergunta é vaga ou quando a resposta certa está espalhada em vários documentos.
 
 Foi aí que surgiram várias formas de organizar a etapa de busca. Cada uma nasceu para tapar um buraco específico da versão ingênua.
 
@@ -145,7 +145,7 @@ A recuperação vira uma caminhada pelo grafo. Isso destrava dois casos que os o
 
 O preço é a construção do grafo. Extrair entidades e relações de um monte de texto é um pré-processamento caro e nem sempre preciso. Costuma valer quando o domínio é muito conectado e as perguntas são analíticas.
 
-O que é um grafo de conhecimento, quando escolher grafo em vez de busca vetorial e como o GraphRAG combina os dois está em [Knowledge Graphs e GraphRAG](/labs/ai/llm/06-knowledge-graphs-e-graphrag/).
+O que é um grafo de conhecimento, quando escolher grafo em vez de busca vetorial e como o GraphRAG combina os dois está em [Knowledge Graphs e GraphRAG](/labs/ai/llm/07-knowledge-graphs-e-graphrag/).
 
 ## Corrective RAG
 

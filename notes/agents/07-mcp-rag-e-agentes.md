@@ -20,7 +20,7 @@ RAG (Retrieval-Augmented Generation) é a técnica de buscar trechos relevantes 
 
 Serve para três problemas: falta de contexto sobre dados privados, alucinação (o modelo inventa uma resposta plausível) e desatualização (o treinamento tem data de corte). O que RAG não faz é executar ações, ele só recupera informação para o modelo ler.
 
-O fluxo básico e as variações mais elaboradas estão em [Context Engineering e RAG](/labs/ai/llm/04-context-engineering-e-rag/) e [Arquiteturas de RAG](/labs/ai/llm/05-arquiteturas-de-rag/).
+O fluxo básico e as variações mais elaboradas estão em [Context Engineering e RAG](/labs/ai/llm/05-context-engineering-e-rag/) e [Arquiteturas de RAG](/labs/ai/llm/06-arquiteturas-de-rag/).
 
 ## MCP em uma frase
 
@@ -42,11 +42,11 @@ A definição completa está em [O que são agentes de IA](/labs/ai/agents/01-o-
 
 Cada um dos três responde uma pergunta diferente sobre a mesma tarefa:
 
-| Peça   | Pergunta que responde                     | O que entrega   | Natureza                          |
-| ------ | ----------------------------------------- | --------------- | --------------------------------- |
-| RAG    | O que o modelo precisa saber?             | Conhecimento    | Técnica de recuperação            |
-| MCP    | O que ele pode acessar e invocar?         | Acesso          | Protocolo de conexão              |
-| Agente | O que fazer a seguir?                     | Autonomia       | Sistema que decide e age em loop  |
+| Peça   | Pergunta que responde             | O que entrega | Natureza                         |
+| ------ | --------------------------------- | ------------- | -------------------------------- |
+| RAG    | O que o modelo precisa saber?     | Conhecimento  | Técnica de recuperação           |
+| MCP    | O que ele pode acessar e invocar? | Acesso        | Protocolo de conexão             |
+| Agente | O que fazer a seguir?             | Autonomia     | Sistema que decide e age em loop |
 
 RAG e MCP, em especial, não competem. RAG puxa texto de um índice vetorial que você montou antes, normalmente sobre uma base de conteúdo mais estável (uma coleção de documentos, uma base de conhecimento). MCP chama ferramentas e APIs na hora, o que serve bem para dados que mudam o tempo todo (o saldo de uma conta, os eventos da agenda de hoje). Um mesmo agente pode usar os dois na mesma tarefa.
 
@@ -69,7 +69,7 @@ flowchart TD
     A2 -->|sim| RESP[Resposta]
 ```
 
-Quando o próprio agente controla como e quando buscar, em vez de seguir um pipeline fixo de recuperação, o RAG passa a ser chamado de **Agentic RAG**, o degrau mais alto descrito em [Arquiteturas de RAG](/labs/ai/llm/05-arquiteturas-de-rag/).
+Quando o próprio agente controla como e quando buscar, em vez de seguir um pipeline fixo de recuperação, o RAG passa a ser chamado de **Agentic RAG**, o degrau mais alto descrito em [Arquiteturas de RAG](/labs/ai/llm/06-arquiteturas-de-rag/).
 
 ## O que o "vs" esconde
 

@@ -98,4 +98,4 @@ Juntando tudo, dá para pensar no desenvolvimento moderno com IA como apoiado em
 - Skills (veja mais em [Agent Skills](/labs/ai/agents/08-agent-skills/))
 - **Workflow**, o centro de tudo
 
-O ponto central aqui não é qual ferramenta você usa, é ter um **workflow bem integrado com IA**: o contexto, por exemplo, virou parte da própria arquitetura do sistema, tema que aparece com mais detalhe em [Context Engineering](/labs/ai/llm/04-context-engineering-e-rag/).
+O ponto central aqui não é qual ferramenta você usa, é ter um **workflow bem integrado com IA**: o contexto, por exemplo, virou parte da própria arquitetura do sistema, tema que aparece com mais detalhe em [Context Engineering](/labs/ai/llm/05-context-engineering-e-rag/).

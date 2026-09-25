@@ -55,7 +55,7 @@ Pense num agente que gera relatórios semanais. A primeira vez ele descobre o pa
 
 Memória de longo prazo é, no fim das contas, um banco de dados que o agente consulta. As opções mais comuns:
 
-- **Vector stores** (como Chroma, Pinecone, pgvector): guardam trechos de texto junto com seus [embeddings](/labs/ai/llm/04-context-engineering-e-rag/) e permitem buscar por similaridade de significado, não por palavra exata. É o formato mais usado para memória episódica.
+- **Vector stores** (como Chroma, Pinecone, pgvector): guardam trechos de texto junto com seus [embeddings](/labs/ai/llm/05-context-engineering-e-rag/) e permitem buscar por similaridade de significado, não por palavra exata. É o formato mais usado para memória episódica.
 - **Bancos de grafo**: guardam entidades (pessoas, lugares, projetos) e as relações entre elas. Servem bem quando o agente precisa conectar informações espalhadas, "quem é o gerente do projeto que o cliente X mencionou".
 - **Tabelas e perfis de usuário**: um registro estruturado simples, chave e valor, para a memória semântica mais direta (preferências, configurações).
 - **Resumos persistidos**: em vez de guardar a conversa inteira, o agente salva um resumo dela e recupera esse resumo na próxima sessão.
@@ -64,7 +64,7 @@ Existem bibliotecas que empacotam tudo isso, como o Mem0, que combina vetores, g
 
 ## Memória e RAG
 
-Se você leu [Context Engineering e RAG](/labs/ai/llm/04-context-engineering-e-rag/), a mecânica aqui é a mesma: buscar informação relevante numa base externa e injetar no prompt antes de gerar a resposta. Memória de longo prazo é, em boa parte, RAG apontado para o histórico do próprio agente em vez de uma base de documentos.
+Se você leu [Context Engineering e RAG](/labs/ai/llm/05-context-engineering-e-rag/), a mecânica aqui é a mesma: buscar informação relevante numa base externa e injetar no prompt antes de gerar a resposta. Memória de longo prazo é, em boa parte, RAG apontado para o histórico do próprio agente em vez de uma base de documentos.
 
 A diferença está no que cada uma resolve. RAG "clássico" traz conhecimento de fora (documentação, artigos, base de produtos). Memória traz o que o próprio agente viveu e aprendeu. Um agente completo usa os dois: RAG para saber sobre o mundo, memória para saber sobre o usuário e sobre si mesmo.
 

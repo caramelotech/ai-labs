@@ -4,7 +4,7 @@
 
 Essa dúvida aparece muito: "vou usar RAG ou um grafo?". Ela começa errada. A pergunta certa é qual problema você está tentando resolver, e cada tipo de problema pede um tipo de busca diferente.
 
-- Se você quer saber **o que os documentos dizem** sobre um assunto, RAG por busca vetorial resolve. É o caso do [RAG clássico](/labs/ai/llm/04-context-engineering-e-rag/): a pergunta vira um vetor, o sistema acha os trechos mais parecidos e joga no prompt.
+- Se você quer saber **o que os documentos dizem** sobre um assunto, RAG por busca vetorial resolve. É o caso do [RAG clássico](/labs/ai/llm/05-context-engineering-e-rag/): a pergunta vira um vetor, o sistema acha os trechos mais parecidos e joga no prompt.
 - Se você quer saber **como as coisas se relacionam**, quais clientes assinaram quais contratos, que produto depende de qual fornecedor, um knowledge graph responde melhor. A informação que interessa não está no texto de um parágrafo, está nas ligações entre as entidades.
 - Se você precisa das duas coisas ao mesmo tempo, existe o GraphRAG, que combina as duas formas de busca.
 
@@ -74,7 +74,7 @@ flowchart TD
 
 Primeiro um LLM lê os documentos e extrai as entidades e as relações, montando o grafo. Esse grafo é agrupado em "comunidades" (conjuntos de nós muito conectados entre si), e cada comunidade ganha um resumo. Na hora da pergunta, o sistema usa tanto a caminhada pelo grafo quanto a busca vetorial tradicional, e ainda pode usar os resumos de comunidade para perguntas de visão geral.
 
-O ganho é responder bem perguntas analíticas e que dependem de conexões, mantendo a proveniência de cada fato usado. Do lado do RAG, esse é o mesmo degrau descrito como Graph RAG em [Arquiteturas de RAG](/labs/ai/llm/05-arquiteturas-de-rag/), só que aqui o foco é o grafo em si, não a escala de arquiteturas de recuperação.
+O ganho é responder bem perguntas analíticas e que dependem de conexões, mantendo a proveniência de cada fato usado. Do lado do RAG, esse é o mesmo degrau descrito como Graph RAG em [Arquiteturas de RAG](/labs/ai/llm/06-arquiteturas-de-rag/), só que aqui o foco é o grafo em si, não a escala de arquiteturas de recuperação.
 
 ## O custo de manter um grafo
 
