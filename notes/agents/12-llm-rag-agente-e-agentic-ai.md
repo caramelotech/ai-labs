@@ -41,7 +41,7 @@ flowchart LR
 
 Ganha-se resposta atualizada e ancorada em fontes que você controla, sem retreinar o modelo. Mas tem uma pegadinha importante: **recuperar não é o mesmo que acertar**. Se a busca traz o trecho errado, desatualizado ou incompleto, o LLM responde com segurança em cima de um material ruim. A qualidade do RAG depende da qualidade da recuperação.
 
-O fluxo do RAG é fixo: sempre busca, sempre gera. Ele não decide sozinho se precisa buscar de novo nem tenta outra estratégia. Os detalhes estão em [Context Engineering e RAG](/labs/ai/llm/05-context-engineering-e-rag/) e [Arquiteturas de RAG](/labs/ai/llm/06-arquiteturas-de-rag/).
+O fluxo do RAG é fixo: sempre busca, sempre gera. Ele não decide sozinho se precisa buscar de novo nem tenta outra estratégia. Os detalhes estão em [Context Engineering e RAG](/labs/ai/llm/06-context-engineering-e-rag/) e [Arquiteturas de RAG](/labs/ai/llm/07-arquiteturas-de-rag/).
 
 ## AI Agent: Decide & Act
 

@@ -16,4 +16,4 @@ As IAs **preveem o próximo token na sequência** baseando-se nos tokens anterio
 
 Termos como "**pensar**", "**cérebro**" e "**neurônio**" são apenas **analogias** para facilitar a compreensão: esses modelos não pensam de verdade, são funções matemáticas complexas que aprendem padrões em grandes conjuntos de dados.
 
-É justamente esse limite de tokens que a IA consegue processar de uma vez que dá origem à **janela de contexto**, tema do próximo tópico, [Context Engineering e RAG](/labs/ai/llm/05-context-engineering-e-rag/).
+É justamente esse limite de tokens que a IA consegue processar de uma vez que dá origem à **janela de contexto**, tema central de [Context Engineering e RAG](/labs/ai/llm/06-context-engineering-e-rag/). Como o modelo transforma esses tokens em texto novo está em [Como uma LLM gera texto](/labs/ai/llm/05-como-uma-llm-gera-texto/).

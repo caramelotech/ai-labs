@@ -11,7 +11,7 @@ Antes de construir qualquer coisa, vale entender o que acontece entre o texto qu
 - Geração de texto: previsão do próximo token, temperatura e amostragem
 - Do modelo base ao assistente de chat (ajuste fino e alinhamento), o caminho que leva a produtos como o ChatGPT
 
-No lab: [O que são LLMs](/labs/ai/llm/01-o-que-sao-llms/), [PLN](/labs/ai/llm/02-pln/), [Tokens em Modelos de Linguagem](/labs/ai/llm/03-tokens/)
+No lab: [O que são LLMs](/labs/ai/llm/01-o-que-sao-llms/), [PLN](/labs/ai/llm/02-pln/), [Tokens em Modelos de Linguagem](/labs/ai/llm/03-tokens/), [Embeddings](/labs/ai/llm/04-embeddings/), [Como uma LLM gera texto](/labs/ai/llm/05-como-uma-llm-gera-texto/)
 
 ## ✍️ 2. Engenharia de prompts
 
@@ -48,7 +48,7 @@ No lab: [Uso de Ferramentas](/labs/ai/agents/03-ferramentas/), [Hands-on: Agente
 - RAG na prática: carregar documentos, dividir em chunks, gerar embeddings, guardar num banco vetorial e recuperar
 - Quando o LangChain compensa e quando o loop escrito na mão basta
 
-No lab: [Frameworks de Agentes](/labs/ai/agents/09-frameworks/), [Context Engineering e RAG](/labs/ai/llm/05-context-engineering-e-rag/), [Arquiteturas de RAG](/labs/ai/llm/06-arquiteturas-de-rag/), [Pipeline de RAG em Produção](/labs/ai/llm/08-pipeline-de-rag-em-producao/)
+No lab: [Frameworks de Agentes](/labs/ai/agents/09-frameworks/), [Context Engineering e RAG](/labs/ai/llm/06-context-engineering-e-rag/), [Arquiteturas de RAG](/labs/ai/llm/07-arquiteturas-de-rag/), [Pipeline de RAG em Produção](/labs/ai/llm/09-pipeline-de-rag-em-producao/)
 
 ## 🤖 6. Agentes de IA em Python
 
