@@ -64,6 +64,48 @@ sequenceDiagram
 
 Essa separação é importante: o modelo só decide _o quê_ chamar, o sistema do agente é quem de fato _executa_ a chamada, valida os dados e devolve o resultado. Esse ciclo segue o mesmo padrão do [ReAct](/labs/ai/agents/02-react/), o modelo raciocina, decide chamar uma ferramenta, o sistema executa essa chamada fora do modelo e devolve o resultado como uma observação para o próximo passo de raciocínio.
 
+## Onde as ferramentas se conectam
+
+Na prática, quase nenhuma ferramenta faz o trabalho sozinha. Ela costuma ser um **envelope** em volta de algo que já existe: a função `buscar_pedido(id_pedido)` que o modelo enxerga por dentro chama uma API, consulta um banco ou fala com outro serviço da empresa. O modelo só vê o nome, a descrição e os parâmetros. O que acontece do outro lado é problema do código da ferramenta.
+
+```mermaid
+flowchart LR
+    M[Modelo] --> S[Sistema do agente]
+    S --> T[Ferramenta]
+    T --> R[API REST]
+    T --> G[GraphQL]
+    T --> P[gRPC]
+    T --> D[(Banco SQL ou NoSQL)]
+```
+
+### APIs REST
+
+É o caso mais comum. Cada endpoint útil vira uma ferramenta: `GET /pedidos/{id}` vira `buscar_pedido`, `POST /pedidos` vira `criar_pedido`. O código da ferramenta monta a requisição HTTP, manda o token de autenticação (que o modelo nunca vê) e devolve a resposta em texto curto. Vale resumir a resposta: despejar um JSON de 300 linhas no contexto do modelo gasta tokens e atrapalha mais do que ajuda.
+
+### GraphQL
+
+No GraphQL o cliente escreve a consulta dizendo exatamente quais campos quer. Isso é flexível, e justamente por isso pede cuidado: se o modelo pudesse escrever qualquer consulta, ele poderia pedir dados demais ou consultas pesadas. O jeito mais seguro é expor ferramentas com consultas prontas (`buscar_cliente(id)`) e deixar o modelo preencher só os parâmetros.
+
+### gRPC
+
+O gRPC é comum em serviços internos, onde o contrato entre os sistemas é definido de forma tipada (em arquivos `.proto`). Como o contrato já diz quais métodos e tipos existem, é fácil transformar cada método em uma ferramenta com schema claro. A ideia é a mesma da API REST: o modelo pede, o sistema do agente chama o serviço.
+
+### Bancos de dados SQL e NoSQL
+
+Consultar um banco é a forma mais direta de tirar o modelo do "acho que lembro" e trazê-lo para dados reais e atuais. Serve tanto para bancos SQL (PostgreSQL, MySQL) quanto NoSQL (MongoDB, Redis): a ferramenta recebe parâmetros, executa a consulta e devolve as linhas ou documentos encontrados.
+
+Só que um banco tem dado sensível e comandos destrutivos, então o acesso precisa de regras:
+
+- **Permissão mínima:** a conta usada pelo agente deve poder só o que a tarefa exige. Se o agente só consulta, a conta é somente leitura. Assim, mesmo que algo dê errado, um `DROP TABLE` simplesmente não funciona
+- **Views autorizadas:** em vez de liberar as tabelas inteiras, exponha views com as colunas e linhas que o agente pode ver
+- **Contas separadas:** se o agente precisa ler e também gravar, use duas contas, uma de leitura e outra de escrita, cada uma com o menor escopo possível
+- **Nada de SQL arbitrário:** evite uma ferramenta genérica tipo `executar_sql(texto)`. Prefira ferramentas específicas (`consultar_pedidos_do_cliente(id)`), em que o modelo só escolhe os parâmetros. Um SQL escrito pelo modelo sofre do mesmo problema de uma injeção de SQL clássica, porque o texto pode ser influenciado por quem conversa com o agente
+- **Backup e logs:** mantenha backup para recuperar dados e registre cada comando executado, para investigar depois
+
+### Dar poder demais ao modelo
+
+Todos esses cuidados vêm da mesma ideia, que o OWASP chama de **Excessive Agency** (agência excessiva): o agente ganha mais ferramentas, permissões ou autonomia do que a tarefa precisa, e qualquer falha (uma alucinação, um prompt malicioso escondido em um documento) vira um estrago real. A regra prática é dar ao agente o mínimo de poder para cumprir o trabalho e validar tudo do lado do sistema, como descrito em [O que faz funcionar](#o-que-faz-funcionar). Para o restante das camadas de proteção, veja [Agentes em Produção](/labs/ai/agents/14-agentes-em-producao/).
+
 ## O que faz funcionar
 
 Alguns pontos separam uma implementação que funciona bem na prática de uma que trava ou erra:
@@ -74,3 +116,9 @@ Alguns pontos separam uma implementação que funciona bem na prática de uma qu
 - Erros devem virar observação em vez de travar o processo, se uma ferramenta falha, devolva isso como texto para o modelo, assim ele pode tentar de novo ou avisar o usuário
 
 Esse mecanismo de descrição de ferramenta mais chamada estruturada é a base sobre a qual protocolos como o [MCP](/labs/ai/agents/06-mcp/) foram construídos para padronizar como agentes descobrem e usam ferramentas.
+
+## Referências
+
+- [Práticas recomendadas para proteger interações de agentes com o Protocolo de Contexto de Modelo](https://docs.cloud.google.com/sql/docs/mysql/secure-agent-interactions-mcp?hl=pt-BR) - Google Cloud, pt-BR
+- [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) - OWASP, en
+- [Function calling](https://developers.openai.com/api/docs/guides/function-calling) - OpenAI, en
