@@ -20,7 +20,7 @@ RAG (Retrieval-Augmented Generation) é a técnica de buscar trechos relevantes 
 
 Serve para três problemas: falta de contexto sobre dados privados, alucinação (o modelo inventa uma resposta plausível) e desatualização (o treinamento tem data de corte). O que RAG não faz é executar ações, ele só recupera informação para o modelo ler.
 
-O fluxo básico e as variações mais elaboradas estão em [Context Engineering e RAG](/labs/ai/llm/06-context-engineering-e-rag/) e [Arquiteturas de RAG](/labs/ai/llm/07-arquiteturas-de-rag/).
+O fluxo básico e as variações mais elaboradas estão em [Context Engineering e RAG](/labs/ai/llm/07-context-engineering-e-rag/) e [Arquiteturas de RAG](/labs/ai/llm/08-arquiteturas-de-rag/).
 
 ## MCP em uma frase
 
@@ -69,7 +69,7 @@ flowchart TD
     A2 -->|sim| RESP[Resposta]
 ```
 
-Quando o próprio agente controla como e quando buscar, em vez de seguir um pipeline fixo de recuperação, o RAG passa a ser chamado de **Agentic RAG**, o degrau mais alto descrito em [Arquiteturas de RAG](/labs/ai/llm/07-arquiteturas-de-rag/).
+Quando o próprio agente controla como e quando buscar, em vez de seguir um pipeline fixo de recuperação, o RAG passa a ser chamado de **Agentic RAG**, o degrau mais alto descrito em [Arquiteturas de RAG](/labs/ai/llm/08-arquiteturas-de-rag/).
 
 ## O que o "vs" esconde
 

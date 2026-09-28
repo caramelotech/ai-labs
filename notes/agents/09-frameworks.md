@@ -40,7 +40,7 @@ SDK leve da OpenAI, sucessor do experimento Swarm. Tem integração direta com o
 
 ### LlamaIndex
 
-Nasceu focado em **indexação e recuperação de dados** e é a escolha comum para agentes que dependem muito de RAG: conectores para várias fontes, indexação vetorial e busca em coleções grandes de documentos privados. Ver [Arquiteturas de RAG](/labs/ai/llm/07-arquiteturas-de-rag/).
+Nasceu focado em **indexação e recuperação de dados** e é a escolha comum para agentes que dependem muito de RAG: conectores para várias fontes, indexação vetorial e busca em coleções grandes de documentos privados. Ver [Arquiteturas de RAG](/labs/ai/llm/08-arquiteturas-de-rag/).
 
 ### smolagents
 

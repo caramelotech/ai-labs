@@ -48,7 +48,7 @@ No lab: [Uso de Ferramentas](/labs/ai/agents/03-ferramentas/), [Hands-on: Agente
 - RAG na prática: carregar documentos, dividir em chunks, gerar embeddings, guardar num banco vetorial e recuperar
 - Quando o LangChain compensa e quando o loop escrito na mão basta
 
-No lab: [Frameworks de Agentes](/labs/ai/agents/09-frameworks/), [Context Engineering e RAG](/labs/ai/llm/06-context-engineering-e-rag/), [Arquiteturas de RAG](/labs/ai/llm/07-arquiteturas-de-rag/), [Pipeline de RAG em Produção](/labs/ai/llm/09-pipeline-de-rag-em-producao/)
+No lab: [Frameworks de Agentes](/labs/ai/agents/09-frameworks/), [Context Engineering e RAG](/labs/ai/llm/07-context-engineering-e-rag/), [Arquiteturas de RAG](/labs/ai/llm/08-arquiteturas-de-rag/), [Pipeline de RAG em Produção](/labs/ai/llm/10-pipeline-de-rag-em-producao/)
 
 ## 🤖 6. Agentes de IA em Python
 

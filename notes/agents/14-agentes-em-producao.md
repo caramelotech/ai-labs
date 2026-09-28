@@ -37,7 +37,7 @@ flowchart TD
     H <--> W[Sistemas externos:<br/>APIs, bancos, arquivos]
 ```
 
-Boa parte dessas peças já tem nota própria no lab: montar e priorizar o contexto está em [Context Engineering e RAG](/labs/ai/llm/06-context-engineering-e-rag/), a memória em [Memória de Agentes](/labs/ai/agents/04-memoria/), a integração padronizada com ferramentas em [Model Context Protocol (MCP)](/labs/ai/agents/06-mcp/) e o formato do ciclo (planejar, agir, observar, refletir) em [Padrões de execução de agentes](/labs/ai/agents/13-padroes-de-execucao/). As seções seguintes desta nota cobrem guardrails, escopo, aprovação humana e observabilidade. O que falta explicar é o que sobra: autenticação, timeouts e retries.
+Boa parte dessas peças já tem nota própria no lab: montar e priorizar o contexto está em [Context Engineering e RAG](/labs/ai/llm/07-context-engineering-e-rag/), a memória em [Memória de Agentes](/labs/ai/agents/04-memoria/), a integração padronizada com ferramentas em [Model Context Protocol (MCP)](/labs/ai/agents/06-mcp/) e o formato do ciclo (planejar, agir, observar, refletir) em [Padrões de execução de agentes](/labs/ai/agents/13-padroes-de-execucao/). As seções seguintes desta nota cobrem guardrails, escopo, aprovação humana e observabilidade. O que falta explicar é o que sobra: autenticação, timeouts e retries.
 
 ### Autenticação e permissões
 

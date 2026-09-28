@@ -29,6 +29,17 @@ Roteamento economiza dinheiro, mas não é de graça: a etapa de classificação
 
 Existem gateways de mercado que já vêm com roteamento pronto entre múltiplos provedores, como o LiteLLM e o OpenRouter, o que evita construir esse classificador do zero.
 
+## LLM Gateway: além do roteamento
+
+O LiteLLM e o OpenRouter citados acima são exemplos de uma peça de infraestrutura maior, o **LLM Gateway**: uma camada colocada entre a aplicação e os provedores de LLM, por onde passa toda chamada de modelo. O roteamento (decidir qual modelo responde) é só uma das funções dessa camada, ao lado de outras que resolvem problemas comuns de produção:
+
+- **API única na frente de vários provedores:** a aplicação chama sempre o mesmo formato de requisição, e o gateway traduz para o formato específico de cada provedor (OpenAI, Anthropic, um modelo aberto self-hosted). Trocar de provedor, ou usar vários ao mesmo tempo, não exige reescrever o código da aplicação.
+- **Fallback e failover:** se o provedor principal responde com erro (rate limit, erro 500, timeout), o gateway tenta de novo com backoff e, se continuar falhando, redireciona a chamada para um provedor alternativo, sem que a aplicação perceba a troca.
+- **Rate limiting e controle de custo:** limites de uso por usuário, time ou aplicação, medidos em tokens (não só em número de requisições), evitando que um único cliente estoure o orçamento ou a cota do provedor.
+- **Observabilidade centralizada:** toda chamada passa por um ponto único, o que facilita logar latência, custo e taxa de erro por modelo e por provedor num só lugar, em vez de instrumentar cada integração separadamente.
+
+Construir um roteamento sofisticado de verdade sem essa camada por baixo é difícil, porque fallback, rate limiting e observabilidade são pré-requisitos para o roteamento funcionar de forma confiável em produção. Times que começam sem gateway costumam sentir a falta na primeira vez que um provedor cai ou muda de preço no meio da operação.
+
 ## Onde o roteamento entra no pipeline
 
 O roteamento acontece depois que o contexto da pergunta já está montado (RAG, histórico de conversa, instruções de sistema) e antes da chamada ao modelo escolhido. Ele é uma peça a mais na arquitetura de produção, ao lado dos guardrails e da observabilidade vistos em [Agentes em Produção](/labs/ai/agents/14-agentes-em-producao/).
@@ -36,3 +47,4 @@ O roteamento acontece depois que o contexto da pergunta já está montado (RAG, 
 ## Referências
 
 - [LLM Routing - Orquestrando Modelos de Linguagem Para Eficiência e Escala](https://blog.dsacademy.com.br/llm-routing-orquestrando-modelos-de-linguagem-para-eficiencia-e-escala/) - Data Science Academy, pt-BR
+- [What Is an LLM Gateway and How Does It Work?](https://www.truefoundry.com/blog/llm-gateway) - TrueFoundry, en

@@ -64,7 +64,7 @@ Existem bibliotecas que empacotam tudo isso, como o Mem0, que combina vetores, g
 
 ## Memória e RAG
 
-Se você leu [Context Engineering e RAG](/labs/ai/llm/06-context-engineering-e-rag/), a mecânica aqui é a mesma: buscar informação relevante numa base externa e injetar no prompt antes de gerar a resposta. Memória de longo prazo é, em boa parte, RAG apontado para o histórico do próprio agente em vez de uma base de documentos.
+Se você leu [Context Engineering e RAG](/labs/ai/llm/07-context-engineering-e-rag/), a mecânica aqui é a mesma: buscar informação relevante numa base externa e injetar no prompt antes de gerar a resposta. Memória de longo prazo é, em boa parte, RAG apontado para o histórico do próprio agente em vez de uma base de documentos.
 
 A diferença está no que cada uma resolve. RAG "clássico" traz conhecimento de fora (documentação, artigos, base de produtos). Memória traz o que o próprio agente viveu e aprendeu. Um agente completo usa os dois: RAG para saber sobre o mundo, memória para saber sobre o usuário e sobre si mesmo.
 

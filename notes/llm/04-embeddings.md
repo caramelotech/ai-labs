@@ -4,7 +4,7 @@
 
 Um **embedding** é a representação numérica de um texto: uma lista de números (um vetor) que captura o _significado_ daquele texto, não as palavras exatas que ele usa.
 
-Isso já apareceu sem explicação em duas notas anteriores. Em [Context Engineering e RAG](/labs/ai/llm/06-context-engineering-e-rag/), a busca por significado depende de comparar o embedding da pergunta com o embedding de cada documento. Em [Pipeline de RAG em Produção](/labs/ai/llm/09-pipeline-de-rag-em-producao/), cada chunk vira um embedding antes de entrar no índice. Esta nota fecha essa lacuna: o que é esse vetor e por que ele funciona.
+Isso já apareceu sem explicação em duas notas anteriores. Em [Context Engineering e RAG](/labs/ai/llm/07-context-engineering-e-rag/), a busca por significado depende de comparar o embedding da pergunta com o embedding de cada documento. Em [Pipeline de RAG em Produção](/labs/ai/llm/10-pipeline-de-rag-em-producao/), cada chunk vira um embedding antes de entrar no índice. Esta nota fecha essa lacuna: o que é esse vetor e por que ele funciona.
 
 A propriedade central é: textos com significado parecido ficam com vetores próximos no espaço vetorial, mesmo usando palavras completamente diferentes. "Comprar um carro usado" e "adquirir um veículo seminovo" viram vetores vizinhos, porque falam da mesma coisa. Uma busca por palavra-chave tradicional (BM25, o mesmo tipo de algoritmo usado por buscadores de site) não pegaria essa relação, já que nenhuma palavra se repete entre as duas frases.
 
@@ -35,7 +35,7 @@ flowchart LR
     S --> R["Score alto: os dois falam da mesma coisa"]
 ```
 
-É exatamente essa comparação que uma busca vetorial faz por baixo dos panos: gera o embedding da pergunta, calcula a similaridade dela contra o embedding de cada documento indexado, e devolve os documentos com maior score. Ver [Arquiteturas de RAG](/labs/ai/llm/07-arquiteturas-de-rag/) para como isso se combina com busca por palavra-chave num pipeline real.
+É exatamente essa comparação que uma busca vetorial faz por baixo dos panos: gera o embedding da pergunta, calcula a similaridade dela contra o embedding de cada documento indexado, e devolve os documentos com maior score. Ver [Arquiteturas de RAG](/labs/ai/llm/08-arquiteturas-de-rag/) para como isso se combina com busca por palavra-chave num pipeline real.
 
 ## Referências
 

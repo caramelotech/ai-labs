@@ -4,7 +4,7 @@
 
 **Fine-tuning** (ajuste fino) é pegar um modelo já treinado e continuar o treinamento dele com um conjunto de dados menor e específico, em vez de treinar um modelo do zero. O modelo sai do processo sabendo tudo que já sabia antes, mais um comportamento novo que os dados de ajuste ensinaram.
 
-A diferença para o [RAG](/labs/ai/llm/06-context-engineering-e-rag/) importa: RAG dá **conhecimento** novo ao modelo, buscando informação externa e colocando no prompt, sem mudar um parâmetro sequer do modelo. Fine-tuning muda o **comportamento** do modelo, de forma permanente, treinando os pesos dele de novo.
+A diferença para o [RAG](/labs/ai/llm/07-context-engineering-e-rag/) importa: RAG dá **conhecimento** novo ao modelo, buscando informação externa e colocando no prompt, sem mudar um parâmetro sequer do modelo. Fine-tuning muda o **comportamento** do modelo, de forma permanente, treinando os pesos dele de novo.
 
 ## Fine-tuning ou RAG: qual usar
 
@@ -35,7 +35,29 @@ Na prática, LoRA (ou variações como QLoRA) é o padrão para a maioria dos ti
 
 **Instruction tuning** é um tipo específico de fine-tuning: o modelo treina com pares de (instrução, resposta esperada), aprendendo a seguir comandos em vez de só completar texto. É esse processo, aplicado sobre um modelo base, que dá origem a um assistente de chat como o ChatGPT.
 
+## Alignment: RLHF e DPO
+
+Instruction tuning ensina o modelo a seguir o formato de instrução e resposta, mas não ensina qual resposta é a **melhor** entre várias que seguem esse formato corretamente. Duas respostas podem estar ambas gramaticalmente corretas e no formato certo, e ainda assim uma ser mais útil, mais segura ou mais alinhada ao que a pessoa realmente queria. Fechar essa lacuna é o papel do **alignment** (alinhamento): ajustar o modelo para preferir as respostas que humanos de fato preferem.
+
+O método que popularizou essa etapa foi o **RLHF** (Reinforcement Learning from Human Feedback), usado pela OpenAI no InstructGPT e depois no ChatGPT. Ele roda em três etapas, sobre um modelo que já passou por instruction tuning:
+
+```mermaid
+flowchart LR
+    A[Modelo com<br/>instruction tuning] --> B[1. Coletar pares de resposta<br/>e ranking humano]
+    B --> C[2. Treinar um<br/>reward model]
+    C --> D[3. Ajustar o modelo<br/>com RL, PPO, usando<br/>o reward model como nota]
+```
+
+1. **Coleta de preferências:** o modelo gera várias respostas para a mesma pergunta, e pessoas rankeiam qual é melhor.
+2. **Reward model:** esse ranking treina um segundo modelo, cujo único trabalho é prever, dada uma resposta, que nota um humano daria a ela.
+3. **Reinforcement learning:** o modelo original é ajustado para maximizar a nota do reward model, geralmente usando o algoritmo **PPO** (Proximal Policy Optimization). Na prática, o modelo "aprende" a gerar respostas que o reward model pontua bem, que por sua vez foi treinado para imitar a preferência humana.
+
+RLHF funciona, mas é caro e instável: treinar e manter um reward model separado, mais um loop de reinforcement learning por cima, consome bastante infraestrutura e pede ajuste fino de hiperparâmetros para não degradar a qualidade do modelo.
+
+Por isso ganhou força o **DPO** (Direct Preference Optimization), que chega num resultado parecido sem precisar de reward model nem de RL. O DPO usa os mesmos pares de resposta (uma preferida, uma rejeitada) e ajusta os pesos do modelo diretamente, com uma função de perda que aumenta a probabilidade da resposta preferida e reduz a da rejeitada. É mais simples de implementar e mais estável de treinar, e por isso virou a escolha de modelos abertos recentes como o Llama 3.
+
 ## Referências
 
 - [O que é Fine-Tuning (ajuste fino)](https://www.dio.me/articles/o-que-e-finetuning-ajuste-fino-546bb90ad96b) - Sergio Santos, DIO, pt-BR
 - [Fine-tuning guide](https://platform.openai.com/docs/guides/fine-tuning) - OpenAI, en
+- [A Survey of Large Language Models](https://arxiv.org/abs/2303.18223) - Zhao et al., en, seção sobre RLHF e alignment

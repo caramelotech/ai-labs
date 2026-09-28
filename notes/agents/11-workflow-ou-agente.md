@@ -60,7 +60,7 @@ Boas candidatas a **workflow**:
 
 - Processamento de documentos
 - ETL e pipelines de dados
-- RAG estruturado, com as etapas fixas de buscar, montar contexto e responder (ver [Arquiteturas de RAG](/labs/ai/llm/07-arquiteturas-de-rag/))
+- RAG estruturado, com as etapas fixas de buscar, montar contexto e responder (ver [Arquiteturas de RAG](/labs/ai/llm/08-arquiteturas-de-rag/))
 - Fluxos de aprovação
 - Processos de negócio repetíveis
 

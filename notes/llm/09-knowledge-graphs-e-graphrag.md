@@ -4,7 +4,7 @@
 
 Essa dúvida aparece muito: "vou usar RAG ou um grafo?". Ela começa errada. A pergunta certa é qual problema você está tentando resolver, e cada tipo de problema pede um tipo de busca diferente.
 
-- Se você quer saber **o que os documentos dizem** sobre um assunto, RAG por busca vetorial resolve. É o caso do [RAG clássico](/labs/ai/llm/06-context-engineering-e-rag/): a pergunta vira um vetor, o sistema acha os trechos mais parecidos e joga no prompt.
+- Se você quer saber **o que os documentos dizem** sobre um assunto, RAG por busca vetorial resolve. É o caso do [RAG clássico](/labs/ai/llm/07-context-engineering-e-rag/): a pergunta vira um vetor, o sistema acha os trechos mais parecidos e joga no prompt.
 - Se você quer saber **como as coisas se relacionam**, quais clientes assinaram quais contratos, que produto depende de qual fornecedor, um knowledge graph responde melhor. A informação que interessa não está no texto de um parágrafo, está nas ligações entre as entidades.
 - Se você precisa das duas coisas ao mesmo tempo, existe o GraphRAG, que combina as duas formas de busca.
 
@@ -38,6 +38,32 @@ flowchart LR
 O ponto forte desse formato é que tanto uma pessoa quanto um programa conseguem "andar" pelas ligações e tirar conclusões que não estavam escritas em lugar nenhum. Ninguém registrou "o Parceiro Sul tem relação com o Produto Básico", mas dá para chegar nisso seguindo o caminho Acme, Contrato 42, Produto Básico e Parceiro Sul.
 
 Grafos de conhecimento não nasceram com a IA generativa. Motores de busca, sistemas de recomendação, antifraude e integração de dados de sistemas diferentes já usam esse modelo há anos.
+
+## Ontologia: o esquema por trás do grafo
+
+Antes de povoar um grafo, alguém precisa decidir quais tipos de entidade existem, quais tipos de relação são válidos entre eles e quais regras valem. Essa camada de esquema é a **ontologia**.
+
+No exemplo anterior, a tripla `(Cliente Acme) --assinou--> (Contrato 42)` é um fato concreto, uma instância. A ontologia é o que define, antes de qualquer fato existir, que `Cliente` e `Contrato` são tipos válidos de entidade e que `assinou` é uma relação válida entre um `Cliente` e um `Contrato`, não entre um `Contrato` e uma `Região`, por exemplo.
+
+### Schema vs. instância
+
+- **Ontologia (o schema)**: os tipos de nó (`Cliente`, `Contrato`, `Produto`, `Parceiro`), os tipos de relação permitidos entre eles (`assinou`, `cobre`, `vendido por`) e restrições, como "um contrato só pode ser assinado por um cliente".
+- **Grafo de instâncias (os dados)**: os nós e arestas concretos que seguem esse esquema, como o Cliente Acme e o Contrato 42 do exemplo.
+
+É a mesma relação que existe entre uma tabela de banco relacional (o schema, com colunas e tipos) e as linhas dessa tabela (as instâncias). A diferença é que, num grafo, o schema também descreve os tipos de ligação válidos, não só os tipos de entidade.
+
+### Por que definir a ontologia antes de popular o grafo
+
+Sem uma ontologia definida, a extração de entidades e relações (feita por LLM ou por modelos de NLP, como visto na seção sobre GraphRAG) tende a criar inconsistência: o mesmo tipo de entidade aparece nomeado de formas diferentes em partes distintas do grafo, relações que não fazem sentido no domínio são criadas, e nós que deveriam representar o mesmo objeto acabam duplicados. A ontologia funciona como um contrato: define o vocabulário e as regras válidas antes dos dados chegarem, e tanto o processo de extração quanto as consultas ao grafo passam a trabalhar com os mesmos tipos.
+
+### Padrões usados para descrever ontologias
+
+Dois padrões da W3C aparecem com frequência quando o assunto é formalizar uma ontologia, os dois construídos em cima do RDF (o mesmo modelo de triplas visto no início desta nota):
+
+- **RDF Schema (RDFS)**: um vocabulário básico para descrever classes de entidade e propriedades. Cobre relações simples, como "todo `Cliente` é um tipo de `Pessoa`".
+- **OWL (Web Ontology Language)**: construído em cima do RDF/RDFS, mas bem mais expressivo. Permite descrever restrições de cardinalidade ("um contrato tem exatamente um cliente titular"), classes disjuntas ("um `Cliente` nunca pode também ser um `Parceiro`") e outras regras que dão à ontologia poder de inferência lógica, não só de organização de vocabulário.
+
+Na prática, a maioria dos projetos de knowledge graph corporativo não chega a implementar uma ontologia formal em OWL. A modelagem costuma ficar num nível mais simples, próximo do RDFS ou até de um dicionário de tipos documentado à parte, o que já resolve a maior parte dos problemas de consistência. O ganho de OWL aparece quando o domínio precisa mesmo de inferência automática sobre regras complexas.
 
 ## O que muda em relação ao RAG vetorial
 
@@ -74,7 +100,7 @@ flowchart TD
 
 Primeiro um LLM lê os documentos e extrai as entidades e as relações, montando o grafo. Esse grafo é agrupado em "comunidades" (conjuntos de nós muito conectados entre si), e cada comunidade ganha um resumo. Na hora da pergunta, o sistema usa tanto a caminhada pelo grafo quanto a busca vetorial tradicional, e ainda pode usar os resumos de comunidade para perguntas de visão geral.
 
-O ganho é responder bem perguntas analíticas e que dependem de conexões, mantendo a proveniência de cada fato usado. Do lado do RAG, esse é o mesmo degrau descrito como Graph RAG em [Arquiteturas de RAG](/labs/ai/llm/07-arquiteturas-de-rag/), só que aqui o foco é o grafo em si, não a escala de arquiteturas de recuperação.
+O ganho é responder bem perguntas analíticas e que dependem de conexões, mantendo a proveniência de cada fato usado. Do lado do RAG, esse é o mesmo degrau descrito como Graph RAG em [Arquiteturas de RAG](/labs/ai/llm/08-arquiteturas-de-rag/), só que aqui o foco é o grafo em si, não a escala de arquiteturas de recuperação.
 
 ## O custo de manter um grafo
 
@@ -103,3 +129,5 @@ A ideia por trás disso é que IA corporativa não é só encontrar respostas, �
 - [Criar uma base de conhecimento com gráficos do Amazon Neptune](https://docs.aws.amazon.com/pt_br/bedrock/latest/userguide/knowledge-base-build-graphs.html) - AWS (documentação oficial), pt-BR
 - [Project GraphRAG](https://www.microsoft.com/en-us/research/project/graphrag/) - Microsoft Research, en
 - [GraphRAG: Unlocking LLM discovery on narrative private data](https://www.microsoft.com/en-us/research/blog/graphrag-unlocking-llm-discovery-on-narrative-private-data/) - Microsoft Research, en
+- [Ontologia (ciência da computação)](https://pt.wikipedia.org/wiki/Ontologia_(ci%C3%AAncia_da_computa%C3%A7%C3%A3o)) - Wikipédia, pt-BR
+- [RDF Schema 1.1](https://www.w3.org/TR/rdf-schema/) - W3C (documentação oficial), en

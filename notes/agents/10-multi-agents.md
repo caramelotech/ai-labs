@@ -115,7 +115,7 @@ Pensando nos agentes como o **runtime** dos sistemas modernos com IA, onde promp
 
 - Comece com desenvolvimento assistido, é o modelo mais simples e controlado
 - Evolua para agentes em paralelo conforme a confiança e a maturidade do processo aumentam
-- Use RAG para manter o contexto de cada agente atualizado, veja [RAG](/labs/ai/llm/06-context-engineering-e-rag/)
+- Use RAG para manter o contexto de cada agente atualizado, veja [RAG](/labs/ai/llm/07-context-engineering-e-rag/)
 - Versione prompts como versiona código
 - Use Git Worktree (ou equivalente) para garantir isolamento real entre agentes rodando em paralelo
 

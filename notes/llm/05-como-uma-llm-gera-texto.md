@@ -20,7 +20,7 @@ flowchart LR
 
 A seta pontilhada é importante: o token escolhido é anexado ao texto e o processo roda de novo para gerar o token seguinte. É por isso que a resposta aparece "digitando" aos poucos.
 
-Saber disso muda a forma de pensar em prompts e contexto. Cada palavra que você coloca na entrada participa do cálculo que decide o próximo token, então informação irrelevante não fica "de lado": ela compete por atenção com a informação útil. Essa ideia reaparece em [Context Engineering](/labs/ai/llm/06-context-engineering-e-rag/).
+Saber disso muda a forma de pensar em prompts e contexto. Cada palavra que você coloca na entrada participa do cálculo que decide o próximo token, então informação irrelevante não fica "de lado": ela compete por atenção com a informação útil. Essa ideia reaparece em [Context Engineering](/labs/ai/llm/07-context-engineering-e-rag/).
 
 ## Do texto aos embeddings
 
@@ -57,9 +57,23 @@ Attention(Q, K, V) = softmax(Q · Kᵀ / √d_k) · V
 
 O `√d_k` só mantém os números numa escala razoável. Nos modelos que geram texto, existe ainda uma **máscara causal**: cada token só enxerga os anteriores, nunca os que ainda não foram gerados.
 
+### Várias cabeças de atenção ao mesmo tempo
+
+Rodar o cálculo de atenção uma vez só limita o que o modelo consegue captar: uma única passada tende a convergir para um tipo de relação (por exemplo, só concordância entre sujeito e verbo). A solução do Transformer é a **multi-head attention** (atenção com várias cabeças): em vez de calcular a atenção uma vez com o embedding inteiro, ele divide o embedding em `N` fatias menores e roda o mesmo cálculo de Q, K e V em paralelo, uma vez por fatia. Cada uma dessas execuções é uma **cabeça de atenção**.
+
+Com embeddings de 512 dimensões e 8 cabeças, por exemplo, cada cabeça trabalha com uma fatia de 64 dimensões. Como cada cabeça treina seus próprios pesos, cada uma acaba se especializando num tipo de relação diferente, uma pode aprender a ligar pronomes ao substantivo que referenciam, outra pode focar em concordância verbal, outra em proximidade sintática. No fim, os resultados de todas as cabeças são concatenados de volta num vetor do tamanho original, e é esse vetor que segue para a próxima camada do Transformer.
+
+### Como o modelo sabe a ordem dos tokens
+
+Existe um problema com o cálculo de atenção descrito até aqui: ele compara cada token com todos os outros, mas não usa a posição de nenhum deles. Se você embaralhasse a ordem das palavras de uma frase, a conta de `Q · Kᵀ` daria o mesmo resultado, só que ordem importa muito para o sentido ("o cachorro mordeu o carteiro" não é "o carteiro mordeu o cachorro"). Por isso o Transformer soma informação de posição ao embedding de cada token antes dele entrar nas camadas de atenção, um passo chamado **positional encoding**.
+
+O artigo original de 2017 resolvia isso com um **encoding senoidal**: cada posição recebe um vetor calculado com funções seno e cosseno em frequências diferentes, sem nenhum parâmetro treinado. Duas posições próximas geram vetores parecidos, e o padrão se repete de forma previsível conforme a sequência cresce.
+
+A maioria dos modelos atuais (Llama, entre outros) usa uma técnica mais recente chamada **RoPE** (Rotary Position Embeddings, proposta por Su et al. em 2021). Em vez de somar um vetor de posição ao embedding, o RoPE **rotaciona** os vetores de query e key por um ângulo que depende da posição do token. A vantagem prática: o produto entre uma query e uma key passa a depender só da **distância relativa** entre os dois tokens, não da posição absoluta de cada um. Isso ajuda o modelo a generalizar para textos mais longos do que ele viu no treino, um dos motivos por trás do aumento das janelas de contexto nos últimos anos.
+
 ### Por que o custo cresce com o contexto
 
-Cada token é comparado com todos os anteriores. Dobrar o tamanho do contexto faz o número de comparações crescer perto de quatro vezes (crescimento quadrático). Existem otimizações que reduzem esse custo, mas a intuição permanece: contexto maior é mais caro e lento, e a atenção precisa ser repartida entre mais tokens. Isso se conecta ao problema de qualidade discutido em [Context Engineering](/labs/ai/llm/06-context-engineering-e-rag/).
+Cada token é comparado com todos os anteriores. Dobrar o tamanho do contexto faz o número de comparações crescer perto de quatro vezes (crescimento quadrático). Existem otimizações que reduzem esse custo, mas a intuição permanece: contexto maior é mais caro e lento, e a atenção precisa ser repartida entre mais tokens. Isso se conecta ao problema de qualidade discutido em [Context Engineering](/labs/ai/llm/07-context-engineering-e-rag/).
 
 ## Logits e softmax
 
@@ -109,3 +123,4 @@ Alguns provedores restringem ou ignoram esses parâmetros em certos modelos, ent
 - [Transformer Explainer](https://poloclub.github.io/transformer-explainer/) - Georgia Tech (Polo Club), en. Ferramenta interativa que mostra tokenização, atenção, logits e temperatura num GPT-2 rodando no navegador.
 - [Transformer Explainer: Learning LLM Transformers with Interactive Visual Explanation and Experimentation](https://arxiv.org/pdf/2408.04619) - Cho et al., en
 - [Attention Is All You Need](https://arxiv.org/abs/1706.03762) - Vaswani et al., en
+- [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/abs/2104.09864) - Su et al., en
