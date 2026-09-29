@@ -58,7 +58,7 @@ No lab: [Frameworks de Agentes](/labs/ai/agents/09-frameworks/), [Context Engine
 - Agentes com LangChain, que hoje rodam sobre o LangGraph por baixo dos panos
 - Workflow ou agente: quando cada um faz sentido
 
-No lab: [O que são agentes de IA](/labs/ai/agents/01-o-que-e/), [Paradigma ReAct](/labs/ai/agents/02-react/), [Memória de Agentes](/labs/ai/agents/04-memoria/), [Workflow ou Agente?](/labs/ai/agents/11-workflow-ou-agente/), [LLM, RAG, Agente e Agentic AI](/labs/ai/agents/12-llm-rag-agente-e-agentic-ai/), [Padrões de execução de agentes](/labs/ai/agents/13-padroes-de-execucao/)
+No lab: [O que são agentes de IA](/labs/ai/agents/01-o-que-e/), [Paradigma ReAct](/labs/ai/agents/02-react/), [Memória de Agentes](/labs/ai/agents/04-memoria/), [Workflow ou Agente?](/labs/ai/agents/11-workflow-ou-agente/), [LLM, RAG, Agente e Agentic AI](/labs/ai/agents/12-llm-rag-agente-e-agentic-ai/), [Decomposição de Tarefas](/labs/ai/agents/13-decomposicao-de-tarefas/), [Padrões de execução de agentes](/labs/ai/agents/14-padroes-de-execucao/)
 
 ## 🧩 7. MCP: conectando a IA a ferramentas e dados
 
@@ -75,7 +75,7 @@ No lab: [Model Context Protocol (MCP)](/labs/ai/agents/06-mcp/), [MCP, RAG e Age
 - Agno: framework Python para agentes com ferramentas, memória, base de conhecimento e times
 - Deploy: colocar um agente ou uma crew no ar, com variáveis de ambiente, observabilidade e custo sob controle
 
-No lab: [Sistemas Multi-Agentes](/labs/ai/agents/10-multi-agents/), [Frameworks de Agentes](/labs/ai/agents/09-frameworks/), [Agentes em Produção](/labs/ai/agents/14-agentes-em-producao/)
+No lab: [Sistemas Multi-Agentes](/labs/ai/agents/10-multi-agents/), [Frameworks de Agentes](/labs/ai/agents/09-frameworks/), [Agentes em Produção](/labs/ai/agents/15-agentes-em-producao/)
 
 ## ⌨️ 9. IDE com IA para programar mais rápido
 

@@ -90,7 +90,7 @@ flowchart TD
 
 É o formato certo para fluxo de alto risco: pagamento, compliance, autorização, aplicação de política. O exemplo clássico é "só processe o pagamento se o usuário tem permissão, o valor está dentro do limite e o beneficiário é válido", com cada uma dessas condições checada por código, não pelo modelo.
 
-Isso se parece com o guardrail de saída visto em [Agentes em Produção](/labs/ai/agents/14-agentes-em-producao/), mas aqui é um passo nomeado do fluxo, desenhado para barrar a ação.
+Isso se parece com o guardrail de saída visto em [Agentes em Produção](/labs/ai/agents/15-agentes-em-producao/), mas aqui é um passo nomeado do fluxo, desenhado para barrar a ação.
 
 ### O que a verificação precisa para valer de verdade
 

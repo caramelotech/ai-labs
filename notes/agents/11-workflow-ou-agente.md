@@ -86,13 +86,13 @@ Workflow não quer dizer "uma chamada de LLM atrás da outra em linha reta". Exi
 
 O ponto em comum: em todos eles, é o seu código que decide o que acontece depois, não o modelo.
 
-Esses padrões olham para como você compõe as chamadas de LLM. Uma outra forma de organizar o assunto é pela forma do loop de execução do agente, do mais simples (uma chamada só) ao mais controlado (com uma etapa de verificação antes de agir), o tema de [Padrões de execução de agentes](/labs/ai/agents/13-padroes-de-execucao/).
+Esses padrões olham para como você compõe as chamadas de LLM. Uma outra forma de organizar o assunto é pela forma do loop de execução do agente, do mais simples (uma chamada só) ao mais controlado (com uma etapa de verificação antes de agir), o tema de [Padrões de execução de agentes](/labs/ai/agents/14-padroes-de-execucao/). Antes disso, porém, vem uma pergunta ainda mais básica: como quebrar a tarefa em etapas para começar, o assunto de [Decomposição de Tarefas](/labs/ai/agents/13-decomposicao-de-tarefas/).
 
 ## O que não muda
 
 Escolher workflow ou agente é decisão de arquitetura, mas as duas rodam sobre a mesma base quando vão para produção: permissões de ferramenta bem restritas, aprovação humana nas ações de risco, observabilidade, avaliação automatizada, estado durável com caminho de recuperação e controles de segurança.
 
-Esse é o assunto de [Agentes em Produção](/labs/ai/agents/14-agentes-em-producao/), e vale tanto para um workflow simples quanto para o agente mais autônomo.
+Esse é o assunto de [Agentes em Produção](/labs/ai/agents/15-agentes-em-producao/), e vale tanto para um workflow simples quanto para o agente mais autônomo.
 
 ## Referências
 

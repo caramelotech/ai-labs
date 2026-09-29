@@ -137,7 +137,7 @@ Cada degrau dá mais poder ao sistema, e poder mal controlado vira problema. Qua
 
 A ideia de **Zero Trust** (nunca confiar por padrão, sempre verificar) se aplica bem aqui: cada chamada de ferramenta é autenticada e autorizada individualmente, e a saída de um agente não é tratada como confiável só porque veio de "dentro" do sistema. Em sistemas com vários agentes isso pesa ainda mais, porque um agente comprometido pode contaminar os outros através do estado compartilhado.
 
-Os controles em prática estão em [Agentes em Produção](/labs/ai/agents/14-agentes-em-producao/).
+Os controles em prática estão em [Agentes em Produção](/labs/ai/agents/15-agentes-em-producao/).
 
 ## Referências
 

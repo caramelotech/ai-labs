@@ -37,7 +37,7 @@ flowchart TD
     H <--> W[Sistemas externos:<br/>APIs, bancos, arquivos]
 ```
 
-Boa parte dessas peças já tem nota própria no lab: montar e priorizar o contexto está em [Context Engineering e RAG](/labs/ai/llm/07-context-engineering-e-rag/), a memória em [Memória de Agentes](/labs/ai/agents/04-memoria/), a integração padronizada com ferramentas em [Model Context Protocol (MCP)](/labs/ai/agents/06-mcp/) e o formato do ciclo (planejar, agir, observar, refletir) em [Padrões de execução de agentes](/labs/ai/agents/13-padroes-de-execucao/). As seções seguintes desta nota cobrem guardrails, escopo, aprovação humana e observabilidade. O que falta explicar é o que sobra: autenticação, timeouts e retries.
+Boa parte dessas peças já tem nota própria no lab: montar e priorizar o contexto está em [Context Engineering e RAG](/labs/ai/llm/07-context-engineering-e-rag/), a memória em [Memória de Agentes](/labs/ai/agents/04-memoria/), a integração padronizada com ferramentas em [Model Context Protocol (MCP)](/labs/ai/agents/06-mcp/) e o formato do ciclo (planejar, agir, observar, refletir) em [Padrões de execução de agentes](/labs/ai/agents/14-padroes-de-execucao/). As seções seguintes desta nota cobrem guardrails, escopo, aprovação humana e observabilidade. O que falta explicar é o que sobra: autenticação, timeouts e retries.
 
 ### Autenticação e permissões
 
@@ -129,6 +129,26 @@ Dois tipos de checagem se complementam:
 - **LLM-as-judge:** um outro LLM, geralmente menor e mais rápido, recebe a resposta do agente e dá uma nota de qualidade (por exemplo, numa escala de 1 a 5) comparando com o resultado esperado. Cobre casos que uma regra fixa não alcança, como "essa resposta soa natural?", ao custo de ser mais lenta e ter sua própria margem de erro.
 
 Na prática, os evals rodam contra um **dataset dourado**: um conjunto de perguntas representativas (o ideal é começar com pelo menos umas 100), incluindo os casos de borda que já quebraram o agente antes. Toda vez que o prompt muda ou o modelo é trocado, essa suíte roda de novo como teste de regressão, dentro do pipeline de CI/CD, antes de a mudança ir para produção. Quando um caso falha, categorizar o tipo de erro (formatação, alucinação, lógica) ajuda a mirar a correção em vez de ajustar o prompt no escuro.
+
+### Avaliação end-to-end vs. por componente
+
+Rodar o eval contra a resposta final do agente (**end-to-end**) diz se o sistema como um todo está indo bem, mas não diz onde ele está falhando quando o resultado sai ruim. Um agente com vários passos (buscar, filtrar, sintetizar, formatar) pode errar em qualquer um deles e o sintoma só aparece no fim.
+
+```mermaid
+flowchart LR
+    subgraph E["Avaliação end-to-end"]
+        direction LR
+        I1[Input] --> W1[Workflow completo] --> O1[Output avaliado]
+    end
+    subgraph C["Avaliação por componente"]
+        direction LR
+        I2[Input] --> P1[Etapa 1] --> P2[Etapa 2<br/>avaliada aqui] --> P3[Etapa 3] --> O2[Output]
+    end
+```
+
+A **avaliação por componente** mede uma etapa isolada do pipeline, com seu próprio critério: a busca trouxe os documentos certos? A extração pegou o campo certo? O passo de formatação gerou um JSON válido? Isso já aparece na prática em [Pipeline de RAG em Produção](/labs/ai/llm/10-pipeline-de-rag-em-producao/), onde a qualidade da recuperação é medida separada da qualidade da resposta final, exatamente para saber se um problema é de busca ou de geração antes de sair ajustando prompt no escuro.
+
+As duas visões se complementam: o eval end-to-end é o que importa para o usuário e para acompanhar a saúde geral do sistema; o eval por componente é o que aponta qual etapa corrigir quando o end-to-end piora. Um sistema maduro roda os dois, não só um.
 
 ### Versionamento
 

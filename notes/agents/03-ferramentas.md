@@ -104,7 +104,7 @@ Só que um banco tem dado sensível e comandos destrutivos, então o acesso prec
 
 ### Dar poder demais ao modelo
 
-Todos esses cuidados vêm da mesma ideia, que o OWASP chama de **Excessive Agency** (agência excessiva): o agente ganha mais ferramentas, permissões ou autonomia do que a tarefa precisa, e qualquer falha (uma alucinação, um prompt malicioso escondido em um documento) vira um estrago real. A regra prática é dar ao agente o mínimo de poder para cumprir o trabalho e validar tudo do lado do sistema, como descrito em [O que faz funcionar](#o-que-faz-funcionar). Para o restante das camadas de proteção, veja [Agentes em Produção](/labs/ai/agents/14-agentes-em-producao/).
+Todos esses cuidados vêm da mesma ideia, que o OWASP chama de **Excessive Agency** (agência excessiva): o agente ganha mais ferramentas, permissões ou autonomia do que a tarefa precisa, e qualquer falha (uma alucinação, um prompt malicioso escondido em um documento) vira um estrago real. A regra prática é dar ao agente o mínimo de poder para cumprir o trabalho e validar tudo do lado do sistema, como descrito em [O que faz funcionar](#o-que-faz-funcionar). Para o restante das camadas de proteção, veja [Agentes em Produção](/labs/ai/agents/15-agentes-em-producao/).
 
 ## O que faz funcionar
 
