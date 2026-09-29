@@ -55,6 +55,14 @@
    - **Duração:** 7 lições
    - **Descrição:** Abordagem top-down para aprender DL de forma prática.
 
+## 📚 Livros
+
+1. **AI Engineering: Building Applications with Foundation Models** - Chip Huyen
+   - **Nível:** Intermediário/Avançado
+   - **Idioma:** Inglês
+   - **Link:** [O'Reilly](https://www.oreilly.com/library/view/ai-engineering/9781098166298/) | [Resumo dos capítulos (grátis)](https://github.com/chiphuyen/aie-book/blob/main/chapter-summaries.md)
+   - **Descrição:** Referência completa sobre construir aplicações em cima de foundation models: avaliação, prompt engineering, RAG e agentes, fine-tuning, engenharia de datasets, otimização de inferência e arquitetura de aplicações de IA em produção.
+
 ## 🎥 Canais do YouTube
 
 ### Em Português

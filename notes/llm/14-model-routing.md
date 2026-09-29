@@ -42,7 +42,7 @@ Construir um roteamento sofisticado de verdade sem essa camada por baixo é dif�
 
 ## Onde o roteamento entra no pipeline
 
-O roteamento acontece depois que o contexto da pergunta já está montado (RAG, histórico de conversa, instruções de sistema) e antes da chamada ao modelo escolhido. Ele é uma peça a mais na arquitetura de produção, ao lado dos guardrails e da observabilidade vistos em [Agentes em Produção](/labs/ai/agents/14-agentes-em-producao/).
+O roteamento acontece depois que o contexto da pergunta já está montado (RAG, histórico de conversa, instruções de sistema) e antes da chamada ao modelo escolhido. Ele é uma peça a mais na arquitetura de produção, ao lado dos guardrails e da observabilidade vistos em [Agentes em Produção](/labs/ai/agents/15-agentes-em-producao/).
 
 ## Referências
 

@@ -67,7 +67,7 @@ O método tem limitações conhecidas: o juiz tende a preferir respostas mais lo
 
 A forma mais confiável (e mais cara) de avaliar é colocar pessoas de verdade lendo e comparando respostas. O formato mais usado hoje é o de **arena**: duas respostas de modelos diferentes aparecem lado a lado, sem identificação, e quem avalia escolhe qual prefere.
 
-O **Chatbot Arena**, mantido pelo LMSYS (o mesmo grupo por trás do RouteLLM, visto em [Model Routing](/labs/ai/llm/12-model-routing/)), é o exemplo mais conhecido: milhares de votos anônimos alimentam um ranking calculado por **Elo**, o mesmo sistema de pontuação usado no xadrez, em que cada vitória ou derrota ajusta a posição relativa dos modelos no ranking. Como o ranking vem de preferência humana real em conversas variadas, ele costuma refletir melhor "qual modelo as pessoas preferem usar" do que um benchmark de múltipla escolha.
+O **Chatbot Arena**, mantido pelo LMSYS (o mesmo grupo por trás do RouteLLM, visto em [Model Routing](/labs/ai/llm/14-model-routing/)), é o exemplo mais conhecido: milhares de votos anônimos alimentam um ranking calculado por **Elo**, o mesmo sistema de pontuação usado no xadrez, em que cada vitória ou derrota ajusta a posição relativa dos modelos no ranking. Como o ranking vem de preferência humana real em conversas variadas, ele costuma refletir melhor "qual modelo as pessoas preferem usar" do que um benchmark de múltipla escolha.
 
 ## Como combinar os métodos
 
