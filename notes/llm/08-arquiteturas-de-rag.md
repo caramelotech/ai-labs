@@ -14,7 +14,8 @@ flowchart LR
     B --> C[Reranked]
     C --> D[Multi-Query]
     D --> E[Hierarchical]
-    E --> F[Graph]
+    E --> V[Vectorless]
+    V --> F[Graph]
     F --> G[Corrective]
     G --> H[Agentic]
 ```
@@ -127,6 +128,38 @@ Na hora da busca, o sistema pode começar pelos resumos para entender qual parte
 
 Serve bem para documentos longos e estruturados, tipo um manual técnico de 300 páginas ou uma base de contratos, onde a resposta depende de entender a seção antes de ler o parágrafo.
 
+## RAG sem Vetores (Vectorless RAG)
+
+Até aqui, toda arquitetura guarda o documento como uma pilha de chunks e usa embedding pra achar os pedaços parecidos com a pergunta. E se o problema não fosse achar o texto parecido, mas o texto certo?
+
+Essa é a aposta do RAG sem vetores (vectorless RAG): trocar a busca por similaridade por um LLM que navega direto na estrutura do documento, do jeito que alguém faria ao abrir o sumário de um relatório de 200 páginas.
+
+O argumento central é que similaridade não é o mesmo que relevância. Um trecho pode usar palavras parecidas com a pergunta e não ter nada a ver com a resposta, e o trecho certo pode estar escrito com vocabulário totalmente diferente. Em documentos técnicos e financeiros, onde a resposta depende de entender contexto e encadear raciocínio em várias etapas, esse descompasso pesa mais.
+
+```mermaid
+flowchart TD
+    D[Documento] --> I[Indexação:<br/>LLM lê a estrutura e gera<br/>árvore de títulos e resumos]
+    I --> T[Árvore de nós<br/>sem embeddings]
+    P[Pergunta] --> R[LLM navega a árvore<br/>com raciocínio]
+    T --> R
+    R --> N[Nós relevantes]
+    N --> L[LLM gera resposta<br/>citando o nó exato]
+```
+
+Na indexação, o modelo lê a divisão em capítulos e seções que o próprio documento já tem (ou infere uma, quando não há uma clara) e monta uma árvore em que cada nó guarda um título, um resumo curto e o intervalo de páginas que cobre. Não existe embedding em nenhum nó, a árvore inteira é texto simples.
+
+Na recuperação, o LLM recebe a pergunta e os títulos/resumos da árvore e raciocina sobre qual caminho seguir, como alguém que olha o índice de um livro e decide "isso deve estar no capítulo 4". Ele pode descer vários níveis até achar o nó certo, sem calcular nenhuma distância de vetor.
+
+Isso resolve três coisas de uma vez:
+
+- Não precisa de chunking nem de banco de vetores, a estrutura do próprio documento vira o índice
+- A resposta pode apontar para o nó exato de onde ela veio, o que facilita auditar a origem de cada informação
+- Perguntas que dependem de entender o documento como um todo, e não só um parágrafo isolado, se beneficiam do raciocínio em vez de uma busca cega por proximidade
+
+O trade-off é o oposto do RAG hierárquico visto acima: no RAPTOR, a árvore nasce de agrupar e resumir embeddings dos chunks, então ela reflete a semelhança semântica entre pedaços de texto. Aqui a árvore nasce da estrutura que o documento já tem, sem nenhum embedding envolvido, o que só funciona bem quando o documento é organizado o suficiente para ter essa estrutura.
+
+Isso também mostra onde a abordagem ajuda e onde não faz tanta diferença: relatórios financeiros, contratos, manuais técnicos e documentos regulatórios costumam ter hierarquia de seções clara, então a árvore fica fiel ao conteúdo. O projeto open source PageIndex, que usa essa ideia, reportou 98,7% de acerto no benchmark FinanceBench contra cerca de 50% de um RAG vetorial tradicional. Vale a ressalva de que esse benchmark é feito em cima de filings financeiros bem estruturados, exatamente o cenário onde uma árvore baseada em estrutura leva vantagem. Num conjunto de mensagens de chat, posts soltos ou PDFs escaneados sem hierarquia nenhuma, essa vantagem tende a encolher.
+
 ## Graph RAG
 
 Todas as arquiteturas até aqui guardam os documentos como uma pilha de chunks independentes. O Graph RAG troca (ou complementa) esse índice por um grafo de conhecimento: nós são entidades (pessoas, produtos, conceitos) e as arestas são as relações entre elas.
@@ -192,16 +225,23 @@ Se você ainda não leu, a seção de [Agents](/labs/ai/agents/01-o-que-e/) expl
 
 Não escolha pela arquitetura mais avançada. Escolha pelo sintoma que você está vendo.
 
-| Sintoma                                              | Arquitetura a testar      |
-| ---------------------------------------------------- | ------------------------- |
-| A busca ignora códigos, siglas e nomes exatos        | Hybrid RAG                |
-| O documento certo é recuperado, mas em posição ruim  | Reranked RAG              |
-| Usuários escrevem perguntas curtas e ambíguas        | Multi-Query RAG           |
-| Documentos longos, resposta depende da seção         | Hierarchical RAG          |
-| Perguntas que ligam fatos de vários documentos       | Graph RAG                 |
-| Responder errado sai caro                            | Corrective RAG / Self-RAG |
-| A pergunta pode precisar de fontes e passos variados | Agentic RAG               |
+| Sintoma                                                                             | Arquitetura a testar      |
+| ----------------------------------------------------------------------------------- | ------------------------- |
+| A busca ignora códigos, siglas e nomes exatos                                       | Hybrid RAG                |
+| O documento certo é recuperado, mas em posição ruim                                 | Reranked RAG              |
+| Usuários escrevem perguntas curtas e ambíguas                                       | Multi-Query RAG           |
+| Documentos longos, resposta depende da seção                                        | Hierarchical RAG          |
+| Documento tem estrutura clara e a resposta precisa ser rastreável até a seção exata | Vectorless RAG            |
+| Perguntas que ligam fatos de vários documentos                                      | Graph RAG                 |
+| Responder errado sai caro                                                           | Corrective RAG / Self-RAG |
+| A pergunta pode precisar de fontes e passos variados                                | Agentic RAG               |
 
 Vale lembrar que essas arquiteturas se combinam. Um sistema real de produção costuma ser híbrido com reranking e um passo de correção, não uma única técnica pura. A escala serve para entender o que cada peça adiciona, não para você ter que ficar em um degrau só.
 
 Os trade-offs de latência, custo e complexidade que valem para o RAG básico (visto na nota anterior) só aumentam a cada degrau, então cada camada nova precisa se pagar em qualidade de resposta.
+
+## Referências
+
+- [PageIndex (repositório oficial)](https://github.com/VectifyAI/PageIndex) - VectifyAI, en
+- [Next-Generation Vectorless, Reasoning-based RAG](https://pageindex.ai/blog/pageindex-intro) - VectifyAI, en
+- [RAG Without Vectors: How PageIndex Retrieves by Reasoning](https://www.marktechpost.com/2026/04/25/rag-without-vectors-how-pageindex-retrieves-by-reasoning/) - MarkTechPost, en
