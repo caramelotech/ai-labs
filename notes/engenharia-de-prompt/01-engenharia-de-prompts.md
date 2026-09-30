@@ -57,6 +57,26 @@ flowchart LR
 
 Um jeito simples de ativar isso na prática é literalmente pedir: _"pense passo a passo antes de responder"_.
 
+### Tree of Thought na prática
+
+O CoT segue um único fio de raciocínio do início ao fim. Isso funciona bem quando o primeiro caminho que o modelo tenta já é o certo, mas falha em problemas onde vale a pena considerar mais de uma abordagem antes de se comprometer com uma resposta, como um quebra-cabeça com várias soluções possíveis ou uma decisão com vários critérios em jogo.
+
+**Tree of Thought (ToT)** resolve isso tratando o raciocínio como uma árvore de busca em vez de uma linha reta: o modelo gera múltiplos caminhos de raciocínio em paralelo, avalia o quão promissor é cada um e só continua explorando os que parecem levar a uma boa resposta, descartando (podando) os demais.
+
+```mermaid
+flowchart TD
+    P[Pergunta] --> A[Caminho A]
+    P --> B[Caminho B]
+    P --> C[Caminho C]
+    A --> A1[Descartado]
+    B --> B1[Promissor]
+    C --> C1[Descartado]
+    B1 --> B2[Aprofunda o caminho B]
+    B2 --> R[Melhor resposta]
+```
+
+O artigo que formalizou a técnica (Yao et al., 2023) usa algoritmos de busca clássicos, como BFS e DFS, para decidir quais ramos explorar e quando desistir de um caminho, e mostra ganhos grandes em tarefas que exigem planejamento (num quebra-cabeça de lógica usado no estudo, GPT-4 com ToT saiu de 4% de acerto com CoT simples para 74% de acerto com ToT). O custo é maior: gerar e avaliar vários caminhos consome mais chamadas ao modelo e mais tokens do que seguir um só, então ToT compensa mais em problemas onde errar o caminho sai caro, e menos em tarefas simples que o CoT já resolve de primeira.
+
 ## Framework de Prompt
 
 Utilizado por profissionais da área, este framework estrutura-se em **cinco elementos essenciais**: **papel, instruções, perguntas, contexto e exemplos**. Cada componente desempenha uma função estratégica na elaboração do prompt, permitindo compreender não apenas o conteúdo a incluir, mas também **a sequência ideal** de cada elemento para otimizar os resultados gerados por sistemas de inteligência artificial como o ChatGPT.
@@ -146,3 +166,4 @@ Essa abordagem é particularmente útil em conversas longas ou quando você prec
 - [Estratégias de design de comandos (Gemini API)](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=pt-br) - Google AI for Developers, pt-BR
 - [Técnicas de engenharia de prompts](https://learn.microsoft.com/pt-br/azure/foundry/openai/concepts/prompt-engineering) - Microsoft Learn, pt-BR
 - [Prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) - Anthropic, en
+- [Tree of Thoughts: Deliberate Problem Solving with Large Language Models](https://arxiv.org/abs/2305.10601) - Yao et al., NeurIPS 2023, en
