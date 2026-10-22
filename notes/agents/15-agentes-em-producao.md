@@ -130,6 +130,17 @@ Dois tipos de checagem se complementam:
 
 Na prática, os evals rodam contra um **dataset dourado**: um conjunto de perguntas representativas (o ideal é começar com pelo menos umas 100), incluindo os casos de borda que já quebraram o agente antes. Toda vez que o prompt muda ou o modelo é trocado, essa suíte roda de novo como teste de regressão, dentro do pipeline de CI/CD, antes de a mudança ir para produção. Quando um caso falha, categorizar o tipo de erro (formatação, alucinação, lógica) ajuda a mirar a correção em vez de ajustar o prompt no escuro.
 
+### Verificar código gerado por agentes
+
+Quando o agente não só responde texto, mas escreve código, o eval ganha um problema extra: o mesmo agente que implementou a função também pode ter escrito o teste dela. Um teste gerado dessa forma tende a confirmar o que o código faz, não o que ele deveria fazer. Passa 100% dos testes e, mesmo assim, resolve o problema errado.
+
+Duas técnicas ajudam a furar esse ponto cego:
+
+- **Teste de mutação (mutation testing):** uma ferramenta introduz pequenas alterações de propósito no código (troca um `>` por `>=`, inverte uma condição, remove uma linha) e roda a suíte de testes de novo contra cada versão alterada. Se o teste continua passando mesmo com o bug injetado, ele não estava testando aquilo de verdade. A métrica que sai disso é o **mutation score**: a fração de mutações que a suíte conseguiu pegar. Um teste com 100% de cobertura de linha e mutation score baixo é teste fraco disfarçado de forte.
+- **Teste baseado em propriedades (property-based testing):** em vez de escrever um exemplo fixo ("com entrada 5, espero saída 10"), você descreve uma propriedade que vale para qualquer entrada ("ordenar a lista duas vezes dá o mesmo resultado que ordenar uma vez") e a ferramenta (como Hypothesis em Python ou fast-check em JavaScript) gera centenas de entradas automaticamente, incluindo casos de borda que ninguém pensaria em escrever à mão. Isso testa a intenção do código, não um caminho específico que o próprio agente escolheu testar.
+
+As duas técnicas se complementam: o teste de propriedades aumenta a chance de achar um caso que quebra a lógica, e o teste de mutação confirma que a suíte inteira (incluindo os testes de propriedade) de fato detectaria um bug se ele existisse. Um pipeline de verificação para agente que programa pode encadear os dois como mais um portão de eval, ao lado da assertion programática e do LLM-as-judge vistos acima: código só avança se passar nos testes, o mutation score ficar acima de um limiar (90% é citado como referência comum) e nenhuma propriedade for violada nos casos gerados.
+
 ### Avaliação end-to-end vs. por componente
 
 Rodar o eval contra a resposta final do agente (**end-to-end**) diz se o sistema como um todo está indo bem, mas não diz onde ele está falhando quando o resultado sai ruim. Um agente com vários passos (buscar, filtrar, sintetizar, formatar) pode errar em qualquer um deles e o sintoma só aparece no fim.
@@ -166,3 +177,5 @@ Uma prática comum é amostrar uma fração dos traces de produção e revisar d
 - [OWASP Top 10 for LLM Applications e Agentic AI Threats](https://genai.owasp.org/) - OWASP, en
 - [AI Agent Observability, Tracing & Evaluation with Langfuse](https://langfuse.com/blog/2024-07-ai-agent-observability-with-langfuse) - Langfuse, en
 - [Golden dataset evaluation: build and maintain LLM test sets](https://langfuse.com/resources/engineering/golden-dataset-evaluation) - Langfuse, en
+- [Agentic Property-Based Testing: Finding Bugs Across the Python Ecosystem](https://arxiv.org/abs/2510.09907) - arXiv, en
+- [Can Large Language Models Write Good Property-Based Tests?](https://arxiv.org/abs/2307.04346) - arXiv, en
