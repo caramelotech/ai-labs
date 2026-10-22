@@ -221,6 +221,29 @@ Isso permite responder perguntas que misturam fontes ("compare o que o contrato 
 
 Se você ainda não leu, a seção de [Agents](/labs/ai/agents/01-o-que-e/) explica o padrão de agente que está por trás dessa arquitetura.
 
+## RAG vs. janela de contexto longa
+
+Todas as arquiteturas até aqui partem de uma pergunta: como recuperar melhor. Mas existe uma pergunta anterior, que vale fazer antes de subir qualquer degrau da escala: dado que os modelos atuais aceitam janelas de contexto de centenas de milhares (às vezes milhões) de tokens, ainda vale a pena recuperar, ou dá para simplesmente colocar o documento inteiro no prompt?
+
+Essa é outra dimensão, não mais um degrau na escala naive-até-agentic. Enquanto as arquiteturas anteriores melhoram a qualidade de uma busca seletiva, a alternativa aqui é eliminar a busca: carregar toda a base (ou a parte relevante dela) direto no contexto e deixar o próprio modelo encontrar o que precisa durante a geração.
+
+```mermaid
+flowchart LR
+    D[Base de documentos] --> Q{Cabe inteira<br/>no contexto?}
+    Q -->|Sim, é pequena/estática| C[Carrega tudo no prompt]
+    Q -->|Não, é grande/dinâmica| R[RAG: recupera só<br/>o que interessa]
+    C --> L[LLM gera resposta]
+    R --> L
+```
+
+Isso não é a solução definitiva que parece ser à primeira vista. Mesmo com uma janela enorme, o modelo não presta atenção igual a cada trecho: o efeito **lost in the middle** mostra que informação colocada no meio de um contexto longo tem mais chance de ser ignorada do que informação no início ou no fim, mesmo que ela esteja ali, visível, dentro do limite de tokens. Janela grande resolve "o texto cabe", não resolve "o modelo presta atenção em todo ele igual".
+
+Tem também o custo e a latência. RAG manda só os trechos relevantes, então cada chamada ao LLM processa um punhado de tokens. Jogar o documento inteiro no contexto significa pagar (em tempo e em dinheiro) por todo esse texto a cada chamada, mesmo que a pergunta dependa de um parágrafo só. Em cargas com muitas perguntas por minuto, essa diferença de custo por chamada se acumula rápido.
+
+Então quando vale pular o RAG e ir direto de contexto longo? Quando a base é pequena e estática o bastante para caber inteira na janela sem forçar o limite, e a aplicação não faz tantas chamadas que o custo por token vire problema. Um assistente que sempre responde sobre o mesmo manual de 50 páginas é um bom candidato. Já uma base que cresce, muda com frequência ou precisa apontar a fonte exata de cada informação (rastreabilidade, citação de página) continua sendo terreno do RAG, porque recuperar seletivamente é o que permite apontar exatamente de onde veio cada trecho da resposta, algo que fica mais difícil quando o modelo só "leu tudo e respondeu".
+
+Na prática, as duas abordagens convivem: nada impede recuperar um conjunto maior de chunks (ou seções inteiras, não só parágrafos pequenos) quando o modelo em uso tem contexto de sobra, combinando a seletividade do RAG com menos perda por fragmentação excessiva.
+
 ## Como escolher
 
 Não escolha pela arquitetura mais avançada. Escolha pelo sintoma que você está vendo.
@@ -245,3 +268,5 @@ Os trade-offs de latência, custo e complexidade que valem para o RAG básico (v
 - [PageIndex (repositório oficial)](https://github.com/VectifyAI/PageIndex) - VectifyAI, en
 - [Next-Generation Vectorless, Reasoning-based RAG](https://pageindex.ai/blog/pageindex-intro) - VectifyAI, en
 - [RAG Without Vectors: How PageIndex Retrieves by Reasoning](https://www.marktechpost.com/2026/04/25/rag-without-vectors-how-pageindex-retrieves-by-reasoning/) - MarkTechPost, en
+- [RAG vs large context window: The real trade-offs for AI apps](https://redis.io/blog/rag-vs-large-context-window-ai-apps/) - Redis, en
+- [Long context vs. RAG](https://deepset.ai/blog/long-context-llms-rag) - deepset, en
