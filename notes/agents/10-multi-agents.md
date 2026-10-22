@@ -19,6 +19,16 @@ Na prática, cada agente compatível com A2A publica um **Agent Card**, um arqui
 
 O ponto que mais derruba sistema multi-agente em produção não é o modelo, é a **consistência de contexto**: um agente age com base numa informação que outro já atualizou, e o resultado sai errado sem ninguém perceber na hora.
 
+### Memória compartilhada entre agentes
+
+O estado compartilhado visto acima dura só a execução atual: quando o grafo termina, aquele dicionário de dados some. Um sistema multi-agente também pode ter uma **memória de longo prazo compartilhada**, um banco externo (dos tipos vistos em [Memória de Agentes](/labs/ai/agents/04-memoria/)) que persiste entre execuções diferentes e que vários agentes leem e escrevem, não só um.
+
+Isso muda a pergunta de "o que o agente lembra" para "o que o time de agentes lembra junto". Um agente de suporte pode registrar que um cliente já relatou um bug, e um agente de triagem, numa execução completamente separada dias depois, lê esse registro antes de abrir um chamado duplicado. Sem a memória compartilhada, cada agente só saberia o que viveu na própria execução.
+
+A escolha entre dar a cada agente uma memória própria ou fazer todos lerem e escreverem na mesma base depende de quão independentes eles são. Agentes especialistas em domínios bem separados (um cuida de cobrança, outro de logística) geralmente ganham pouco compartilhando memória, e só aumentam a chance de um ler informação fora do seu contexto. Já agentes que colaboram no mesmo objetivo (um pesquisa, outro escreve, um terceiro revisa) se beneficiam de uma base comum, porque o trabalho de um é o insumo do outro.
+
+O risco é o mesmo da consistência de contexto mencionada acima, só que persistente: se um agente grava uma informação errada ou desatualizada na memória compartilhada, todo agente que ler aquilo depois herda o erro, achando que é fato confirmado. As mesmas práticas de [Memória de Agentes](/labs/ai/agents/04-memoria/) para cuidar da memória errada (revisar, invalidar, não empilhar sem filtro) importam ainda mais aqui, porque o estrago se propaga para outros agentes, não fica contido num só.
+
 ## Dois paradigmas de desenvolvimento com IA
 
 Existem, basicamente, dois modos de trabalhar com agentes de IA no desenvolvimento de software.
