@@ -9,6 +9,10 @@
       "directory": "fundamentos"
     },
     {
+      "label": "Machine Learning",
+      "directory": "machine-learning"
+    },
+    {
       "label": "LLM",
       "directory": "llm"
     },

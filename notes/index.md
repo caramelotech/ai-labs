@@ -4,7 +4,8 @@ Base de conhecimento sobre **Inteligência Artificial** do Caramelo Tech, com fo
 
 ## O que você vai encontrar
 
-- **Fundamentos** - o que é IA, Machine Learning, Deep Learning, LLMs e tokens
+- **Fundamentos** - o que é IA, Machine Learning, Deep Learning, LLMs, tokens e IA responsável
+- **Machine Learning** - algoritmos clássicos de ML (regressão, árvores, SVM, clustering), redes neurais, modelos generativos e aprendizado por reforço
 - **LLM** - Modelos de Linguagem em Larga Escala
 - **Engenharia de Prompt** - conceitos, técnicas e frameworks de prompting
 - **Agents** - padrões, frameworks e operação de agentes de IA
