@@ -34,6 +34,10 @@ Trabalha com a ideia de um **time**: você define agentes com papéis ("pesquisa
 
 O **AutoGen**, da Microsoft, modela o trabalho como uma **conversa entre agentes** que trocam mensagens até resolver a tarefa, com execução de código no meio. A Microsoft está unificando o AutoGen com o **Semantic Kernel** (o SDK dela para integrar IA em aplicações corporativas, forte no mundo .NET) em um projeto único, o **Microsoft Agent Framework**.
 
+### Google ADK
+
+O **Agent Development Kit (ADK)**, do Google, segue uma abordagem code-first: você define o agente em Python (ou Java) em vez de montar tudo visualmente. Vem com primitivas de workflow já prontas para os casos mais comuns de orquestração, como o agente `Sequential` (roda uma lista de passos em ordem), o `Parallel` (dispara vários de uma vez) e o `Loop` (repete um passo até uma condição de parada). A vantagem mais clara aparece quando o resto do sistema já vive no Google Cloud: o ADK tem deploy gerenciado direto no Vertex AI Agent Engine, então sai do protótipo para produção sem trocar de ferramenta no meio do caminho.
+
 ### OpenAI Agents SDK
 
 SDK leve da OpenAI, sucessor do experimento Swarm. Tem integração direta com os modelos da OpenAI, mas é agnóstico o suficiente para funcionar com outros provedores. Faz sentido quando seu sistema já é bastante ligado ao ecossistema OpenAI.
@@ -63,6 +67,7 @@ Não existe framework "melhor", existe o que encaixa no seu caso. Algumas pergun
 | Quero prototipar um time de agentes rápido?                         | CrewAI                                         |
 | O agente vive de buscar em documentos?                              | LlamaIndex                                     |
 | Já estou preso ao ecossistema OpenAI ou Microsoft?                  | OpenAI Agents SDK ou Microsoft Agent Framework |
+| Já estou preso ao Google Cloud e quero deploy gerenciado?           | Google ADK                                     |
 | É um agente simples de poucas ferramentas?                          | Nenhum, o loop na mão basta                    |
 
 Vale começar pequeno, com um framework só (ou sem nenhum), e trocar depois se a necessidade aparecer. Migrar de framework dá trabalho, então evite adotar três "para testar".
@@ -75,3 +80,4 @@ Vale começar pequeno, com um framework só (ou sem nenhum), e trocar depois se 
 - [LangChain Overview](https://docs.langchain.com/oss/python/langchain/overview) - LangChain (docs oficiais), en
 - [The best AI agent frameworks in 2026](https://www.langchain.com/resources/ai-agent-frameworks) - LangChain, en
 - [Introducing smolagents](https://huggingface.co/blog/smolagents) - Hugging Face, en
+- [Agent Development Kit - documentação oficial](https://google.github.io/adk-docs/) - Google, en
