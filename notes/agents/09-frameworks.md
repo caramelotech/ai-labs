@@ -20,7 +20,7 @@ O ecossistema muda rápido e os nomes abaixo são os mais citados em 2026. Todos
 
 ### LangChain
 
-O framework mais citado do ecossistema, e a base da qual boa parte dos outros nomes desta lista herda alguma coisa. Ocupa a camada de aplicação: interface padronizada para conversar com modelos de vários provedores, montagem e versionamento de prompts, tool calling e memória de conversa. Desde a reformulação v1 (2025), o próprio harness de agentes do LangChain (`create_agent`) passou a rodar sobre o LangGraph por baixo dos panos, herdando dali execução durável, checkpoints e pausas para revisão humana - a fronteira entre "só LangChain" e "LangChain com LangGraph" ficou mais tênue do que era antes. Funciona bem sozinho para um fluxo mais linear, como um chatbot com RAG; quando a complexidade cresce (múltiplos agentes, ciclos, estado persistente), o caminho natural é passar a mexer no LangGraph diretamente.
+O framework mais citado do ecossistema, e a base da qual boa parte dos outros nomes desta lista herda alguma coisa. Ocupa a camada de aplicação: interface padronizada para conversar com modelos de vários provedores, montagem e versionamento de prompts, tool calling e memória de conversa. Desde a reformulação v1 (2025), o próprio harness de agentes do LangChain (`create_agent`) passou a rodar sobre o LangGraph por baixo dos panos, herdando dali execução durável, checkpoints e pausas para revisão humana - a fronteira entre "só LangChain" e "LangChain com LangGraph" ficou mais tênue do que era antes. Funciona bem sozinho para um fluxo mais linear, como um chatbot com RAG; quando a complexidade cresce (múltiplos agentes, ciclos, estado persistente), o caminho natural é passar a mexer no LangGraph diretamente. Para o uso prático do LangChain no código (ambiente, prompts, chains, memória, ferramentas, agentes e RAG passo a passo), ver a seção [LangChain](/labs/ai/langchain/01-introducao/).
 
 ### LangGraph
 
@@ -57,13 +57,13 @@ Vale uma ressalva sobre essa separação: ela ajuda a entender o papel de cada u
 Não existe framework "melhor", existe o que encaixa no seu caso. Algumas perguntas que ajudam:
 
 | Pergunta                                                            | Puxa para                                      |
-| -------------------------------------------------------------------- | ----------------------------------------------- |
-| Preciso de prompts, tools e memória prontos, sem workflow complexo? | LangChain                                       |
-| Preciso controlar cada passo e ter fluxo previsível?                | LangGraph                                       |
-| Quero prototipar um time de agentes rápido?                         | CrewAI                                          |
-| O agente vive de buscar em documentos?                              | LlamaIndex                                      |
-| Já estou preso ao ecossistema OpenAI ou Microsoft?                  | OpenAI Agents SDK ou Microsoft Agent Framework  |
-| É um agente simples de poucas ferramentas?                          | Nenhum, o loop na mão basta                     |
+| ------------------------------------------------------------------- | ---------------------------------------------- |
+| Preciso de prompts, tools e memória prontos, sem workflow complexo? | LangChain                                      |
+| Preciso controlar cada passo e ter fluxo previsível?                | LangGraph                                      |
+| Quero prototipar um time de agentes rápido?                         | CrewAI                                         |
+| O agente vive de buscar em documentos?                              | LlamaIndex                                     |
+| Já estou preso ao ecossistema OpenAI ou Microsoft?                  | OpenAI Agents SDK ou Microsoft Agent Framework |
+| É um agente simples de poucas ferramentas?                          | Nenhum, o loop na mão basta                    |
 
 Vale começar pequeno, com um framework só (ou sem nenhum), e trocar depois se a necessidade aparecer. Migrar de framework dá trabalho, então evite adotar três "para testar".
 

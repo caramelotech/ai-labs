@@ -21,6 +21,10 @@
       "directory": "agents"
     },
     {
+      "label": "LangChain",
+      "directory": "langchain"
+    },
+    {
       "label": "Prática",
       "directory": "pratica"
     },
@@ -34,4 +38,3 @@
     }
   ]
 }
-

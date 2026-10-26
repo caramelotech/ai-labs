@@ -48,7 +48,7 @@ No lab: [Uso de Ferramentas](/labs/ai/agents/03-ferramentas/), [Hands-on: Agente
 - RAG na prática: carregar documentos, dividir em chunks, gerar embeddings, guardar num banco vetorial e recuperar
 - Quando o LangChain compensa e quando o loop escrito na mão basta
 
-No lab: [Frameworks de Agentes](/labs/ai/agents/09-frameworks/), [Context Engineering e RAG](/labs/ai/llm/07-context-engineering-e-rag/), [Arquiteturas de RAG](/labs/ai/llm/08-arquiteturas-de-rag/), [Pipeline de RAG em Produção](/labs/ai/llm/10-pipeline-de-rag-em-producao/)
+No lab: [Frameworks de Agentes](/labs/ai/agents/09-frameworks/), [Introdução ao LangChain](/labs/ai/langchain/01-introducao/), [Chains e LCEL](/labs/ai/langchain/05-chains-e-lcel/), [Memória no LangChain](/labs/ai/langchain/06-memoria/), [RAG no LangChain](/labs/ai/langchain/11-rag/), [Context Engineering e RAG](/labs/ai/llm/07-context-engineering-e-rag/), [Arquiteturas de RAG](/labs/ai/llm/08-arquiteturas-de-rag/), [Pipeline de RAG em Produção](/labs/ai/llm/10-pipeline-de-rag-em-producao/)
 
 ## 🤖 6. Agentes de IA em Python
 
@@ -58,7 +58,7 @@ No lab: [Frameworks de Agentes](/labs/ai/agents/09-frameworks/), [Context Engine
 - Agentes com LangChain, que hoje rodam sobre o LangGraph por baixo dos panos
 - Workflow ou agente: quando cada um faz sentido
 
-No lab: [O que são agentes de IA](/labs/ai/agents/01-o-que-e/), [Paradigma ReAct](/labs/ai/agents/02-react/), [Memória de Agentes](/labs/ai/agents/04-memoria/), [Workflow ou Agente?](/labs/ai/agents/11-workflow-ou-agente/), [LLM, RAG, Agente e Agentic AI](/labs/ai/agents/12-llm-rag-agente-e-agentic-ai/), [Decomposição de Tarefas](/labs/ai/agents/13-decomposicao-de-tarefas/), [Padrões de execução de agentes](/labs/ai/agents/14-padroes-de-execucao/)
+No lab: [O que são agentes de IA](/labs/ai/agents/01-o-que-e/), [Paradigma ReAct](/labs/ai/agents/02-react/), [Memória de Agentes](/labs/ai/agents/04-memoria/), [Agentes no LangChain](/labs/ai/langchain/08-agentes/), [Workflow ou Agente?](/labs/ai/agents/11-workflow-ou-agente/), [LLM, RAG, Agente e Agentic AI](/labs/ai/agents/12-llm-rag-agente-e-agentic-ai/), [Decomposição de Tarefas](/labs/ai/agents/13-decomposicao-de-tarefas/), [Padrões de execução de agentes](/labs/ai/agents/14-padroes-de-execucao/)
 
 ## 🧩 7. MCP: conectando a IA a ferramentas e dados
 

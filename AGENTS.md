@@ -9,7 +9,7 @@ Este é o repositório de **conteúdo** do AI Labs (Caramelo Tech):
 - **Conteúdo:** 100% em `notes/`, Markdown puro em português brasileiro, sem frontmatter
 - **Publicação:** o repositório hub [labs](https://github.com/caramelotech/labs) busca as notas daqui e publica em `https://caramelotech.com.br/labs/ai/`
 - **Sem build:** não há dependências, testes ou comandos - apenas Markdown
-- **Principais seções:** fundamentos, llm, engenharia-de-prompt, agents
+- **Principais seções:** fundamentos, llm, engenharia-de-prompt, agents, langchain
 
 Veja [CLAUDE.md](CLAUDE.md) para detalhes completos.
 
