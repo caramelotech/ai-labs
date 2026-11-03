@@ -96,6 +96,8 @@ Rodam depois que o modelo respondeu, antes de a resposta ou a ação seguir adia
 - checar se a resposta se sustenta no contexto recuperado, para pegar alucinação
 - validar a ação que o agente quer executar: os parâmetros fazem sentido? Está dentro do que ele tem permissão de fazer? Um `deletar_cliente(id=todos)` deveria ser barrado aqui.
 
+Na prática, ninguém escreve esses checks do zero. O Guardrails AI é uma biblioteca Python que valida e corrige a saída do modelo contra um esquema definido por você. O NVIDIA NeMo Guardrails foca no fluxo da conversa inteira, não só numa resposta isolada, usando uma linguagem própria (Colang) para descrever o que o agente pode e não pode fazer. Já o Llama Guard não é uma biblioteca de regras, e sim um modelo classificador (da Meta, afinado para esse fim): você manda a entrada ou a saída para ele e recebe de volta se o conteúdo é seguro ou não. As três peças se complementam e costumam aparecer juntas, não como alternativas.
+
 ## Escopo e isolamento de ações
 
 Guardrail filtra; o controle de ações limita o poder do agente desde o começo:
@@ -110,6 +112,8 @@ Guardrail filtra; o controle de ações limita o poder do agente desde o começo
 Para ações de risco ou difíceis de desfazer (transferir dinheiro, enviar e-mail para um cliente, apagar dados), o agente não age sozinho: ele para, mostra o que pretende fazer e espera aprovação de uma pessoa.
 
 Vale desenhar também o caminho de volta. Se uma ação passou e estava errada, existe rollback? Um agente em produção precisa de um "estado seguro" para onde voltar quando algo sai do esperado, em vez de seguir em frente.
+
+Os frameworks de agente mais usados já trazem esse mecanismo pronto. No LangGraph, um nó chama `interrupt()` para pausar o grafo ali mesmo, e a execução só retoma quando alguém chama `Command(resume=...)` com a decisão. O CrewAI deixa configurar breakpoints no fluxo: a execução para, espera input humano e segue com base nisso. Fora do mundo de frameworks de agente, ferramentas de automação como o n8n resolvem de um jeito mais simples: a execução fica pausada no banco de dados até alguém aprovar ou rejeitar por um canal como Slack, Teams, Telegram, Discord ou Gmail.
 
 ## Observabilidade e AgentOps
 
@@ -129,6 +133,8 @@ Dois tipos de checagem se complementam:
 - **LLM-as-judge:** um outro LLM, geralmente menor e mais rápido, recebe a resposta do agente e dá uma nota de qualidade (por exemplo, numa escala de 1 a 5) comparando com o resultado esperado. Cobre casos que uma regra fixa não alcança, como "essa resposta soa natural?", ao custo de ser mais lenta e ter sua própria margem de erro.
 
 Na prática, os evals rodam contra um **dataset dourado**: um conjunto de perguntas representativas (o ideal é começar com pelo menos umas 100), incluindo os casos de borda que já quebraram o agente antes. Toda vez que o prompt muda ou o modelo é trocado, essa suíte roda de novo como teste de regressão, dentro do pipeline de CI/CD, antes de a mudança ir para produção. Quando um caso falha, categorizar o tipo de erro (formatação, alucinação, lógica) ajuda a mirar a correção em vez de ajustar o prompt no escuro.
+
+Para não montar tudo isso na mão, existem frameworks prontos para cada recorte: o DeepEval roda no estilo pytest e cobre tanto chatbot quanto agente, o Ragas é mais estreito e foca em métricas de RAG (fidelidade da resposta ao contexto recuperado, por exemplo) e chega a gerar dados de teste sintéticos a partir dos seus próprios documentos, e o Promptfoo é configurado em YAML e se destaca em comparar vários modelos ou prompts lado a lado, além de red-teaming. Times que trabalham muito com RAG costumam combinar o Ragas com um dos outros dois.
 
 ### Verificar código gerado por agentes
 
@@ -179,3 +185,6 @@ Uma prática comum é amostrar uma fração dos traces de produção e revisar d
 - [Golden dataset evaluation: build and maintain LLM test sets](https://langfuse.com/resources/engineering/golden-dataset-evaluation) - Langfuse, en
 - [Agentic Property-Based Testing: Finding Bugs Across the Python Ecosystem](https://arxiv.org/abs/2510.09907) - arXiv, en
 - [Can Large Language Models Write Good Property-Based Tests?](https://arxiv.org/abs/2307.04346) - arXiv, en
+- [Production LLM Guardrails: NeMo, Guardrails AI, Llama Guard Compared](https://www.premai.io/blog/production-llm-guardrails-nemo-guardrails-ai-llama-guard-compared/) - PremAI, en
+- [LLM evaluation frameworks compared](https://machinelearningmastery.com/llm-evaluation-frameworks-compared-how-to-actually-measure-what-your-model-does/) - Machine Learning Mastery, en
+- [AI Agent Frameworks Compared: n8n, LangGraph, CrewAI, Microsoft Agent Framework, Pydantic AI](https://wz-it.com/en/blog/ai-agent-frameworks-comparison/) - wz-it, en
