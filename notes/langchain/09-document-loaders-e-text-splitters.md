@@ -31,6 +31,32 @@ O tamanho do chunk e a sobreposição entre eles (quanto do fim de um chunk se r
 | `JSONLoader`         | arquivos JSON                  | dados estruturados                                        |
 | `UnstructuredLoader` | vários formatos (PDF, HTML...) | conteúdo não estruturado, via a biblioteca `unstructured` |
 
+## Extração de documentos fora do LangChain
+
+O `UnstructuredLoader` cobre bem o caso geral, mas um PDF com tabelas complicadas, colunas múltiplas ou um slide de apresentação costuma sair torto de um loader simples: a tabela vira uma sopa de texto sem estrutura, ou a ordem de leitura embaralha coluna com coluna. Para esses casos, duas bibliotecas de fora do LangChain fazem a extração antes, e entregam o resultado já limpo para o resto do pipeline.
+
+**Docling**, da IBM, nasceu dentro do time Deep Search, que precisava montar pipelines de RAG a partir de patentes enormes e cheias de tabela. Ele faz análise de layout e reconhecimento de estrutura de tabela antes de extrair o conteúdo, o que preserva a ordem e a formatação de documentos complexos (PDF, DOCX, PPTX, XLSX, HTML, imagens com OCR) muito melhor do que uma extração de texto bruta. O resultado sai em Markdown ou JSON, e a biblioteca já tem integração pronta com LangChain e LlamaIndex, então ela entra como uma etapa antes do document loader, não como substituta dele.
+
+```python
+from docling.document_converter import DocumentConverter
+
+converter = DocumentConverter()
+resultado = converter.convert("relatorio_com_tabelas.pdf")
+texto_markdown = resultado.document.export_to_markdown()
+```
+
+**MarkItDown**, da Microsoft (mantida pelo time do AutoGen), resolve um problema parecido de um jeito mais simples: converter arquivos do Office, PDF, HTML, imagens e até áudio para Markdown, pensado especificamente para um LLM consumir depois, não para alguém ler com qualidade de documento final. Roda localmente, sem precisar de API key, e se você passar um cliente compatível com a API da OpenAI, ela usa esse modelo para descrever imagens e slides em texto.
+
+```python
+from markitdown import MarkItDown
+
+md = MarkItDown()
+resultado = md.convert("apresentacao.pptx")
+print(resultado.text_content)
+```
+
+Na prática, a escolha entre as duas é mais sobre fidelidade do que sobre funcionalidade: o Docling investe mais em preservar a estrutura exata de tabelas e layout, o MarkItDown prioriza simplicidade e cobertura de formato (incluindo áudio, que o Docling não trata). Depois que qualquer um dos dois devolve o Markdown, o texto segue normalmente para um text splitter, igual ao que já foi carregado por um loader do LangChain.
+
 ## Text splitters mais usados
 
 | Splitter                         | Como divide                                                                           | Caso de uso                                                          |
@@ -100,3 +126,5 @@ Não existe um valor único de `chunk_size`/`chunk_overlap` correto, a combinaç
 
 - [Document loaders](https://docs.langchain.com/oss/python/integrations/document_loaders) - LangChain, documentação oficial, en
 - [Recursive text splitter](https://docs.langchain.com/oss/python/integrations/splitters/recursive_text_splitter) - LangChain, documentação oficial, en
+- [Build a document-based question answering system by using Docling with Granite](https://www.ibm.com/think/tutorials/build-document-question-answering-system-with-docling-and-granite) - IBM, en
+- [MarkItDown - Microsoft's Python tool for turning documents into Markdown](https://lilting.ch/en/articles/markitdown-microsoft-document-to-markdown) - Lilting, en

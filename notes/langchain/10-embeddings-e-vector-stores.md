@@ -47,7 +47,7 @@ FAISS e Chroma cobrem bem a fase de desenvolvimento e prototipagem, onde rodar t
 
 - OpenAI Embeddings (ex: a família `text-embedding-3`)
 - Cohere Embeddings, com foco em modelos multilíngues
-- Hugging Face, com a família sentence-transformers
+- Hugging Face, com a família sentence-transformers (biblioteca que hoje é mantida pela própria Hugging Face, usada com `model.encode()` para gerar embeddings de frases ou parágrafos a partir de modelos locais, sem depender de uma API externa)
 - modelos locais, como BGE, all-MiniLM, Instructor
 - modelos multimodais, para texto, imagem e código
 
