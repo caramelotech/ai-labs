@@ -137,3 +137,9 @@
 
 10. **PyTorch** - [pytorch.org](https://pytorch.org)
     - Framework de DL popular na pesquisa
+
+11. **Streamlit** - [streamlit.io](https://streamlit.io)
+    - Cria dashboards e demos de IA em Python sem precisar escrever front-end
+
+12. **FastAPI** - [fastapi.tiangolo.com](https://fastapi.tiangolo.com/pt/)
+    - Framework para expor modelos e aplicações de IA como API, com documentação automática
