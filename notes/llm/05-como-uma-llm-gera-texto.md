@@ -26,6 +26,7 @@ Saber disso muda a forma de pensar em prompts e contexto. Cada palavra que você
 
 O modelo não lê letras, ele trabalha com números. As duas primeiras etapas fazem essa conversão:
 
+<!-- markdownlint-disable-next-line MD038 -->
 1. **Tokenização:** o texto é quebrado em tokens (palavras, pedaços de palavras, símbolos). `Inteligência artificial` pode virar algo como `Intelig`, `ência`, ` artificial`. Detalhes em [Tokens em Modelos de Linguagem](/labs/ai/llm/03-tokens/).
 2. **Token IDs:** cada token tem um número fixo no vocabulário do modelo. O texto vira uma lista de inteiros, como `[9906, 1917, ...]`.
 
@@ -81,12 +82,16 @@ Depois de passar por todas as camadas, o vetor do **último token** da sequênci
 
 A **softmax** resolve isso: transforma os logits numa distribuição de probabilidade, com todos os valores entre 0 e 1 somando 1. Um exemplo com o prompt `O céu está`:
 
+<!-- markdownlint-disable MD038 -->
+
 | Token candidato | Logit | Probabilidade após softmax |
 | --------------- | ----- | -------------------------- |
 | ` azul`         | 6,1   | ~ 70%                      |
 | ` nublado`      | 4,8   | ~ 19%                      |
 | ` limpo`        | 3,9   | ~ 8%                       |
 | ` banana`       | -1,0  | ~ 0,1%                     |
+
+<!-- markdownlint-enable MD038 -->
 
 Os números são ilustrativos, mas mostram a lógica: o modelo não "sabe" a resposta, ele atribui probabilidades e escolhe a partir delas.
 

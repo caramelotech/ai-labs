@@ -26,7 +26,7 @@ Escolha um caso de uso (ex: tutor de idiomas, revisor de textos, assistente de c
 
 **Exemplo de prompt de sistema:**
 
-```
+```text
 Você é um tutor de inglês paciente e encorajador especializado em iniciantes brasileiros.
 Seu foco é conversação do dia a dia. Você sempre:
 - Corrige erros de forma gentil, explicando o motivo

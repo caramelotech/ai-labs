@@ -31,7 +31,7 @@
 
 #### Técnicos
 
-3. **Machine Learning** - Andrew Ng
+1. **Machine Learning** - Andrew Ng
    - **Plataforma:** Coursera
    - **Nível:** Intermediário
    - **Idioma:** Inglês (legendas em português)
@@ -39,7 +39,7 @@
    - **Duração:** ~11 semanas
    - **Descrição:** O curso mais famoso de ML do mundo. Fundamental para quem quer se aprofundar.
 
-4. **Deep Learning Specialization** - Andrew Ng
+2. **Deep Learning Specialization** - Andrew Ng
    - **Plataforma:** Coursera
    - **Nível:** Intermediário/Avançado
    - **Idioma:** Inglês (legendas em português)
@@ -47,7 +47,7 @@
    - **Duração:** ~3 meses
    - **Descrição:** 5 cursos sobre Deep Learning, redes neurais e aplicações práticas.
 
-5. **Fast.ai - Practical Deep Learning for Coders**
+3. **Fast.ai - Practical Deep Learning for Coders**
    - **Plataforma:** Fast.ai
    - **Nível:** Intermediário
    - **Idioma:** Inglês
@@ -81,15 +81,15 @@
 
 ### Em Inglês
 
-4. **Two Minute Papers**
+1. **Two Minute Papers**
    - **Link:** [YouTube](https://www.youtube.com/@TwoMinutePapers)
    - **Descrição:** Resumos de papers científicos sobre IA em vídeos curtos.
 
-5. **3Blue1Brown**
+2. **3Blue1Brown**
    - **Link:** [YouTube](https://www.youtube.com/@3blue1brown)
    - **Descrição:** Explicações visuais magníficas sobre matemática e redes neurais.
 
-6. **Yannic Kilcher**
+3. **Yannic Kilcher**
    - **Link:** [YouTube](https://www.youtube.com/@YannicKilcher)
    - **Descrição:** Análises detalhadas de papers de ML e IA.
 
@@ -115,31 +115,31 @@
 
 ### Plataformas de Desenvolvimento
 
-5. **Google Colab** - [colab.research.google.com](https://colab.research.google.com)
+1. **Google Colab** - [colab.research.google.com](https://colab.research.google.com)
    - Notebooks Jupyter gratuitos com GPU
    - Perfeito para experimentar ML/DL
 
-6. **Kaggle** - [kaggle.com](https://www.kaggle.com)
+2. **Kaggle** - [kaggle.com](https://www.kaggle.com)
    - Competições de ML, datasets, notebooks
    - Notebooks gratuitos com GPU
 
-7. **Hugging Face** - [huggingface.co](https://huggingface.co)
+3. **Hugging Face** - [huggingface.co](https://huggingface.co)
    - Repositório de modelos de IA
    - Ferramentas para NLP e mais
 
 ### APIs e Frameworks
 
-8. **OpenAI API** - [platform.openai.com](https://platform.openai.com)
+1. **OpenAI API** - [platform.openai.com](https://platform.openai.com)
    - API para usar modelos GPT em aplicações
 
-9. **TensorFlow** - [tensorflow.org](https://www.tensorflow.org)
+2. **TensorFlow** - [tensorflow.org](https://www.tensorflow.org)
    - Framework de ML/DL do Google
 
-10. **PyTorch** - [pytorch.org](https://pytorch.org)
-    - Framework de DL popular na pesquisa
+3. **PyTorch** - [pytorch.org](https://pytorch.org)
+   - Framework de DL popular na pesquisa
 
-11. **Streamlit** - [streamlit.io](https://streamlit.io)
-    - Cria dashboards e demos de IA em Python sem precisar escrever front-end
+4. **Streamlit** - [streamlit.io](https://streamlit.io)
+   - Cria dashboards e demos de IA em Python sem precisar escrever front-end
 
-12. **FastAPI** - [fastapi.tiangolo.com](https://fastapi.tiangolo.com/pt/)
-    - Framework para expor modelos e aplicações de IA como API, com documentação automática
+5. **FastAPI** - [fastapi.tiangolo.com](https://fastapi.tiangolo.com/pt/)
+   - Framework para expor modelos e aplicações de IA como API, com documentação automática

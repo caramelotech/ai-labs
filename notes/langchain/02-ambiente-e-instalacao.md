@@ -60,7 +60,7 @@ Toda chamada a um provedor de LLM passa por uma chave de API. O cuidado básico,
 3. criar um arquivo `.env` na raiz do projeto com as chaves
 4. adicionar `.env` ao `.gitignore`, para nunca acabar commitado
 
-```
+```bash
 # .env
 OPENAI_API_KEY=sua_chave_aqui
 LANGCHAIN_TRACING_V2=true
@@ -95,7 +95,7 @@ Se isso retornar uma resposta sem erro, o ambiente está pronto para o resto des
 
 Não existe uma estrutura obrigatória, mas um layout simples como este cobre a maioria dos projetos pequenos e médios:
 
-```
+```text
 langchain-project/
 |-- .env
 |-- app.py
@@ -108,7 +108,7 @@ langchain-project/
 
 A pasta `data/` guarda os documentos que vão alimentar document loaders e pipelines de RAG (ver [RAG](/labs/ai/langchain/11-rag/)), e `notebooks/` é útil para testar chains e prompts de forma interativa antes de colocar no código final.
 
-```
+```text
 # requirements.txt
 langchain
 langchain-community

@@ -25,7 +25,7 @@ Um exemplo comum ajuda a visualizar o ciclo. Imagine um agente que responde perg
 
 O agente não responde de imediato, ele segue um raciocínio em etapas:
 
-```
+```text
 Pensamento: Para responder, preciso saber a localidade do usuário.
 Ação: descobrir a localidade do usuário.
 Observação: usuário está em São Paulo.

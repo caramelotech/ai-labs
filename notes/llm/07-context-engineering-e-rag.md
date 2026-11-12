@@ -65,7 +65,7 @@ O trabalho de Context Engineering passa a ser escolher, a cada chamada, o que en
 
 **RAG** é uma técnica para **injetar contexto dinâmico e atualizado** em um LLM, buscando informação relevante em uma base de dados externa antes de gerar a resposta, em vez de depender só do que o modelo aprendeu durante o treinamento.
 
-A técnica foi formalizada no artigo _"Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"_ (Lewis et al., 2020), e virou um dos padrões mais usados para dar "memória externa" a um LLM.
+A técnica foi formalizada no artigo *"Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"* (Lewis et al., 2020), e virou um dos padrões mais usados para dar "memória externa" a um LLM.
 
 ### De onde vêm os dados
 

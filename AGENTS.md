@@ -41,6 +41,7 @@ Conteúdo aqui...
 
 1. Crie a subpasta em `notes/nova-secao/` com ao menos uma nota
 2. Adicione a seção em `sidebar.json`:
+
    ```json
    { "label": "Título da Seção", "directory": "nova-secao" }
    ```

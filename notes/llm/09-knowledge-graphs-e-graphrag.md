@@ -19,7 +19,7 @@ Um **knowledge graph** (grafo de conhecimento) é uma forma de guardar informaç
 
 A unidade básica é a **tripla**, no formato sujeito, predicado, objeto (essa é a ideia do modelo RDF, um padrão da W3C para representar esse tipo de dado). Cada tripla é um fato:
 
-```
+```text
 (Cliente Acme) --assinou--> (Contrato 42)
 (Contrato 42) --cobre--> (Produto Básico)
 (Contrato 42) --vendido por--> (Parceiro Sul)

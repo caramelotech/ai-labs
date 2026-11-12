@@ -97,7 +97,7 @@ Ver a teoria funcionando ajuda mais do que decorar a lista. Vamos pegar um pedid
 
 Um pedido de uma linha, sem contexto, sem critérios e sem formato de saída:
 
-```
+```text
 Adapte meu currículo para a vaga de Analista de Marketing.
 ```
 
@@ -107,7 +107,7 @@ O modelo vai responder alguma coisa, mas vai ter que adivinhar o resto. Qual é 
 
 Aqui entram contexto (a empresa e as áreas de experiência) e critérios (linguagem alinhada à vaga e resultados com números):
 
-```
+```text
 Adapte meu currículo para a vaga de Analista de Marketing na [Nome da Empresa]. Destaque minhas experiências com marketing digital, análise de dados e gestão de campanhas. Use uma linguagem alinhada à descrição da vaga e destaque resultados com números.
 ```
 
@@ -119,7 +119,7 @@ O terceiro nível resolve isso anexando o material de referência e organizando 
 
 Arquivos anexados: `Meu_Curriculo_Atual.pdf`, `Descricao_da_Vaga_Analista_Marketing.pdf`, `Informacoes_Sobre_a_Empresa.pdf`
 
-```
+```text
 Adapte meu currículo para a vaga de Analista de Marketing com base nos arquivos anexados (meu currículo atual, descrição da vaga e informações sobre a empresa). Siga estas orientações:
 
 - Destaque as experiências e habilidades mais relevantes para os requisitos da vaga.
@@ -149,7 +149,7 @@ Pelo lado do checklist de [regras de ouro](/labs/ai/engenharia-de-prompt/02-boas
 
 O prompt ideal pede "métricas sempre que possível", mas não proíbe o modelo de inventar. Se o seu currículo não traz número nenhum, um modelo pode preencher com um "aumentou as vendas em 30%" que soa ótimo e é falso, e num currículo isso vira problema na entrevista. A correção é uma restrição explícita, o último item do checklist ("Incluir restrições"):
 
-```
+```text
 - Não invente experiências, cargos ou resultados que não estejam no meu currículo. Se faltar um número, deixe o marcador [inserir métrica] para eu preencher.
 ```
 
