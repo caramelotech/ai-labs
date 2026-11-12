@@ -57,7 +57,7 @@ Regras dos campos:
 
 Abaixo do frontmatter vem o corpo em Markdown normal: o fluxo de trabalho, as regras, o formato de saída, exemplos e restrições. Se a Skill precisa de mais material (um guia detalhado, um schema de banco, um script), esses arquivos ficam na mesma pasta e são citados pelo nome dentro do `SKILL.md`.
 
-```
+```text
 gerar-changelog/
   SKILL.md          instruções principais
   FORMATO.md        o template detalhado do changelog

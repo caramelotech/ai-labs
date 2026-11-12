@@ -559,7 +559,7 @@ Pontos naturais para evoluir o projeto:
 - **Dados reais.** Trocar os objetos fake pelas APIs do Google Calendar e do Gmail. As assinaturas das ferramentas quase não mudam, o que muda é o corpo das funções.
 - **Memória de longo prazo.** Guardar preferências do usuário ("sempre me deixe 30 min de intervalo entre reuniões") num banco e injetar no `systemInstruction` a cada sessão. Ver [Memória de Agentes](/labs/ai/agents/04-memoria/).
 - **Expor as ferramentas via MCP.** Empacotar `calendar.js` e `email.js` como um servidor [MCP](/labs/ai/agents/06-mcp/) para que outros agentes (Claude Desktop, Claude Code, um agente próprio) usem as mesmas ferramentas sem reimplementar.
-- **Usar um framework.** O loop `while` escrito na mão é ótimo para entender o mecanismo, mas frameworks de agentes cuidam de repetição, limite de iterações e streaming para você. Ver [Frameworks](/labs/ai/agents/09-frameworks/).
+- **Usar um framework.** O loop `while` escrito na mão é ótimo para entender o mecanismo, mas frameworks de agentes cuidam de repetição, limite de iterações e streaming para você. Ver [Frameworks](/labs/ai/agents/10-frameworks/).
 
 ## Referências
 

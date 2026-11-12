@@ -36,7 +36,7 @@ Um agente usa um LLM como raciocinador para perceber uma situação, decidir o q
 
 O agente é a peça que orquestra. RAG e MCP não são concorrentes dele, são recursos que ele usa: o agente decide quando buscar conhecimento e quando acionar uma ferramenta.
 
-A definição completa está em [O que são agentes de IA](/labs/ai/agents/01-o-que-e/), e a discussão sobre quando você precisa mesmo de autonomia está em [Workflow ou Agente?](/labs/ai/agents/11-workflow-ou-agente/).
+A definição completa está em [O que são agentes de IA](/labs/ai/agents/01-o-que-e/), e a discussão sobre quando você precisa mesmo de autonomia está em [Workflow ou Agente?](/labs/ai/agents/12-workflow-ou-agente/).
 
 ## A tabela que desfaz a confusão
 
@@ -75,7 +75,7 @@ Quando o próprio agente controla como e quando buscar, em vez de seguir um pipe
 
 Apresentar os três como uma disputa esconde o que acontece quando você junta MCP e RAG num agente.
 
-O problema de recuperação não some, ele muda de lugar. Com RAG, a dificuldade é escolher os trechos certos de documento para colocar no contexto. Com vários servidores MCP conectados, a dificuldade vira escolher a ferramenta certa entre dezenas ou centenas disponíveis. Cada ferramenta tem uma descrição em JSON que ocupa espaço no contexto, e com uma centena delas isso já são milhares de tokens gastos só em catálogo, antes mesmo de o usuário digitar qualquer coisa. Filtrar demais e o agente perde uma ferramenta de que precisava, o que parece o modelo sendo burro, não uma falha de seleção.
+O problema de recuperação não some, ele muda de lugar. Com RAG, a dificuldade é escolher os trechos certos de documento para colocar no contexto. Com vários servidores MCP conectados, a dificuldade vira escolher a ferramenta certa entre dezenas ou centenas disponíveis. Cada ferramenta tem uma descrição em JSON que ocupa espaço no contexto, e com uma centena delas isso já são milhares de tokens gastos só em catálogo, antes mesmo de o usuário digitar qualquer coisa. Filtrar demais e o agente perde uma ferramenta de que precisava, o que parece o modelo sendo burro, não uma falha de seleção. Uma alternativa a esse catálogo gigante de tools é trocar a chamada direta por execução de código, o assunto de [Code Mode: executar código em vez de chamar ferramentas](/labs/ai/agents/08-code-mode-execucao-de-codigo-com-mcp/).
 
 Uma prática que ajuda a depurar isso: registrar quais ferramentas estavam no contexto em cada passo. Sem esse log, um erro de "a ferramenta certa nem estava disponível" fica indistinguível de um erro de raciocínio.
 
@@ -89,7 +89,7 @@ Nem toda tarefa precisa dos três. Um guia rápido:
 - **Só MCP**, com um LLM ou um workflow de passos fixos: você precisa conectar o modelo a sistemas externos de forma padronizada, mas já sabe a sequência de antemão e não precisa que o modelo decida o caminho.
 - **Agente** (que pode usar RAG, MCP ou os dois): a tarefa tem vários passos, o caminho muda a cada caso, e é o modelo que precisa decidir o que fazer em tempo de execução.
 
-A recomendação é a mesma de [Workflow ou Agente?](/labs/ai/agents/11-workflow-ou-agente/): comece pela opção mais simples que resolve o problema e só adicione autonomia quando a tarefa realmente exigir.
+A recomendação é a mesma de [Workflow ou Agente?](/labs/ai/agents/12-workflow-ou-agente/): comece pela opção mais simples que resolve o problema e só adicione autonomia quando a tarefa realmente exigir.
 
 ## Referências
 

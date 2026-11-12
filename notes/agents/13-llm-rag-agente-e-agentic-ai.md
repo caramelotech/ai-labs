@@ -78,7 +78,7 @@ flowchart TD
     V -->|sim| R[Entrega]
 ```
 
-Um exemplo é um sistema que recebe "migre este serviço para a nova versão do framework": um agente lê o código, outro altera, outro roda os testes, e o orquestrador percebe que os testes falharam e replaneja a ordem das mudanças. Cada agente é um "agente" do degrau anterior. A novidade está na coordenação. A organização desses times está em [Sistemas Multi-Agentes](/labs/ai/agents/10-multi-agents/).
+Um exemplo é um sistema que recebe "migre este serviço para a nova versão do framework": um agente lê o código, outro altera, outro roda os testes, e o orquestrador percebe que os testes falharam e replaneja a ordem das mudanças. Cada agente é um "agente" do degrau anterior. A novidade está na coordenação. A organização desses times está em [Sistemas Multi-Agentes](/labs/ai/agents/11-multi-agents/).
 
 Uma observação sobre o termo: **"Agentic AI" não tem definição padronizada**. A separação usada aqui (agente = unidade que resolve uma tarefa, agentic AI = camada que orquestra vários) segue a taxonomia de Sapkota et al., que faz essa distinção. Fora dela, muita gente usa "agêntico" como adjetivo para qualquer sistema com alguma autonomia, inclusive um agente sozinho. Ao ler um artigo ou uma vaga, vale conferir qual sentido o autor está usando.
 
@@ -123,7 +123,7 @@ flowchart TD
     D -->|não| AG
 ```
 
-Note o desvio pelo **workflow**: muitas vezes o que se precisa é uma sequência definida em código com o LLM em pontos específicos, sem dar autonomia ao modelo. Essa escolha está em [Workflow ou Agente?](/labs/ai/agents/11-workflow-ou-agente/). Sistema com autonomia demais para o problema fica caro, lento e difícil de depurar sem ganhar nada em troca.
+Note o desvio pelo **workflow**: muitas vezes o que se precisa é uma sequência definida em código com o LLM em pontos específicos, sem dar autonomia ao modelo. Essa escolha está em [Workflow ou Agente?](/labs/ai/agents/12-workflow-ou-agente/). Sistema com autonomia demais para o problema fica caro, lento e difícil de depurar sem ganhar nada em troca.
 
 ## Mais autonomia, mais responsabilidade de segurança
 
@@ -137,7 +137,7 @@ Cada degrau dá mais poder ao sistema, e poder mal controlado vira problema. Qua
 
 A ideia de **Zero Trust** (nunca confiar por padrão, sempre verificar) se aplica bem aqui: cada chamada de ferramenta é autenticada e autorizada individualmente, e a saída de um agente não é tratada como confiável só porque veio de "dentro" do sistema. Em sistemas com vários agentes isso pesa ainda mais, porque um agente comprometido pode contaminar os outros através do estado compartilhado.
 
-Os controles em prática estão em [Agentes em Produção](/labs/ai/agents/15-agentes-em-producao/).
+Os controles em prática estão em [Agentes em Produção](/labs/ai/agents/16-agentes-em-producao/).
 
 ## Referências
 

@@ -49,7 +49,7 @@ Os termos abaixo aparecem o tempo todo no resto desta seção, cada um com sua p
 
 ## Onde o LangChain se encaixa no panorama de frameworks de agentes
 
-A comparação entre frameworks de agentes (LangChain, LangGraph, CrewAI, AutoGen, LlamaIndex e outros), incluindo quando cada um faz mais sentido, já está em [Frameworks de Agentes](/labs/ai/agents/09-frameworks/). Vale a leitura antes de seguir, principalmente porque é lá que fica registrado algo importante para o resto desta seção: desde a reformulação v1 do LangChain (2025), o próprio harness de agentes do framework (`create_agent`) passa a rodar sobre o LangGraph por baixo dos panos. Essa seção aqui não repete essa comparação, o foco é mostrar como usar o LangChain no código, para quem já decidiu (ou quer experimentar) essa ferramenta.
+A comparação entre frameworks de agentes (LangChain, LangGraph, CrewAI, AutoGen, LlamaIndex e outros), incluindo quando cada um faz mais sentido, já está em [Frameworks de Agentes](/labs/ai/agents/10-frameworks/). Vale a leitura antes de seguir, principalmente porque é lá que fica registrado algo importante para o resto desta seção: desde a reformulação v1 do LangChain (2025), o próprio harness de agentes do framework (`create_agent`) passa a rodar sobre o LangGraph por baixo dos panos. Essa seção aqui não repete essa comparação, o foco é mostrar como usar o LangChain no código, para quem já decidiu (ou quer experimentar) essa ferramenta.
 
 ## Um aviso sobre os exemplos de código
 

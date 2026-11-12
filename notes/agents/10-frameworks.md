@@ -24,7 +24,7 @@ O framework mais citado do ecossistema, e a base da qual boa parte dos outros no
 
 ### LangGraph
 
-Da mesma família do LangChain. Modela o agente como um **grafo de estados**: cada nó é uma etapa (um agente, uma ferramenta, uma decisão) e as arestas dizem para onde o fluxo vai depois. Dá bastante controle e previsibilidade, aceita ciclos (um nó pode voltar para outro) e tem suporte a memória e a pausas para revisão humana. É o que costuma ser escolhido para agentes com estado rodando em produção. Aparece no hands-on de [Sistemas Multi-Agentes](/labs/ai/agents/10-multi-agents/).
+Da mesma família do LangChain. Modela o agente como um **grafo de estados**: cada nó é uma etapa (um agente, uma ferramenta, uma decisão) e as arestas dizem para onde o fluxo vai depois. Dá bastante controle e previsibilidade, aceita ciclos (um nó pode voltar para outro) e tem suporte a memória e a pausas para revisão humana. É o que costuma ser escolhido para agentes com estado rodando em produção. Aparece no hands-on de [Sistemas Multi-Agentes](/labs/ai/agents/11-multi-agents/).
 
 ### CrewAI
 

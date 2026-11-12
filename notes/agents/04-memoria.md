@@ -49,7 +49,7 @@ Guarda fatos estáveis que valem em qualquer conversa, não presos a um evento e
 
 Guarda como executar tarefas: rotinas e sequências de passos, políticas, prompts e skills que o agente reaproveita. Em vez de raciocinar do zero toda vez, ele aplica um procedimento que já deu certo.
 
-Pense num agente que gera relatórios semanais. A primeira vez ele descobre o passo a passo (buscar dados, agregar, formatar, enviar). Com memória procedural, ele salva esse fluxo e nas próximas semanas só executa. As [Agent Skills](/labs/ai/agents/08-agent-skills/) são uma forma concreta desse tipo de memória: um procedimento escrito uma vez e carregado quando a tarefa aparece.
+Pense num agente que gera relatórios semanais. A primeira vez ele descobre o passo a passo (buscar dados, agregar, formatar, enviar). Com memória procedural, ele salva esse fluxo e nas próximas semanas só executa. As [Agent Skills](/labs/ai/agents/09-agent-skills/) são uma forma concreta desse tipo de memória: um procedimento escrito uma vez e carregado quando a tarefa aparece.
 
 ## Onde a memória de longo prazo fica guardada
 

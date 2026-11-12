@@ -15,7 +15,7 @@ flowchart TD
 
 ## Duas gerações de API: a legada e a atual
 
-Até a reformulação v1 do LangChain (2025), já registrada em [Frameworks de Agentes](/labs/ai/agents/09-frameworks/), a forma de criar um agente era `initialize_agent`, combinada com um `AgentType` que definia a estratégia de raciocínio usada. Essa API ainda aparece (e vai continuar aparecendo) em muito código e tutorial por aí, então vale reconhecer o padrão:
+Até a reformulação v1 do LangChain (2025), já registrada em [Frameworks de Agentes](/labs/ai/agents/10-frameworks/), a forma de criar um agente era `initialize_agent`, combinada com um `AgentType` que definia a estratégia de raciocínio usada. Essa API ainda aparece (e vai continuar aparecendo) em muito código e tutorial por aí, então vale reconhecer o padrão:
 
 ```python
 # API legada
@@ -116,7 +116,7 @@ Casos de uso comuns: responder perguntas que exigem combinar várias fontes, ass
 
 ## Segurança em agentes
 
-Um agente que executa ferramentas de verdade (gravar em banco, chamar uma API externa, rodar código) é, por definição, um sistema que toma ações no mundo real a partir do que um modelo de linguagem decidiu. Isso pede cuidado: valide e restrinja o acesso de cada ferramenta ao mínimo necessário, nunca dê a um agente uma ferramenta capaz de ação destrutiva sem alguma camada de confirmação, e trate a entrada que chega até as tools como potencialmente hostil (prompt injection pode induzir o agente a chamar uma ferramenta de um jeito que o usuário não pediu). O assunto é tratado com mais profundidade em [Boas Práticas e Segurança](/labs/ai/engenharia-de-prompt/02-boas-praticas-e-seguranca/) e em [Agentes em Produção](/labs/ai/agents/15-agentes-em-producao/).
+Um agente que executa ferramentas de verdade (gravar em banco, chamar uma API externa, rodar código) é, por definição, um sistema que toma ações no mundo real a partir do que um modelo de linguagem decidiu. Isso pede cuidado: valide e restrinja o acesso de cada ferramenta ao mínimo necessário, nunca dê a um agente uma ferramenta capaz de ação destrutiva sem alguma camada de confirmação, e trate a entrada que chega até as tools como potencialmente hostil (prompt injection pode induzir o agente a chamar uma ferramenta de um jeito que o usuário não pediu). O assunto é tratado com mais profundidade em [Boas Práticas e Segurança](/labs/ai/engenharia-de-prompt/02-boas-praticas-e-seguranca/) e em [Agentes em Produção](/labs/ai/agents/16-agentes-em-producao/).
 
 ## Referências
 

@@ -24,7 +24,7 @@ flowchart TD
 | `EntityMemory`                   | entidades importantes mencionadas (nomes, fatos)              | assistentes personalizados                                          |
 | `VectorStoreRetrieverMemory`     | histórico guardado num vector store, buscado por similaridade | memória de longo prazo, com muito histórico acumulado               |
 
-Essas classes vivem no módulo `langchain.memory` e representam o modelo conceitual de memória do LangChain: guardar mensagens, resumi-las ou indexá-las por significado. Vale considerar que esse é terreno em movimento rápido no framework. O LangChain vem deslocando cada vez mais a gestão de estado e histórico para o LangGraph (o mesmo movimento já registrado em [Frameworks de Agentes](/labs/ai/agents/09-frameworks/) para agentes como um todo), então, ao montar um projeto novo, vale checar na documentação atual se a forma recomendada de persistir histórico de conversa ainda passa por essas classes ou se migrou para os mecanismos de estado do LangGraph.
+Essas classes vivem no módulo `langchain.memory` e representam o modelo conceitual de memória do LangChain: guardar mensagens, resumi-las ou indexá-las por significado. Vale considerar que esse é terreno em movimento rápido no framework. O LangChain vem deslocando cada vez mais a gestão de estado e histórico para o LangGraph (o mesmo movimento já registrado em [Frameworks de Agentes](/labs/ai/agents/10-frameworks/) para agentes como um todo), então, ao montar um projeto novo, vale checar na documentação atual se a forma recomendada de persistir histórico de conversa ainda passa por essas classes ou se migrou para os mecanismos de estado do LangGraph.
 
 ## ConversationBufferMemory
 

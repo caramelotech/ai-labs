@@ -2,7 +2,7 @@
 
 ## Por que olhar um harness real
 
-A nota [Agentes em Produção](/labs/ai/agents/15-agentes-em-producao/) definiu harness de um jeito abstrato: tudo que não é o modelo, o código e a configuração que dão a ele contexto, ferramentas, permissões e limites. É uma boa definição, mas fica mais fácil de fixar olhando um harness de verdade, arquivo por arquivo.
+A nota [Agentes em Produção](/labs/ai/agents/16-agentes-em-producao/) definiu harness de um jeito abstrato: tudo que não é o modelo, o código e a configuração que dão a ele contexto, ferramentas, permissões e limites. É uma boa definição, mas fica mais fácil de fixar olhando um harness de verdade, arquivo por arquivo.
 
 O Claude Code (a CLI da Anthropic para programar com IA) guarda quase todo esse harness dentro de uma pasta chamada `.claude/`, na raiz do projeto, mais alguns arquivos de escopo global em `~/.claude/`. Cada peça abstrata do conceito de harness (contexto, memória, permissões, guardrails, alcance a ferramentas, subagentes) corresponde a um arquivo ou pasta específico ali dentro.
 
@@ -76,7 +76,7 @@ Um hook é um handler que dispara automaticamente num ponto fixo do ciclo de vid
 - um prompt que vai para o próprio LLM
 - um subagente
 
-A diferença central entre hook e guardrail (visto em [Agentes em Produção](/labs/ai/agents/15-agentes-em-producao/)) é que o hook é determinístico: ele sempre dispara naquele ponto exato do ciclo, não depende do modelo "decidir" rodar a checagem. É o jeito de garantir que um lint, uma formatação ou um bloqueio de ação insegura aconteça sempre, mesmo que o modelo esqueça de pedir.
+A diferença central entre hook e guardrail (visto em [Agentes em Produção](/labs/ai/agents/16-agentes-em-producao/)) é que o hook é determinístico: ele sempre dispara naquele ponto exato do ciclo, não depende do modelo "decidir" rodar a checagem. É o jeito de garantir que um lint, uma formatação ou um bloqueio de ação insegura aconteça sempre, mesmo que o modelo esqueça de pedir.
 
 ```json
 {
@@ -130,7 +130,7 @@ Esse arquivo fica na raiz do projeto, é versionado em Git e compartilhado com o
 
 Duas pastas guardam procedimentos que você quer reaproveitar entre sessões, em vez de reexplicar toda vez: `.claude/commands/` e `.claude/skills/`.
 
-`commands/` é o mecanismo mais antigo: um arquivo Markdown único (`.claude/commands/deploy.md`) que vira o comando `/deploy`, acionado só quando você digita explicitamente. `skills/` é o sucessor recomendado: uma pasta com um `SKILL.md` (`.claude/skills/deploy/SKILL.md`) que também pode ser chamada com `/deploy`, mas tem uma vantagem a mais, descrita em detalhe na nota [Agent Skills](/labs/ai/agents/08-agent-skills/): o próprio modelo pode decidir carregá-la sozinho, sem você digitar o comando, quando o pedido bate com a descrição da Skill.
+`commands/` é o mecanismo mais antigo: um arquivo Markdown único (`.claude/commands/deploy.md`) que vira o comando `/deploy`, acionado só quando você digita explicitamente. `skills/` é o sucessor recomendado: uma pasta com um `SKILL.md` (`.claude/skills/deploy/SKILL.md`) que também pode ser chamada com `/deploy`, mas tem uma vantagem a mais, descrita em detalhe na nota [Agent Skills](/labs/ai/agents/09-agent-skills/): o próprio modelo pode decidir carregá-la sozinho, sem você digitar o comando, quando o pedido bate com a descrição da Skill.
 
 Na prática, os dois mecanismos convivem (um arquivo em `commands/` continua funcionando do mesmo jeito), mas para algo novo vale escrever direto como Skill, já que ela cobre tanto o caso de "eu aciono manualmente" quanto o de "o agente percebe que precisa disso sozinho".
 
@@ -148,7 +148,7 @@ tools: ["Read", "Grep"]
 Você é um revisor de segurança...
 ```
 
-Vale não confundir subagente com um sistema multi-agente completo, tema da nota [Sistemas Multi-Agentes](/labs/ai/agents/10-multi-agents/). Um subagente roda dentro da mesma sessão que o acionou e só reporta ao agente principal, como uma chamada de função que devolve um resultado. Um sistema multi-agente de verdade tem vários agentes independentes, cada um com seu próprio ciclo de vida, que se coordenam por protocolo ou por estado compartilhado. O subagente é uma forma mais simples e contida de dividir trabalho, sem todo o aparato de orquestração.
+Vale não confundir subagente com um sistema multi-agente completo, tema da nota [Sistemas Multi-Agentes](/labs/ai/agents/11-multi-agents/). Um subagente roda dentro da mesma sessão que o acionou e só reporta ao agente principal, como uma chamada de função que devolve um resultado. Um sistema multi-agente de verdade tem vários agentes independentes, cada um com seu próprio ciclo de vida, que se coordenam por protocolo ou por estado compartilhado. O subagente é uma forma mais simples e contida de dividir trabalho, sem todo o aparato de orquestração.
 
 ## O que isso ensina sobre harness em geral
 

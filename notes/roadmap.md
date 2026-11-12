@@ -48,7 +48,7 @@ No lab: [Uso de Ferramentas](/labs/ai/agents/03-ferramentas/), [Hands-on: Agente
 - RAG na prática: carregar documentos, dividir em chunks, gerar embeddings, guardar num banco vetorial e recuperar
 - Quando o LangChain compensa e quando o loop escrito na mão basta
 
-No lab: [Frameworks de Agentes](/labs/ai/agents/09-frameworks/), [Introdução ao LangChain](/labs/ai/langchain/01-introducao/), [Chains e LCEL](/labs/ai/langchain/05-chains-e-lcel/), [Memória no LangChain](/labs/ai/langchain/06-memoria/), [RAG no LangChain](/labs/ai/langchain/11-rag/), [Context Engineering e RAG](/labs/ai/llm/07-context-engineering-e-rag/), [Arquiteturas de RAG](/labs/ai/llm/08-arquiteturas-de-rag/), [Pipeline de RAG em Produção](/labs/ai/llm/10-pipeline-de-rag-em-producao/)
+No lab: [Frameworks de Agentes](/labs/ai/agents/10-frameworks/), [Introdução ao LangChain](/labs/ai/langchain/01-introducao/), [Chains e LCEL](/labs/ai/langchain/05-chains-e-lcel/), [Memória no LangChain](/labs/ai/langchain/06-memoria/), [RAG no LangChain](/labs/ai/langchain/11-rag/), [Context Engineering e RAG](/labs/ai/llm/07-context-engineering-e-rag/), [Arquiteturas de RAG](/labs/ai/llm/08-arquiteturas-de-rag/), [Pipeline de RAG em Produção](/labs/ai/llm/10-pipeline-de-rag-em-producao/)
 
 ## 🤖 6. Agentes de IA em Python
 
@@ -58,7 +58,7 @@ No lab: [Frameworks de Agentes](/labs/ai/agents/09-frameworks/), [Introdução a
 - Agentes com LangChain, que hoje rodam sobre o LangGraph por baixo dos panos
 - Workflow ou agente: quando cada um faz sentido
 
-No lab: [O que são agentes de IA](/labs/ai/agents/01-o-que-e/), [Paradigma ReAct](/labs/ai/agents/02-react/), [Memória de Agentes](/labs/ai/agents/04-memoria/), [Agentes no LangChain](/labs/ai/langchain/08-agentes/), [Workflow ou Agente?](/labs/ai/agents/11-workflow-ou-agente/), [LLM, RAG, Agente e Agentic AI](/labs/ai/agents/12-llm-rag-agente-e-agentic-ai/), [Decomposição de Tarefas](/labs/ai/agents/13-decomposicao-de-tarefas/), [Padrões de execução de agentes](/labs/ai/agents/14-padroes-de-execucao/)
+No lab: [O que são agentes de IA](/labs/ai/agents/01-o-que-e/), [Paradigma ReAct](/labs/ai/agents/02-react/), [Memória de Agentes](/labs/ai/agents/04-memoria/), [Agentes no LangChain](/labs/ai/langchain/08-agentes/), [Workflow ou Agente?](/labs/ai/agents/12-workflow-ou-agente/), [LLM, RAG, Agente e Agentic AI](/labs/ai/agents/13-llm-rag-agente-e-agentic-ai/), [Decomposição de Tarefas](/labs/ai/agents/14-decomposicao-de-tarefas/), [Padrões de execução de agentes](/labs/ai/agents/15-padroes-de-execucao/)
 
 ## 🧩 7. MCP: conectando a IA a ferramentas e dados
 
@@ -66,7 +66,7 @@ No lab: [O que são agentes de IA](/labs/ai/agents/01-o-que-e/), [Paradigma ReAc
 - Criar um servidor MCP em Python expondo tools, resources e prompts
 - Conectar o servidor a um cliente de IA (host), como um editor ou um agente próprio
 
-No lab: [Model Context Protocol (MCP)](/labs/ai/agents/06-mcp/), [MCP, RAG e Agentes: quem faz o quê](/labs/ai/agents/07-mcp-rag-e-agentes/), [Agent Skills](/labs/ai/agents/08-agent-skills/)
+No lab: [Model Context Protocol (MCP)](/labs/ai/agents/06-mcp/), [MCP, RAG e Agentes: quem faz o quê](/labs/ai/agents/07-mcp-rag-e-agentes/), [Code Mode: executar código em vez de chamar ferramentas](/labs/ai/agents/08-code-mode-execucao-de-codigo-com-mcp/), [Agent Skills](/labs/ai/agents/09-agent-skills/)
 
 ## 👥 8. Sistemas multiagentes e deploy
 
@@ -75,7 +75,7 @@ No lab: [Model Context Protocol (MCP)](/labs/ai/agents/06-mcp/), [MCP, RAG e Age
 - Agno: framework Python para agentes com ferramentas, memória, base de conhecimento e times
 - Deploy: colocar um agente ou uma crew no ar, com variáveis de ambiente, observabilidade e custo sob controle
 
-No lab: [Sistemas Multi-Agentes](/labs/ai/agents/10-multi-agents/), [Frameworks de Agentes](/labs/ai/agents/09-frameworks/), [Agentes em Produção](/labs/ai/agents/15-agentes-em-producao/)
+No lab: [Sistemas Multi-Agentes](/labs/ai/agents/11-multi-agents/), [Frameworks de Agentes](/labs/ai/agents/10-frameworks/), [Agentes em Produção](/labs/ai/agents/16-agentes-em-producao/)
 
 ## ⌨️ 9. IDE com IA para programar mais rápido
 

@@ -18,7 +18,7 @@ flowchart LR
     end
 ```
 
-Vários dos 12 fatores conversam diretamente com conteúdo que já está no lab: eles dão nome e estrutura a práticas vistas em [Padrões de execução de agentes](/labs/ai/agents/14-padroes-de-execucao/) e em [Agentes em Produção](/labs/ai/agents/15-agentes-em-producao/), então as próximas seções apontam essas conexões em vez de repetir a explicação.
+Vários dos 12 fatores conversam diretamente com conteúdo que já está no lab: eles dão nome e estrutura a práticas vistas em [Padrões de execução de agentes](/labs/ai/agents/15-padroes-de-execucao/) e em [Agentes em Produção](/labs/ai/agents/16-agentes-em-producao/), então as próximas seções apontam essas conexões em vez de repetir a explicação.
 
 ## Os 12 fatores
 
@@ -48,7 +48,7 @@ Um agente de produção não roda do início ao fim numa única chamada de funç
 
 ### 7. Contact humans with tool calls
 
-Pedir a aprovação de uma pessoa não deveria ser um mecanismo especial e paralelo ao resto do agente. Se "perguntar para um humano" é modelado como mais uma tool call, ele entra no mesmo fluxo de pausa e retomada do fator 6, e o agente fica esperando a resposta da mesma forma que esperaria o resultado de qualquer outra ferramenta. É a mesma ideia do [human-in-the-loop](/labs/ai/agents/15-agentes-em-producao/) visto em Agentes em Produção.
+Pedir a aprovação de uma pessoa não deveria ser um mecanismo especial e paralelo ao resto do agente. Se "perguntar para um humano" é modelado como mais uma tool call, ele entra no mesmo fluxo de pausa e retomada do fator 6, e o agente fica esperando a resposta da mesma forma que esperaria o resultado de qualquer outra ferramenta. É a mesma ideia do [human-in-the-loop](/labs/ai/agents/16-agentes-em-producao/) visto em Agentes em Produção.
 
 ### 8. Own your control flow
 
@@ -60,7 +60,7 @@ Quando uma ferramenta falha, jogar o stack trace inteiro de volta no contexto do
 
 ### 10. Small, focused agents
 
-Um agente que tenta fazer tudo (atender, vender, cancelar, dar suporte técnico) acumula ferramentas e regras até virar difícil de prever e de testar. Agentes pequenos, com escopo estreito e bem definido, são mais fáceis de avaliar, de depurar e de combinar depois num sistema maior, o mesmo raciocínio por trás dos [Sistemas Multi-Agentes](/labs/ai/agents/10-multi-agents/).
+Um agente que tenta fazer tudo (atender, vender, cancelar, dar suporte técnico) acumula ferramentas e regras até virar difícil de prever e de testar. Agentes pequenos, com escopo estreito e bem definido, são mais fáceis de avaliar, de depurar e de combinar depois num sistema maior, o mesmo raciocínio por trás dos [Sistemas Multi-Agentes](/labs/ai/agents/11-multi-agents/).
 
 ### 11. Trigger from anywhere, meet users where they are
 
