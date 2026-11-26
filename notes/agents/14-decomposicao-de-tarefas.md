@@ -6,7 +6,7 @@ Depois de decidir entre [workflow ou agente](/labs/ai/agents/12-workflow-ou-agen
 
 É tentador pedir tudo numa chamada só: "escreva um artigo sobre X" e esperar o melhor. Só que dividir a mesma tarefa num workflow (planejar, pesquisar, coletar fontes, escrever rascunho, revisar, pesquisar de novo, melhorar, gerar resultado final) costuma produzir um resultado mais elaborado, porque cada etapa dá ao modelo uma chance de fazer uma coisa só e fazer bem, em vez de acertar tudo de primeira.
 
-O ganho de decompor bem pode superar o ganho de trocar de modelo. No benchmark HumanEval (problemas de programação com testes automatizados, o mesmo visto em [Avaliação de LLMs](/labs/ai/llm/06-avaliacao-de-llms/)), Andrew Ng mostrou um exemplo revelador: **GPT-3.5** usado direto, numa única chamada, acerta cerca de **48%** dos problemas. **GPT-4**, o modelo mais forte, usado do mesmo jeito direto, sobe para **67%**. Mas o **GPT-3.5** (o modelo mais fraco dos dois) dentro de um workflow agentic simples, gerando um rascunho, refletindo sobre o próprio código, e testando e corrigindo antes de responder, chega a **95%**, superando o GPT-4 usado sem workflow nenhum. A lição não é "use sempre o modelo mais caro", é "projete melhor o processo em que o modelo trabalha".
+O ganho de decompor bem pode superar o ganho de trocar de modelo. No benchmark HumanEval (problemas de programação com testes automatizados, o mesmo visto em [Avaliação de LLMs](/labs/ai/llm/07-avaliacao-de-llms/)), Andrew Ng mostrou um exemplo revelador: **GPT-3.5** usado direto, numa única chamada, acerta cerca de **48%** dos problemas. **GPT-4**, o modelo mais forte, usado do mesmo jeito direto, sobe para **67%**. Mas o **GPT-3.5** (o modelo mais fraco dos dois) dentro de um workflow agentic simples, gerando um rascunho, refletindo sobre o próprio código, e testando e corrigindo antes de responder, chega a **95%**, superando o GPT-4 usado sem workflow nenhum. A lição não é "use sempre o modelo mais caro", é "projete melhor o processo em que o modelo trabalha".
 
 ## O método: duas perguntas
 
@@ -50,7 +50,7 @@ flowchart LR
     J --> K[Resultado final]
 ```
 
-Cada seta é uma etapa que pode virar uma chamada de LLM (criar outline, escrever rascunho, revisar), uma ferramenta de busca (pesquisar, ver [Uso de Ferramentas](/labs/ai/agents/03-ferramentas/)) ou uma etapa de recuperação de contexto (coletar fontes, ver [Context Engineering e RAG](/labs/ai/llm/07-context-engineering-e-rag/)). O processo é iterativo: se o rascunho ainda não está bom depois de uma volta, você decompõe de novo a etapa que falhou (por exemplo, "revisar" pode virar "checar fatos" + "checar tom" + "checar estrutura"), em vez de jogar a tarefa inteira de volta para o modelo.
+Cada seta é uma etapa que pode virar uma chamada de LLM (criar outline, escrever rascunho, revisar), uma ferramenta de busca (pesquisar, ver [Uso de Ferramentas](/labs/ai/agents/03-ferramentas/)) ou uma etapa de recuperação de contexto (coletar fontes, ver [Context Engineering e RAG](/labs/ai/llm/08-context-engineering-e-rag/)). O processo é iterativo: se o rascunho ainda não está bom depois de uma volta, você decompõe de novo a etapa que falhou (por exemplo, "revisar" pode virar "checar fatos" + "checar tom" + "checar estrutura"), em vez de jogar a tarefa inteira de volta para o modelo.
 
 ## Mais exemplos de decomposição
 
@@ -86,7 +86,7 @@ De novo, cada etapa tem um dono natural: converter o PDF é um modelo especializ
 Depois de decompor, cada etapa precisa de uma peça que a resolva. O catálogo de peças disponíveis cresce o tempo todo, mas dá para agrupar em duas famílias:
 
 - **Modelos de IA:** LLMs de propósito geral, modelos multimodais (texto e imagem juntos), modelos especializados como reconhecimento de imagem, conversão de PDF para texto ou text-to-speech.
-- **Ferramentas:** APIs em geral, busca web, bancos de dados, [RAG](/labs/ai/llm/07-context-engineering-e-rag/), API de e-mail, calendário, API de clima, execução de código.
+- **Ferramentas:** APIs em geral, busca web, bancos de dados, [RAG](/labs/ai/llm/08-context-engineering-e-rag/), API de e-mail, calendário, API de clima, execução de código.
 
 Boa parte do trabalho de quem constrói um sistema agentic deixa de ser "escrever o prompt perfeito" e vira **identificar quais building blocks já existem e combiná-los na sequência certa** para o problema em mãos. Uma vez decomposta, a tarefa também informa qual [padrão de execução](/labs/ai/agents/15-padroes-de-execucao/) faz sentido para cada etapa: uma etapa isolada e bem definida costuma caber num único passo de LLM (single-shot), enquanto uma etapa que precisa buscar informação e reagir ao que encontra pede um loop de ferramentas.
 
@@ -105,7 +105,7 @@ flowchart LR
     G --> C
 ```
 
-Esse ciclo (rodar, observar, corrigir, medir) é o que conecta decomposição de tarefas à disciplina de avaliação: cada erro que aparece na prática vira um caso de teste novo, o mesmo raciocínio por trás do dataset de avaliação vivo visto em [Avaliação de LLMs](/labs/ai/llm/06-avaliacao-de-llms/) e dos evals de agente em [Agentes em Produção](/labs/ai/agents/16-agentes-em-producao/).
+Esse ciclo (rodar, observar, corrigir, medir) é o que conecta decomposição de tarefas à disciplina de avaliação: cada erro que aparece na prática vira um caso de teste novo, o mesmo raciocínio por trás do dataset de avaliação vivo visto em [Avaliação de LLMs](/labs/ai/llm/07-avaliacao-de-llms/) e dos evals de agente em [Agentes em Produção](/labs/ai/agents/16-agentes-em-producao/).
 
 ## Referências
 

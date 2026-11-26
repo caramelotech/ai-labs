@@ -102,6 +102,29 @@ Só que um banco tem dado sensível e comandos destrutivos, então o acesso prec
 - **Nada de SQL arbitrário:** evite uma ferramenta genérica tipo `executar_sql(texto)`. Prefira ferramentas específicas (`consultar_pedidos_do_cliente(id)`), em que o modelo só escolhe os parâmetros. Um SQL escrito pelo modelo sofre do mesmo problema de uma injeção de SQL clássica, porque o texto pode ser influenciado por quem conversa com o agente
 - **Backup e logs:** mantenha backup para recuperar dados e registre cada comando executado, para investigar depois
 
+### Computer use
+
+Todas as ferramentas vistas até aqui têm algo em comum: uma função com nome, parâmetros e schema bem definidos, chamando uma API, um banco ou outro sistema estruturado. **Computer use** é uma categoria diferente de ferramenta, pensada para o caso em que esse schema não existe: o agente enxerga a tela como uma pessoa enxergaria (recebendo screenshots) e age sobre ela com as mesmas ações de um usuário humano, como mover o mouse, clicar em coordenadas da tela e digitar.
+
+```mermaid
+sequenceDiagram
+    participant M as Modelo
+    participant S as Sistema do Agente
+    participant D as Desktop/Navegador
+    M->>S: "Clique no botão Salvar"
+    S->>D: Tira um screenshot
+    D->>S: Imagem da tela atual
+    S->>M: Screenshot + posição do cursor
+    M->>S: Coordenada (x, y) para clicar
+    S->>D: Executa o clique
+    D->>S: Novo estado da tela
+    S->>M: Novo screenshot
+```
+
+Isso faz sentido quando não existe uma API para a tarefa: um sistema legado sem nenhuma integração programática, uma automação que precisa navegar por uma interface de terceiros, ou testar a própria aplicação da mesma forma que um usuário real a usaria, clicando pela interface em vez de chamar endpoints diretamente.
+
+O preço dessa flexibilidade é alto comparado a uma ferramenta tradicional: cada ação depende do modelo interpretar corretamente uma imagem e acertar uma coordenada de clique, o que é mais lento, mais caro (cada passo manda uma imagem inteira de volta para o modelo) e tem mais chance de erro do que uma chamada de função com parâmetros estruturados. Um clique alguns pixels fora do alvo pode disparar uma ação completamente diferente da pretendida. Por isso, os cuidados de [Agentes em Produção](/labs/ai/agents/16-agentes-em-producao/) (sandbox, menor privilégio, aprovação humana para ações que não podem ser desfeitas) importam ainda mais aqui do que numa ferramenta com schema fixo: o agente está operando no mesmo ambiente visual de uma pessoa, com o mesmo poder de causar um estrago que uma pessoa teria.
+
 ### Dar poder demais ao modelo
 
 Todos esses cuidados vêm da mesma ideia, que o OWASP chama de **Excessive Agency** (agência excessiva): o agente ganha mais ferramentas, permissões ou autonomia do que a tarefa precisa, e qualquer falha (uma alucinação, um prompt malicioso escondido em um documento) vira um estrago real. A regra prática é dar ao agente o mínimo de poder para cumprir o trabalho e validar tudo do lado do sistema, como descrito em [O que faz funcionar](#o-que-faz-funcionar). Para o restante das camadas de proteção, veja [Agentes em Produção](/labs/ai/agents/16-agentes-em-producao/).
@@ -122,3 +145,4 @@ Esse mecanismo de descrição de ferramenta mais chamada estruturada é a base s
 - [Práticas recomendadas para proteger interações de agentes com o Protocolo de Contexto de Modelo](https://docs.cloud.google.com/sql/docs/mysql/secure-agent-interactions-mcp?hl=pt-BR) - Google Cloud, pt-BR
 - [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) - OWASP, en
 - [Function calling](https://developers.openai.com/api/docs/guides/function-calling) - OpenAI, en
+- [Introducing computer use, a new Claude 3.5 Sonnet, and Claude 3.5 Haiku](https://www.anthropic.com/news/3-5-models-and-computer-use) - Anthropic, en

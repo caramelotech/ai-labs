@@ -29,7 +29,7 @@ flowchart LR
     D --> A
 ```
 
-Todo o feedback coletado só vale alguma coisa se vira dado usável: um caso de erro apontado por um usuário pode virar um item novo no dataset de avaliação (ver [Avaliação de LLMs](/labs/ai/llm/06-avaliacao-de-llms/)), e um conjunto de correções pode virar exemplo de treino para um novo ciclo de [fine-tuning](/labs/ai/llm/11-fine-tuning/). Esse ciclo, produção gerando dado, dado melhorando o sistema, sistema melhor atraindo mais uso e portanto mais dado, é o que se chama de **data flywheel**.
+Todo o feedback coletado só vale alguma coisa se vira dado usável: um caso de erro apontado por um usuário pode virar um item novo no dataset de avaliação (ver [Avaliação de LLMs](/labs/ai/llm/07-avaliacao-de-llms/)), e um conjunto de correções pode virar exemplo de treino para um novo ciclo de [fine-tuning](/labs/ai/llm/12-fine-tuning/). Esse ciclo, produção gerando dado, dado melhorando o sistema, sistema melhor atraindo mais uso e portanto mais dado, é o que se chama de **data flywheel**.
 
 O flywheel não roda sozinho depois de montado uma vez. Ele precisa de manutenção constante: podar dado ruim que entrou no meio do caminho, garantir que áreas com pouco feedback também recebam atenção (senão o modelo só melhora onde já tinha muito uso) e ajustar o que é coletado conforme a aplicação muda. Tratar o flywheel como algo que "se monta uma vez e roda para sempre" é um erro comum que faz muitos times pararem de melhorar depois dos primeiros meses.
 

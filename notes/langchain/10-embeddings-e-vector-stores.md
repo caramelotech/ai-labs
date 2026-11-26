@@ -2,7 +2,7 @@
 
 ## O que muda em relação ao conceito geral
 
-O que é um embedding e como a busca semântica funciona já está em [Embeddings](/labs/ai/llm/04-embeddings/), e a arquitetura de um sistema de RAG em produção, incluindo como escolher um banco vetorial para essa escala, está em [Arquiteturas de RAG](/labs/ai/llm/08-arquiteturas-de-rag/). Esta nota cobre só o lado prático: como o LangChain conecta chunks de texto a um modelo de embedding e a um banco vetorial.
+O que é um embedding e como a busca semântica funciona já está em [Embeddings](/labs/ai/llm/04-embeddings/), e a arquitetura de um sistema de RAG em produção, incluindo como escolher um banco vetorial para essa escala, está em [Arquiteturas de RAG](/labs/ai/llm/09-arquiteturas-de-rag/). Esta nota cobre só o lado prático: como o LangChain conecta chunks de texto a um modelo de embedding e a um banco vetorial.
 
 ## A interface comum VectorStore
 

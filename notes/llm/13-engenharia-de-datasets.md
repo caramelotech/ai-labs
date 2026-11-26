@@ -1,6 +1,6 @@
 # Engenharia de Datasets
 
-O processo mecânico de [fine-tuning](/labs/ai/llm/11-fine-tuning/) não é a parte difícil: frameworks como Hugging Face `transformers` ou Axolotl cuidam do loop de treino, e LoRA já vem com hiperparâmetros padrão sensatos. O que separa um fine-tuning que funciona de um que não funciona é quase sempre o dataset usado para treinar. Engenharia de datasets é a disciplina de pensar em que comportamento você quer que o modelo aprenda e desenhar os dados que ensinam exatamente isso.
+O processo mecânico de [fine-tuning](/labs/ai/llm/12-fine-tuning/) não é a parte difícil: frameworks como Hugging Face `transformers` ou Axolotl cuidam do loop de treino, e LoRA já vem com hiperparâmetros padrão sensatos. O que separa um fine-tuning que funciona de um que não funciona é quase sempre o dataset usado para treinar. Engenharia de datasets é a disciplina de pensar em que comportamento você quer que o modelo aprenda e desenhar os dados que ensinam exatamente isso.
 
 ## Por que um bom dataset importa mais que volume
 
@@ -23,8 +23,8 @@ O que conta como "dado bom" muda de acordo com a fase de treino:
 | Fase                              | Tipo de dado                                                                                                                   | Escala típica                                      |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------- |
 | Pre-training                      | Texto bruto da internet, livros, código (sem rótulo)                                                                           | Bilhões a trilhões de tokens                       |
-| Instruction finetuning            | Pares (instrução, resposta esperada), ver [Instruction tuning](/labs/ai/llm/11-fine-tuning/)                                   | Milhares a algumas dezenas de milhares de exemplos |
-| Preference finetuning (alignment) | Pares comparativos: mesma pergunta, duas respostas, uma marcada como preferida, ver [RLHF e DPO](/labs/ai/llm/11-fine-tuning/) | Milhares de comparações                            |
+| Instruction finetuning            | Pares (instrução, resposta esperada), ver [Instruction tuning](/labs/ai/llm/12-fine-tuning/)                                   | Milhares a algumas dezenas de milhares de exemplos |
+| Preference finetuning (alignment) | Pares comparativos: mesma pergunta, duas respostas, uma marcada como preferida, ver [RLHF e DPO](/labs/ai/llm/12-fine-tuning/) | Milhares de comparações                            |
 
 Pre-training precisa de volume descomunal de texto genérico, sem anotação nenhuma: o modelo aprende estrutura de linguagem e conhecimento de mundo só de prever o próximo token repetidamente. Instruction finetuning já é outro jogo: menos volume, mas cada exemplo precisa mostrar o formato exato de instrução e resposta que você quer que o modelo siga. Preference finetuning é ainda mais específico: não basta uma resposta certa, é preciso um par comparativo (A é melhor que B) para o modelo aprender a preferência, não só o formato.
 
@@ -48,7 +48,7 @@ Gerar dado sintético não é isento de problemas, e alguns só aparecem depois 
 
 ## Verificação e avaliação de dados sintéticos
 
-Dado sintético precisa passar pelo mesmo crivo que dado real antes de virar treino: não existe atalho só porque foi um LLM que gerou. Avaliar dado gerado por IA tem a mesma dificuldade de avaliar qualquer saída de LLM (ver [Avaliação de LLMs](/labs/ai/llm/06-avaliacao-de-llms/)), e na prática os times que mais usam dado sintético são os que conseguem avaliá-lo de forma confiável, seja com um LLM-as-judge dedicado a esse fim, seja com regras automáticas de qualidade específicas do domínio.
+Dado sintético precisa passar pelo mesmo crivo que dado real antes de virar treino: não existe atalho só porque foi um LLM que gerou. Avaliar dado gerado por IA tem a mesma dificuldade de avaliar qualquer saída de LLM (ver [Avaliação de LLMs](/labs/ai/llm/07-avaliacao-de-llms/)), e na prática os times que mais usam dado sintético são os que conseguem avaliá-lo de forma confiável, seja com um LLM-as-judge dedicado a esse fim, seja com regras automáticas de qualidade específicas do domínio.
 
 Vale lembrar que boa parte do trabalho de engenharia de datasets não é automatizável: dá para automatizar a _geração_ de exemplos, mas pensar em que comportamento o dataset precisa ensinar, escrever as diretrizes de anotação e revisar os casos de borda continua sendo trabalho humano.
 

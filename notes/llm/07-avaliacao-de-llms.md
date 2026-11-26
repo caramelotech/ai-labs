@@ -67,7 +67,7 @@ O método tem limitações conhecidas: o juiz tende a preferir respostas mais lo
 
 A forma mais confiável (e mais cara) de avaliar é colocar pessoas de verdade lendo e comparando respostas. O formato mais usado hoje é o de **arena**: duas respostas de modelos diferentes aparecem lado a lado, sem identificação, e quem avalia escolhe qual prefere.
 
-O **Chatbot Arena**, mantido pelo LMSYS (o mesmo grupo por trás do RouteLLM, visto em [Model Routing](/labs/ai/llm/14-model-routing/)), é o exemplo mais conhecido: milhares de votos anônimos alimentam um ranking calculado por **Elo**, o mesmo sistema de pontuação usado no xadrez, em que cada vitória ou derrota ajusta a posição relativa dos modelos no ranking. Como o ranking vem de preferência humana real em conversas variadas, ele costuma refletir melhor "qual modelo as pessoas preferem usar" do que um benchmark de múltipla escolha.
+O **Chatbot Arena**, mantido pelo LMSYS (o mesmo grupo por trás do RouteLLM, visto em [Model Routing](/labs/ai/llm/15-model-routing/)), é o exemplo mais conhecido: milhares de votos anônimos alimentam um ranking calculado por **Elo**, o mesmo sistema de pontuação usado no xadrez, em que cada vitória ou derrota ajusta a posição relativa dos modelos no ranking. Como o ranking vem de preferência humana real em conversas variadas, ele costuma refletir melhor "qual modelo as pessoas preferem usar" do que um benchmark de múltipla escolha.
 
 ## Como combinar os métodos
 
@@ -77,7 +77,7 @@ Nenhum método sozinho conta a história toda. Um caminho comum na prática:
 - Usar **LLM-as-judge** para avaliar qualidade de texto aberto em volume, com uma amostra revisada por humano de tempos em tempos para calibrar o juiz
 - Reservar **avaliação humana** para decisões grandes (trocar de modelo em produção, validar uma mudança de fine-tuning) ou para os casos em que o LLM-as-judge mostrou baixa confiança
 
-O ponto comum com a avaliação de retrieval vista em [Pipeline de RAG em Produção](/labs/ai/llm/10-pipeline-de-rag-em-producao/) é o mesmo: métrica automática pega a maioria dos problemas rápido, mas uma amostra revisada por humano continua sendo necessária para pegar o que a métrica não enxerga.
+O ponto comum com a avaliação de retrieval vista em [Pipeline de RAG em Produção](/labs/ai/llm/11-pipeline-de-rag-em-producao/) é o mesmo: métrica automática pega a maioria dos problemas rápido, mas uma amostra revisada por humano continua sendo necessária para pegar o que a métrica não enxerga.
 
 ## Referências
 

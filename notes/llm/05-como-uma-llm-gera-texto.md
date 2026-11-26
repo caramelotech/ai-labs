@@ -20,7 +20,7 @@ flowchart LR
 
 A seta pontilhada é importante: o token escolhido é anexado ao texto e o processo roda de novo para gerar o token seguinte. É por isso que a resposta aparece "digitando" aos poucos.
 
-Saber disso muda a forma de pensar em prompts e contexto. Cada palavra que você coloca na entrada participa do cálculo que decide o próximo token, então informação irrelevante não fica "de lado": ela compete por atenção com a informação útil. Essa ideia reaparece em [Context Engineering](/labs/ai/llm/07-context-engineering-e-rag/).
+Saber disso muda a forma de pensar em prompts e contexto. Cada palavra que você coloca na entrada participa do cálculo que decide o próximo token, então informação irrelevante não fica "de lado": ela compete por atenção com a informação útil. Essa ideia reaparece em [Context Engineering](/labs/ai/llm/08-context-engineering-e-rag/).
 
 ## Do texto aos embeddings
 
@@ -74,7 +74,7 @@ A maioria dos modelos atuais (Llama, entre outros) usa uma técnica mais recente
 
 ### Por que o custo cresce com o contexto
 
-Cada token é comparado com todos os anteriores. Dobrar o tamanho do contexto faz o número de comparações crescer perto de quatro vezes (crescimento quadrático). Existem otimizações que reduzem esse custo, mas a intuição permanece: contexto maior é mais caro e lento, e a atenção precisa ser repartida entre mais tokens. Isso se conecta ao problema de qualidade discutido em [Context Engineering](/labs/ai/llm/07-context-engineering-e-rag/).
+Cada token é comparado com todos os anteriores. Dobrar o tamanho do contexto faz o número de comparações crescer perto de quatro vezes (crescimento quadrático). Existem otimizações que reduzem esse custo, mas a intuição permanece: contexto maior é mais caro e lento, e a atenção precisa ser repartida entre mais tokens. Isso se conecta ao problema de qualidade discutido em [Context Engineering](/labs/ai/llm/08-context-engineering-e-rag/).
 
 ## Logits e softmax
 

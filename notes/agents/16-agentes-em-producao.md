@@ -37,7 +37,7 @@ flowchart TD
     H <--> W[Sistemas externos:<br/>APIs, bancos, arquivos]
 ```
 
-Boa parte dessas peças já tem nota própria no lab: montar e priorizar o contexto está em [Context Engineering e RAG](/labs/ai/llm/07-context-engineering-e-rag/), a memória em [Memória de Agentes](/labs/ai/agents/04-memoria/), a integração padronizada com ferramentas em [Model Context Protocol (MCP)](/labs/ai/agents/06-mcp/) e o formato do ciclo (planejar, agir, observar, refletir) em [Padrões de execução de agentes](/labs/ai/agents/15-padroes-de-execucao/). As seções seguintes desta nota cobrem guardrails, escopo, aprovação humana e observabilidade. O que falta explicar é o que sobra: autenticação, timeouts e retries.
+Boa parte dessas peças já tem nota própria no lab: montar e priorizar o contexto está em [Context Engineering e RAG](/labs/ai/llm/08-context-engineering-e-rag/), a memória em [Memória de Agentes](/labs/ai/agents/04-memoria/), a integração padronizada com ferramentas em [Model Context Protocol (MCP)](/labs/ai/agents/06-mcp/) e o formato do ciclo (planejar, agir, observar, refletir) em [Padrões de execução de agentes](/labs/ai/agents/15-padroes-de-execucao/). As seções seguintes desta nota cobrem guardrails, escopo, aprovação humana e observabilidade. O que falta explicar é o que sobra: autenticação, timeouts e retries.
 
 ### Autenticação e permissões
 
@@ -163,7 +163,7 @@ flowchart LR
     end
 ```
 
-A **avaliação por componente** mede uma etapa isolada do pipeline, com seu próprio critério: a busca trouxe os documentos certos? A extração pegou o campo certo? O passo de formatação gerou um JSON válido? Isso já aparece na prática em [Pipeline de RAG em Produção](/labs/ai/llm/10-pipeline-de-rag-em-producao/), onde a qualidade da recuperação é medida separada da qualidade da resposta final, exatamente para saber se um problema é de busca ou de geração antes de sair ajustando prompt no escuro.
+A **avaliação por componente** mede uma etapa isolada do pipeline, com seu próprio critério: a busca trouxe os documentos certos? A extração pegou o campo certo? O passo de formatação gerou um JSON válido? Isso já aparece na prática em [Pipeline de RAG em Produção](/labs/ai/llm/11-pipeline-de-rag-em-producao/), onde a qualidade da recuperação é medida separada da qualidade da resposta final, exatamente para saber se um problema é de busca ou de geração antes de sair ajustando prompt no escuro.
 
 As duas visões se complementam: o eval end-to-end é o que importa para o usuário e para acompanhar a saúde geral do sistema; o eval por componente é o que aponta qual etapa corrigir quando o end-to-end piora. Um sistema maduro roda os dois, não só um.
 

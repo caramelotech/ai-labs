@@ -10,8 +10,9 @@ Antes de construir qualquer coisa, vale entender o que acontece entre o texto qu
 - Arquitetura Transformer e mecanismo de atenção
 - Geração de texto: previsão do próximo token, temperatura e amostragem
 - Do modelo base ao assistente de chat (ajuste fino e alinhamento), o caminho que leva a produtos como o ChatGPT
+- Mixture of Experts e scaling laws: como os modelos crescem sem o custo de inferência crescer na mesma proporção
 
-No lab: [O que são LLMs](/labs/ai/llm/01-o-que-sao-llms/), [PLN](/labs/ai/llm/02-pln/), [Tokens em Modelos de Linguagem](/labs/ai/llm/03-tokens/), [Embeddings](/labs/ai/llm/04-embeddings/), [Como uma LLM gera texto](/labs/ai/llm/05-como-uma-llm-gera-texto/)
+No lab: [O que são LLMs](/labs/ai/llm/01-o-que-sao-llms/), [PLN](/labs/ai/llm/02-pln/), [Tokens em Modelos de Linguagem](/labs/ai/llm/03-tokens/), [Embeddings](/labs/ai/llm/04-embeddings/), [Como uma LLM gera texto](/labs/ai/llm/05-como-uma-llm-gera-texto/), [Mixture of Experts e Scaling Laws](/labs/ai/llm/06-moe-e-scaling-laws/)
 
 ## ✍️ 2. Engenharia de prompts
 
@@ -48,7 +49,7 @@ No lab: [Uso de Ferramentas](/labs/ai/agents/03-ferramentas/), [Hands-on: Agente
 - RAG na prática: carregar documentos, dividir em chunks, gerar embeddings, guardar num banco vetorial e recuperar
 - Quando o LangChain compensa e quando o loop escrito na mão basta
 
-No lab: [Frameworks de Agentes](/labs/ai/agents/10-frameworks/), [Introdução ao LangChain](/labs/ai/langchain/01-introducao/), [Chains e LCEL](/labs/ai/langchain/05-chains-e-lcel/), [Memória no LangChain](/labs/ai/langchain/06-memoria/), [RAG no LangChain](/labs/ai/langchain/11-rag/), [Context Engineering e RAG](/labs/ai/llm/07-context-engineering-e-rag/), [Arquiteturas de RAG](/labs/ai/llm/08-arquiteturas-de-rag/), [Pipeline de RAG em Produção](/labs/ai/llm/10-pipeline-de-rag-em-producao/)
+No lab: [Frameworks de Agentes](/labs/ai/agents/10-frameworks/), [Introdução ao LangChain](/labs/ai/langchain/01-introducao/), [Chains e LCEL](/labs/ai/langchain/05-chains-e-lcel/), [Memória no LangChain](/labs/ai/langchain/06-memoria/), [RAG no LangChain](/labs/ai/langchain/11-rag/), [Context Engineering e RAG](/labs/ai/llm/08-context-engineering-e-rag/), [Arquiteturas de RAG](/labs/ai/llm/09-arquiteturas-de-rag/), [Pipeline de RAG em Produção](/labs/ai/llm/11-pipeline-de-rag-em-producao/)
 
 ## 🤖 6. Agentes de IA em Python
 
@@ -74,8 +75,9 @@ No lab: [Model Context Protocol (MCP)](/labs/ai/agents/06-mcp/), [MCP, RAG e Age
 - CrewAI: agentes, tarefas e crews (times de agentes) para montar um fluxo multiagente com pouco código
 - Agno: framework Python para agentes com ferramentas, memória, base de conhecimento e times
 - Deploy: colocar um agente ou uma crew no ar, com variáveis de ambiente, observabilidade e custo sob controle
+- Loop engineering: desenhar agentes que rodam em ciclo por muito mais tempo que uma rodada única, com lógica de parada e verifier
 
-No lab: [Sistemas Multi-Agentes](/labs/ai/agents/11-multi-agents/), [Frameworks de Agentes](/labs/ai/agents/10-frameworks/), [Agentes em Produção](/labs/ai/agents/16-agentes-em-producao/)
+No lab: [Sistemas Multi-Agentes](/labs/ai/agents/11-multi-agents/), [Frameworks de Agentes](/labs/ai/agents/10-frameworks/), [Agentes em Produção](/labs/ai/agents/16-agentes-em-producao/), [Loop Engineering](/labs/ai/agents/20-loop-engineering/)
 
 ## ⌨️ 9. IDE com IA para programar mais rápido
 

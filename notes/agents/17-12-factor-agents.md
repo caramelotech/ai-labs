@@ -32,7 +32,7 @@ Não terceirize o prompt para o valor padrão de um framework. O prompt é a par
 
 ### 3. Own your context window
 
-Montar o contexto que vai para o modelo é uma decisão de arquitetura, não um detalhe de implementação escondido dentro de uma biblioteca. Cabe a você decidir o que entra, o que fica de fora e em que formato, exatamente o assunto de [Context Engineering](/labs/ai/llm/07-context-engineering-e-rag/).
+Montar o contexto que vai para o modelo é uma decisão de arquitetura, não um detalhe de implementação escondido dentro de uma biblioteca. Cabe a você decidir o que entra, o que fica de fora e em que formato, exatamente o assunto de [Context Engineering](/labs/ai/llm/08-context-engineering-e-rag/).
 
 ### 4. Tools are just structured outputs
 

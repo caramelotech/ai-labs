@@ -4,7 +4,7 @@
 
 As notas anteriores desta seção, [Chains e LCEL](/labs/ai/langchain/05-chains-e-lcel/), [Document Loaders e Text Splitters](/labs/ai/langchain/09-document-loaders-e-text-splitters/) e [Embeddings e Vector Stores](/labs/ai/langchain/10-embeddings-e-vector-stores/), já cobriram cada peça separadamente. RAG é o que acontece quando você junta todas elas num pipeline só: carregar documentos, dividi-los, transformar em embeddings, guardar num banco vetorial e, na hora da pergunta, buscar o que for relevante e passar como contexto para a LLM responder.
 
-A teoria por trás disso (por que RAG reduz alucinação, como ele se compara a fine-tuning, as arquiteturas usadas em produção) já está em [Context Engineering e RAG](/labs/ai/llm/07-context-engineering-e-rag/) e [Arquiteturas de RAG](/labs/ai/llm/08-arquiteturas-de-rag/). Esta nota é só a implementação, o pipeline de ponta a ponta no código.
+A teoria por trás disso (por que RAG reduz alucinação, como ele se compara a fine-tuning, as arquiteturas usadas em produção) já está em [Context Engineering e RAG](/labs/ai/llm/08-context-engineering-e-rag/) e [Arquiteturas de RAG](/labs/ai/llm/09-arquiteturas-de-rag/). Esta nota é só a implementação, o pipeline de ponta a ponta no código.
 
 ```mermaid
 flowchart TD
@@ -108,10 +108,10 @@ Não existe uma combinação universal, o ponto de partida acima é só isso, um
 - documentos de origem com boa qualidade e bem organizados rendem mais do que qualquer ajuste fino de parâmetros
 - combine a busca por similaridade com filtragem por metadados quando o domínio permitir (por fonte, data, categoria)
 - inclua a citação da fonte na resposta final, isso tanto ajuda o usuário a verificar quanto expõe rápido quando o retriever trouxe o chunk errado
-- avalie o pipeline com métricas, não só "parece bom" na amostragem manual, ver [Avaliação de LLMs](/labs/ai/llm/06-avaliacao-de-llms/)
-- para levar esse pipeline básico a produção (observabilidade, cache, controle de acesso, re-ranking em escala), ver [Pipeline de RAG em Produção](/labs/ai/llm/10-pipeline-de-rag-em-producao/), que trata esse lado em profundidade e não é repetido aqui
+- avalie o pipeline com métricas, não só "parece bom" na amostragem manual, ver [Avaliação de LLMs](/labs/ai/llm/07-avaliacao-de-llms/)
+- para levar esse pipeline básico a produção (observabilidade, cache, controle de acesso, re-ranking em escala), ver [Pipeline de RAG em Produção](/labs/ai/llm/11-pipeline-de-rag-em-producao/), que trata esse lado em profundidade e não é repetido aqui
 
 ## Referências
 
 - [Retrieval](https://docs.langchain.com/oss/python/langchain/retrieval) - LangChain, documentação oficial, en
-- [Arquiteturas de RAG](/labs/ai/llm/08-arquiteturas-de-rag/) - nota deste repositório, para a teoria completa
+- [Arquiteturas de RAG](/labs/ai/llm/09-arquiteturas-de-rag/) - nota deste repositório, para a teoria completa

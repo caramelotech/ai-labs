@@ -120,7 +120,7 @@ chunks = splitter.split_documents(docs)
 | `length_function` | função usada para medir o "tamanho" (por padrão, `len`)                      | `len`                     |
 | `keep_separator`  | se o separador fica dentro do chunk ou é descartado                          | `True` / `False`          |
 
-Não existe um valor único de `chunk_size`/`chunk_overlap` correto, a combinação ideal depende do tipo de documento e de como ele vai ser consultado depois, ver as boas práticas de chunking em [RAG](/labs/ai/langchain/11-rag/) e em [Arquiteturas de RAG](/labs/ai/llm/08-arquiteturas-de-rag/).
+Não existe um valor único de `chunk_size`/`chunk_overlap` correto, a combinação ideal depende do tipo de documento e de como ele vai ser consultado depois, ver as boas práticas de chunking em [RAG](/labs/ai/langchain/11-rag/) e em [Arquiteturas de RAG](/labs/ai/llm/09-arquiteturas-de-rag/).
 
 ## Referências
 

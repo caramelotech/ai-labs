@@ -2,7 +2,7 @@
 
 ## Da demo para produção
 
-O fluxo mais simples de RAG cabe numa frase: documentos viram embeddings, os embeddings ficam guardados num vector database, e na hora da pergunta o sistema busca os mais parecidos e manda pro LLM. Isso é o suficiente para uma demo, e é exatamente o que a nota [Context Engineering e RAG](/labs/ai/llm/07-context-engineering-e-rag/) mostra na versão mínima.
+O fluxo mais simples de RAG cabe numa frase: documentos viram embeddings, os embeddings ficam guardados num vector database, e na hora da pergunta o sistema busca os mais parecidos e manda pro LLM. Isso é o suficiente para uma demo, e é exatamente o que a nota [Context Engineering e RAG](/labs/ai/llm/08-context-engineering-e-rag/) mostra na versão mínima.
 
 Colocar isso em produção, respondendo com precisão sobre milhares (ou milhões) de documentos reais, exige bem mais etapas ao redor desse núcleo. O desafio não costuma ser gerar embeddings, isso qualquer biblioteca faz. O difícil é manter a recuperação boa conforme os documentos mudam, o schema dos dados muda e as perguntas dos usuários mudam.
 
@@ -21,7 +21,7 @@ As próximas seções seguem essas etapas na ordem, do dado bruto até o sistema
 
 ## Ingestão e preparação dos dados
 
-Antes de qualquer busca funcionar, o conteúdo precisa entrar no sistema. As fontes mais comuns num ambiente corporativo são PDFs, páginas de site, bancos de dados internos, APIs de terceiros, SharePoint e CRM, a mesma lista de fontes citada em [Context Engineering e RAG](/labs/ai/llm/07-context-engineering-e-rag/).
+Antes de qualquer busca funcionar, o conteúdo precisa entrar no sistema. As fontes mais comuns num ambiente corporativo são PDFs, páginas de site, bancos de dados internos, APIs de terceiros, SharePoint e CRM, a mesma lista de fontes citada em [Context Engineering e RAG](/labs/ai/llm/08-context-engineering-e-rag/).
 
 O que muda em produção é o que acontece entre "puxar o dado" e "indexar o dado":
 
@@ -50,7 +50,7 @@ O tamanho do chunk é um trade-off:
 | Busca mais precisa, menos ruído | Mais contexto ao redor do trecho       |
 | Perde o contexto da vizinhança  | Busca menos precisa (mistura assuntos) |
 
-Um ponto de partida razoável é algo entre 200 e 500 tokens por chunk, com 10% a 20% de overlap, e ajustar a partir daí conforme o tipo de documento. Documentos muito longos e estruturados, como manuais técnicos, se beneficiam de indexar em vários níveis de granularidade ao mesmo tempo, o assunto do Hierarchical RAG em [Arquiteturas de RAG](/labs/ai/llm/08-arquiteturas-de-rag/).
+Um ponto de partida razoável é algo entre 200 e 500 tokens por chunk, com 10% a 20% de overlap, e ajustar a partir daí conforme o tipo de documento. Documentos muito longos e estruturados, como manuais técnicos, se beneficiam de indexar em vários níveis de granularidade ao mesmo tempo, o assunto do Hierarchical RAG em [Arquiteturas de RAG](/labs/ai/llm/09-arquiteturas-de-rag/).
 
 ## Da busca ao contexto
 
@@ -60,7 +60,7 @@ Com os chunks indexados, a etapa de busca em produção também ganha camadas qu
 - **Busca híbrida**, combinando busca vetorial (semântica) com busca por palavra-chave, para não perder um código de erro ou uma sigla exata que a busca semântica ignora.
 - **Filtrar por metadado** (aqueles que a etapa de ingestão anexou) para restringir a busca, por exemplo, só documentos do departamento certo ou só versões atuais, e depois **reranking** para reordenar os candidatos pela relevância real à pergunta.
 
-Cada uma dessas técnicas já tem uma seção própria e mais aprofundada em [Arquiteturas de RAG](/labs/ai/llm/08-arquiteturas-de-rag/) (Hybrid RAG, Reranked RAG e Multi-Query RAG cobrem exatamente isso). Aqui elas entram como etapas do pipeline maior, não como uma explicação nova.
+Cada uma dessas técnicas já tem uma seção própria e mais aprofundada em [Arquiteturas de RAG](/labs/ai/llm/09-arquiteturas-de-rag/) (Hybrid RAG, Reranked RAG e Multi-Query RAG cobrem exatamente isso). Aqui elas entram como etapas do pipeline maior, não como uma explicação nova.
 
 ## Compressão do contexto recuperado
 
@@ -92,7 +92,7 @@ flowchart LR
     S --> R2[Resposta]
 ```
 
-Isso é um mecanismo diferente do **prompt caching** e do **KV cache** vistos em [Otimização de Inferência](/labs/ai/llm/13-otimizacao-de-inferencia/). Aqueles atuam dentro do modelo, reaproveitando cálculos de atenção entre chamadas que compartilham um prefixo de texto. O cache semântico atua uma camada acima, na aplicação: ele evita chamar o pipeline de RAG e o LLM de novo, não só parte do cálculo deles. Os dois podem coexistir sem conflito, um cuida de reaproveitar computação dentro da inferência, o outro de evitar a inferência inteira quando a pergunta já foi respondida antes.
+Isso é um mecanismo diferente do **prompt caching** e do **KV cache** vistos em [Otimização de Inferência](/labs/ai/llm/14-otimizacao-de-inferencia/). Aqueles atuam dentro do modelo, reaproveitando cálculos de atenção entre chamadas que compartilham um prefixo de texto. O cache semântico atua uma camada acima, na aplicação: ele evita chamar o pipeline de RAG e o LLM de novo, não só parte do cálculo deles. Os dois podem coexistir sem conflito, um cuida de reaproveitar computação dentro da inferência, o outro de evitar a inferência inteira quando a pergunta já foi respondida antes.
 
 Na prática, o armazenamento costuma ser um banco com busca vetorial, Redis com índice vetorial, Elasticsearch ou um banco de vetores dedicado, usando o mesmo modelo de embedding já usado na recuperação. Ganhos de latência relatados variam bastante (de uma fração a boa parte das chamadas evitadas), porque o resultado depende diretamente de quanto o tráfego real se repete: uma base de FAQ com perguntas recorrentes se beneficia muito mais do que um assistente que recebe perguntas sempre novas.
 

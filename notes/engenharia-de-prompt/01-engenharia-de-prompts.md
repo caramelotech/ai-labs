@@ -77,6 +77,35 @@ flowchart TD
 
 O artigo que formalizou a técnica (Yao et al., 2023) usa algoritmos de busca clássicos, como BFS e DFS, para decidir quais ramos explorar e quando desistir de um caminho, e mostra ganhos grandes em tarefas que exigem planejamento (num quebra-cabeça de lógica usado no estudo, GPT-4 com ToT saiu de 4% de acerto com CoT simples para 74% de acerto com ToT). O custo é maior: gerar e avaliar vários caminhos consome mais chamadas ao modelo e mais tokens do que seguir um só, então ToT compensa mais em problemas onde errar o caminho sai caro, e menos em tarefas simples que o CoT já resolve de primeira.
 
+### Self-Consistency na prática
+
+CoT e ToT mudam **como** o modelo raciocina numa única tentativa. **Self-Consistency** muda a estratégia: em vez de confiar no primeiro caminho de raciocínio que o modelo gerar, peça várias respostas independentes para a mesma pergunta (usando CoT e temperatura acima de 0, para que cada tentativa possa seguir um caminho diferente) e fique com a resposta que aparece com mais frequência entre elas, uma votação por maioria.
+
+```mermaid
+flowchart TD
+    P[Pergunta] --> C1[Tentativa 1: resposta A]
+    P --> C2[Tentativa 2: resposta B]
+    P --> C3[Tentativa 3: resposta A]
+    P --> C4[Tentativa 4: resposta A]
+    C1 --> V[Votação por maioria]
+    C2 --> V
+    C3 --> V
+    C4 --> V
+    V --> R[Resposta final: A]
+```
+
+A ideia por trás disso é que um problema costuma ter um único caminho de raciocínio correto, mas vários jeitos diferentes de errar. Se o modelo erra, cada tentativa tende a errar de um jeito diferente (divergem entre si); se acerta, tende a chegar na mesma resposta por caminhos distintos (convergem). Por isso, a resposta mais repetida entre várias tentativas tem mais chance de ser a correta do que uma única tentativa isolada.
+
+O custo é direto: em vez de uma chamada ao modelo, são `N` chamadas (5 ou mais, nos estudos que validaram a técnica), o que multiplica tempo e gasto em tokens. Por isso Self-Consistency compensa em tarefas onde errar sai caro, como problemas de matemática ou lógica com uma resposta objetiva e verificável, e raramente vale a pena em tarefas abertas, como escrever um texto, onde não existe uma única "resposta certa" para votar.
+
+### Meta-prompting na prática
+
+Few-shot funciona dando **exemplos do conteúdo** da tarefa: mostra pares de pergunta e resposta certos para aquele domínio específico, e o modelo segue o padrão. **Meta-prompting** funciona num nível acima: em vez de exemplos do conteúdo, o prompt descreve a **estrutura** de como resolver qualquer problema daquele tipo, sem amarrar a um domínio específico.
+
+Um exemplo concreto ajuda a ver a diferença. Um prompt few-shot para resolver problemas de matemática traria exemplos resolvidos de problemas de matemática. Um meta-prompt, em vez disso, descreveria o formato geral: "para resolver o problema, primeiro identifique as variáveis conhecidas, depois escreva a equação que relaciona elas, depois isole a variável pedida, depois confira a resposta substituindo de volta". Essa mesma estrutura serve para problemas de física, de química ou de lógica, porque o que o meta-prompt ensina é o **processo**, não o conteúdo de um domínio.
+
+Essa separação entre estrutura e conteúdo abre um caso de uso específico: montar um sistema onde um prompt "orquestrador" primeiro decompõe o pedido do usuário em partes, e aí delega cada parte a um prompt "especialista", focado só naquele tipo de subtarefa, de forma parecida com a decomposição de tarefas vista em [Decomposição de Tarefas](/labs/ai/agents/14-decomposicao-de-tarefas/), só que aplicada à construção do próprio prompt em vez de à execução de um agente.
+
 ## Framework de Prompt
 
 Utilizado por profissionais da área, este framework estrutura-se em **cinco elementos essenciais**: **papel, instruções, perguntas, contexto e exemplos**. Cada componente desempenha uma função estratégica na elaboração do prompt, permitindo compreender não apenas o conteúdo a incluir, mas também **a sequência ideal** de cada elemento para otimizar os resultados gerados por sistemas de inteligência artificial como o ChatGPT.
@@ -167,3 +196,5 @@ Essa abordagem é particularmente útil em conversas longas ou quando você prec
 - [Técnicas de engenharia de prompts](https://learn.microsoft.com/pt-br/azure/foundry/openai/concepts/prompt-engineering) - Microsoft Learn, pt-BR
 - [Prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) - Anthropic, en
 - [Tree of Thoughts: Deliberate Problem Solving with Large Language Models](https://arxiv.org/abs/2305.10601) - Yao et al., NeurIPS 2023, en
+- [Self-Consistency Improves Chain of Thought Reasoning in Language Models](https://arxiv.org/abs/2203.11171) - Wang et al., arXiv, en
+- [Meta Prompting for AI Systems](https://arxiv.org/abs/2311.11482) - Suzgun & Kalai, arXiv, en
